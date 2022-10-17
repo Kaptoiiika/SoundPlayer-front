@@ -1,0 +1,30 @@
+.AppLink {
+  display: flex;
+  transition: color 0.25s;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary {
+  color: var(--revesed-color);
+  background-color: var(--bg-revesed-color);
+  border-radius: 100px;
+  padding: 0.25rem 1.25rem;
+}
+
+.secondary {
+  color: var(--secondary-color);
+}
+
+.active {
+  color: var(--primary-color);
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2em;
+    height: 4px;
+    border-radius: 1em;
+    margin: 2em 0 0;
+    background: #03f;
+  }
+}

@@ -1,0 +1,21 @@
+.navbar {
+  background-color: var(--bg-secondary-color);
+  height: var(--navbar-height);
+
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.appLinks {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0 1em;
+}
+
+.logo{
+height: 100%;
+}
