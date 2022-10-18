@@ -18,13 +18,14 @@
 
 .active {
   color: var(--primary-color);
+
   &::after {
     content: "";
     position: absolute;
     width: 2em;
     height: 4px;
     border-radius: 1em;
-    margin: 2em 0 0;
+    margin: 1.5em 0 0;
     background: #03f;
   }
 }

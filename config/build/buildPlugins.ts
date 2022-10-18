@@ -1,5 +1,4 @@
 import webpack from "webpack"
-import path from "path"
 import HTMLWebpackPlugin from "html-webpack-plugin"
 import { BuildOptions } from "./types/config"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
@@ -18,5 +17,9 @@ export function buildPlugins(
       filename: "css/[name].[contenthash:6].css",
       chunkFilename: "css/[name].[contenthash:6].css",
     }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: true,
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ]
 }

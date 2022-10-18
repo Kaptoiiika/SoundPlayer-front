@@ -1,5 +1,9 @@
+import { useTranslation } from "react-i18next"
+
 const AudioPage = () => {
-  return <div>AudioPage</div>
+  const { t } = useTranslation()
+
+  return <div>{t("AudioPage")}</div>
 }
 
 export default AudioPage

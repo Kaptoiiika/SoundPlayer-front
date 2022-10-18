@@ -1,4 +1,3 @@
-import path from "path"
 import webpack from "webpack"
 import { buildDevServer } from "./buildDevServer"
 import { buildLoaders } from "./buildLoaders"
@@ -13,9 +12,9 @@ export function buildWebpackConfig(
 
   const isDevOptions = isDev
     ? {
-        devtool: "inline-source-map",
-        devServer: buildDevServer(options),
-      }
+      devtool: "inline-source-map",
+      devServer: buildDevServer(options),
+    }
     : {}
 
   return {

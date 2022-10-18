@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './ReactArrowComponents.module.scss'
 

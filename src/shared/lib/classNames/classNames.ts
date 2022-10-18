@@ -3,7 +3,7 @@ type Mods = Record<string, boolean | string>
 export function classNames(cls: string | string[], mods: Mods = {}): string {
   const unionClasses = Array.isArray(cls) ? cls.join(" ") : cls
   const variableClasses = Object.entries(mods)
-    .filter(([className, value]) => Boolean(value))
+    .filter(([, value]) => Boolean(value))
     .map(([className]) => className)
     .join(" ")
 

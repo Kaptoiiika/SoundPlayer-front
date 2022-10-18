@@ -1,10 +1,13 @@
 import { PropsWithChildren, useMemo, useState } from "react"
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext"
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  Theme,
+  ThemeContext,
+} from "../lib/ThemeContext"
 
 const getDefaultTheme = (): Theme => {
   const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
   if (Object.values(Theme).includes(defaultTheme as Theme)) {
-    console.log("defaultTheme", defaultTheme)
     return defaultTheme as Theme
   }
   return Theme.DARK
@@ -19,11 +22,10 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     }),
     [theme]
   )
-  
+
   return (
     <ThemeContext.Provider value={defaultProps}>
       {children}
     </ThemeContext.Provider>
   )
 }
-
