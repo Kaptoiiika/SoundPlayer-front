@@ -1,7 +1,8 @@
 {
-  "home": "home",
-  "audio": "audio",
-  "войти": "войти",
+  "lang": "RU",
+  "homePage": "Главная",
+  "audioPage": "Музыка",
+  "signIn": "войти",
   "AudioPage": "AudioPage",
   "HomePage": "HomePage"
 }

@@ -3,6 +3,7 @@
   transition: color 0.25s;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .primary {
@@ -22,7 +23,7 @@
   &::after {
     content: "";
     position: absolute;
-    width: 2em;
+    width: 80%;
     height: 4px;
     border-radius: 1em;
     margin: 1.5em 0 0;

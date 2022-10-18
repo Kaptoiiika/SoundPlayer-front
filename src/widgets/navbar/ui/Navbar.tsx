@@ -1,24 +1,14 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
 import styles from "./Navbar.module.scss"
 import Logo from "shared/assets/icons/Logo.png"
 import { useTranslation } from "react-i18next"
+import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
 type NavbarProps = {
   className?: string
 }
-
-const links = [
-  {
-    to: RoutePaths.main,
-    title: "home",
-  },
-  {
-    to: RoutePaths.audio,
-    title: "audio",
-  },
-]
 
 export const Navbar = (props: NavbarProps) => {
   const { className } = props
@@ -29,6 +19,20 @@ export const Navbar = (props: NavbarProps) => {
   const hundleChangePage = (link: string) => {
     setCurrentPage(link)
   }
+
+  const links = useMemo(
+    () => [
+      {
+        to: RoutePaths.main,
+        title: t("homePage"),
+      },
+      {
+        to: RoutePaths.audio,
+        title: t("audioPage"),
+      },
+    ],
+    [t]
+  )
 
   return (
     <div className={classNames([styles.navbar, className])}>
@@ -53,18 +57,19 @@ export const Navbar = (props: NavbarProps) => {
             to={link.to}
             onClick={() => hundleChangePage(link.to)}
           >
-            {t(link.title)}
+            {link.title}
           </AppLink>
         ))}
       </div>
 
       <div className={styles.appLinks}>
+        <LanguageSwitcher />
         <AppLink
           variant={AppLinkTheme.PRIMARY}
           to={RoutePaths.login}
           onClick={() => hundleChangePage(RoutePaths.login)}
         >
-          {t("войти")}
+          {t("signIn")}
         </AppLink>
       </div>
     </div>

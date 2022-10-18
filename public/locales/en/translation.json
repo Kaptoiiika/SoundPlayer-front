@@ -1,7 +1,8 @@
 {
+  "lang": "EN",
   "home": "home",
   "audio": "audio",
-  "войти": "войти",
+  "signIn": "sign in",
   "AudioPage": "AudioPage",
   "HomePage": "HomePage"
 }
