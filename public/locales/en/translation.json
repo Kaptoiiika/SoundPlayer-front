@@ -5,5 +5,6 @@
   "signIn": "sign in",
   "AudioPage": "AudioPage",
   "HomePage": "HomePage",
-  "PageNotFound": "Page not found"
+  "PageNotFound": "Page not found",
+  "ErrorPageMessage": "Somthing went wrong try to reload page"
 }

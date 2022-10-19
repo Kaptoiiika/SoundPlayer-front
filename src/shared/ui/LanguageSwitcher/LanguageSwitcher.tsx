@@ -15,7 +15,10 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
   }
 
   return (
-    <button className={classNames([className], {})} onClick={toggle}>
+    <button
+      className={classNames([styles.LanguageSwitcher, className], {})}
+      onClick={toggle}
+    >
       {t("lang")}
     </button>
   )

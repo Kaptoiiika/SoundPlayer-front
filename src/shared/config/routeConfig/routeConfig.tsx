@@ -2,6 +2,8 @@ import { AudioPage } from "pages/AudioPage"
 import { HomePage } from "pages/HomePage"
 import { NotFoundPage } from "pages/NotFoundPage"
 import { RouteProps } from "react-router-dom"
+
+import { PageError } from "widgets/PageError"
 import { PageLoader } from "widgets/PageLoader"
 
 export const enum AppRoutes {
@@ -34,12 +36,16 @@ export const routeConfig: RouteProps[] = [
 ]
 
 if (__IS_DEV__) {
-  const devRoute = [
+  const devRoute: RouteProps[] = [
     {
       path: "/loader",
       element: <PageLoader />,
     },
+    {
+      path: "/errorPage",
+      element: <PageError />,
+    },
   ]
-  
+
   routeConfig.push(...devRoute)
 }

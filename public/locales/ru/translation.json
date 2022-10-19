@@ -5,5 +5,6 @@
   "signIn": "войти",
   "AudioPage": "AudioPage",
   "HomePage": "HomePage",
-  "PageNotFound": "Страница не найдена"
+  "PageNotFound": "Страница не найдена",
+  "ErrorPageMessage": "Произошла ошибка попробуйте перезапустить страницу"
 }
