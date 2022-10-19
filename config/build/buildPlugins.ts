@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin"
 export function buildPlugins(
   options: BuildOptions
 ): webpack.WebpackPluginInstance[] {
-  const { paths } = options
+  const { paths, isDev } = options
 
   return [
     new HTMLWebpackPlugin({
@@ -18,7 +18,7 @@ export function buildPlugins(
       chunkFilename: "css/[name].[contenthash:6].css",
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: true,
+      __IS_DEV__: isDev,
     }),
     new webpack.HotModuleReplacementPlugin(),
   ]

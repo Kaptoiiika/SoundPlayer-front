@@ -4,5 +4,6 @@
   "audioPage": "Музыка",
   "signIn": "войти",
   "AudioPage": "AudioPage",
-  "HomePage": "HomePage"
+  "HomePage": "HomePage",
+  "PageNotFound": "Страница не найдена"
 }

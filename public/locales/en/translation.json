@@ -1,8 +1,9 @@
 {
   "lang": "EN",
-  "home": "home",
-  "audio": "audio",
+  "homePage": "home",
+  "audioPage": "audio",
   "signIn": "sign in",
   "AudioPage": "AudioPage",
-  "HomePage": "HomePage"
+  "HomePage": "HomePage",
+  "PageNotFound": "Page not found"
 }
