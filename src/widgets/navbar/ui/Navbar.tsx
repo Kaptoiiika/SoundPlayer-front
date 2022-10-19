@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
@@ -6,6 +6,7 @@ import styles from "./Navbar.module.scss"
 import Logo from "shared/assets/icons/Logo.png"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
+
 type NavbarProps = {
   className?: string
 }
@@ -33,7 +34,7 @@ export const Navbar = (props: NavbarProps) => {
     ],
     [t]
   )
-console.log(Logo)
+
   return (
     <div className={classNames([styles.navbar, className])}>
       <div className={styles.appLinks}>
@@ -75,3 +76,4 @@ console.log(Logo)
     </div>
   )
 }
+

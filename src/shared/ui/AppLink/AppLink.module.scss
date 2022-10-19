@@ -1,8 +1,5 @@
 .AppLink {
-  display: flex;
   transition: color 0.25s;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
@@ -24,6 +21,7 @@
     content: "";
     position: absolute;
     width: 80%;
+    left: 10%;
     height: 4px;
     border-radius: 1em;
     margin: 1.5em 0 0;
