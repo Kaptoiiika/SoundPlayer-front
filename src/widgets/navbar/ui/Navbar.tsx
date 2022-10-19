@@ -33,7 +33,7 @@ export const Navbar = (props: NavbarProps) => {
     ],
     [t]
   )
-
+console.log(Logo)
   return (
     <div className={classNames([styles.navbar, className])}>
       <div className={styles.appLinks}>

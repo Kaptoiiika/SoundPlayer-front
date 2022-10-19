@@ -35,17 +35,17 @@ export const routeConfig: RouteProps[] = [
   },
 ]
 
-if (__IS_DEV__) {
-  const devRoute: RouteProps[] = [
-    {
-      path: "/loader",
-      element: <PageLoader />,
-    },
-    {
-      path: "/errorPage",
-      element: <PageError />,
-    },
-  ]
+// if (__IS_DEV__) {
+//   const devRoute: RouteProps[] = [
+//     {
+//       path: "/loader",
+//       element: <PageLoader />,
+//     },
+//     {
+//       path: "/errorPage",
+//       element: <PageError />,
+//     },
+//   ]
 
-  routeConfig.push(...devRoute)
-}
+//   routeConfig.push(...devRoute)
+// }
