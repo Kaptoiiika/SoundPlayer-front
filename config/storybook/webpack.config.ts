@@ -1,7 +1,6 @@
 import path from "path"
-import { Configuration } from "webpack"
+import webpack, { Configuration } from "webpack"
 import { buildCssLoaders } from "../build/loaders/buildCssLoaders"
-import { buildDefinePlugin } from "../build/plugins/buildDefinePlugin"
 import { BuildPaths } from "../build/types/config"
 
 export default ({ config }: { config: Configuration }) => {
@@ -11,13 +10,17 @@ export default ({ config }: { config: Configuration }) => {
     html: "",
     src: path.resolve(__dirname, "..", "..", "src"),
   }
-  
+
   config.resolve.modules.push(paths.src)
   config.resolve.extensions.push(".ts", ".tsx")
 
   const cssLoader = buildCssLoaders({ isDev: true })
   config.module.rules.push(cssLoader)
-  // config.plugins.push(buildDefinePlugin({ isDev: true }))
-  
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: true,
+    })
+  )
+
   return config
 }
