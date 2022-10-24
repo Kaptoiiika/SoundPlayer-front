@@ -7,7 +7,6 @@ import { Suspense } from "react"
 const App = () => {
   const { theme } = useTheme()
 
-  console.log(__IS_DEV__)
   return (
     <div className={`app ${theme}`}>
       <Suspense>
