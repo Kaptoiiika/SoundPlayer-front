@@ -17,7 +17,7 @@
     "build-storybook": "build-storybook -c ./config/storybook",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static --port 9009 --chromeFlags=\"--headless --disable-gpu --no-sandbox\"",
     "test:ui:approve": "npx loki approve",
     "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html",
     "test:ui:report:json": "node scripts/generate-visual-json-report.js",
