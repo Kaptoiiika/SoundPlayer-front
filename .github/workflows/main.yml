@@ -16,6 +16,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: beta
       - name: install dep
         run: npm install 
       - name: build proj
