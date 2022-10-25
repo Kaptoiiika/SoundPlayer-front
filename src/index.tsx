@@ -6,17 +6,20 @@ import "shared/config/i18n/i18n"
 import { BrowserRouter } from "react-router-dom"
 import { ErrorBoundary } from "app/providers/ErrorBoundary"
 import "app/styles/index.scss"
+import { StoreProvider } from "app/providers/StoreProvider"
 
 const root = createRoot(document.getElementById("root") as HTMLElement)
 
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
+      <StoreProvider>
+        <BrowserRouter>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
+      </StoreProvider>
     </ErrorBoundary>
   </React.StrictMode>
 )

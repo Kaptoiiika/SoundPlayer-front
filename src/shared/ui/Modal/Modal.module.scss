@@ -22,7 +22,7 @@
 .content {
   padding: 2em;
   background-color: var(--bg-revesed-color);
-  border-radius: 6px; 
+  border-radius: 6px;
   transition: 0.25s;
   scale: 0.5;
 }
@@ -30,6 +30,7 @@
 .opened {
   opacity: 1;
   pointer-events: all;
+
   .content {
     scale: 1;
   }
