@@ -11,12 +11,12 @@ export default ({ config }: { config: Configuration }) => {
     src: path.resolve(__dirname, "..", "..", "src"),
   }
 
-  config.resolve.modules.push(paths.src)
-  config.resolve.extensions.push(".ts", ".tsx")
+  config.resolve?.modules?.push(paths.src)
+  config.resolve?.extensions?.push(".ts", ".tsx")
 
   const cssLoader = buildCssLoaders({ isDev: true })
-  config.module.rules.push(cssLoader)
-  config.plugins.push(
+  config.module?.rules?.push(cssLoader)
+  config.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: true,
     })

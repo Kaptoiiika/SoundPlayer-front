@@ -13,7 +13,7 @@ export function buildCssLoaders(options: { isDev: boolean }) {
           modules: {
             auto: (resPath: string) => resPath.includes(".module."),
             localIdentName: isDev
-              ? "[path]/[[name]/][local]"
+              ? "[path][name][local]"
               : "[hash:base64:6]",
           },
         },

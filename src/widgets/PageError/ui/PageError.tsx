@@ -7,7 +7,7 @@ type PageErrorProps = {
 }
 
 export const PageError = (props: PageErrorProps) => {
-  const { className } = props
+  const { className = "" } = props
   const { t } = useTranslation()
   return (
     <div className={classNames([styles.PageError, className])}>

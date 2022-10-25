@@ -1,4 +1,5 @@
 /* eslint-disable */
+// @ts-nocheck
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './ReactArrowComponents.module.scss'
 
@@ -7,11 +8,12 @@ type ReactArrowComponentsProps = {
 }
 
 export const ReactArrowComponents = (props: ReactArrowComponentsProps) => {
-  const { className } = props
+  const { className = "" } = props
   return (<div className={classNames(['', className])}></div>)
 }
 
-// vscode snippets
+// vscode snippets 
+// ctrl+shift+p => Configure User Snippets => typescript React
 /*
 {
   "React Arrow component": {
@@ -26,7 +28,7 @@ export const ReactArrowComponents = (props: ReactArrowComponentsProps) => {
       "}",
       "",
       "export const $TM_FILENAME_BASE = (props: ${TM_FILENAME_BASE}Props) => {",
-      "  const { className } = props",
+      "  const { className = \"\" } = props",
       "  return (<div className={classNames(['', className])}></div>)",
       "}"
     ]

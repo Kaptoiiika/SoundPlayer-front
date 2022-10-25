@@ -7,7 +7,7 @@ type NotFoundPageProps = {
 }
 
 export const NotFoundPage = (props: NotFoundPageProps) => {
-  const { className } = props
+  const { className = "" } = props
   const { t } = useTranslation()
 
   return (

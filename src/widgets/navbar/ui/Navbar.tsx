@@ -6,18 +6,20 @@ import styles from "./Navbar.module.scss"
 import Logo from "shared/assets/icons/Logo.png"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
+import { Modal } from "shared/ui/Modal/Modal"
 
 type NavbarProps = {
   className?: string
 }
 
 export const Navbar = (props: NavbarProps) => {
-  const { className } = props
+  const { className = "" } = props
 
   const [currentPage, setCurrentPage] = useState(location.pathname)
+  const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
 
-  const hundleChangePage = (link: string) => {
+  const hundleChangePage = (link: string) => () => {
     setCurrentPage(link)
   }
 
@@ -42,7 +44,7 @@ export const Navbar = (props: NavbarProps) => {
           className={styles.logo}
           variant={AppLinkTheme.SECONDARY}
           to={RoutePaths.main}
-          onClick={() => hundleChangePage(RoutePaths.main)}
+          onClick={hundleChangePage(RoutePaths.main)}
         >
           <img className={styles.logo} src={Logo} />
         </AppLink>
@@ -56,7 +58,7 @@ export const Navbar = (props: NavbarProps) => {
             }
             key={link.to}
             to={link.to}
-            onClick={() => hundleChangePage(link.to)}
+            onClick={hundleChangePage(link.to)}
           >
             {link.title}
           </AppLink>
@@ -68,12 +70,19 @@ export const Navbar = (props: NavbarProps) => {
         <AppLink
           variant={AppLinkTheme.PRIMARY}
           to={RoutePaths.login}
-          onClick={() => hundleChangePage(RoutePaths.login)}
+          onClick={() => {
+            setIsOpen(true)
+          }}
         >
           {t("signIn")}
         </AppLink>
       </div>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false)
+        }}
+      />
     </div>
   )
 }
-

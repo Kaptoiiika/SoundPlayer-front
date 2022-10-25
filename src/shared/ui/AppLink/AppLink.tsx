@@ -17,7 +17,7 @@ type AppLinkProps = {
 export const AppLink = (props: AppLinkProps) => {
   const {
     variant = AppLinkTheme.PRIMARY,
-    className,
+    className = "",
     to,
     children,
     ...otherProps

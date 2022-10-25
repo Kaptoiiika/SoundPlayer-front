@@ -1,4 +1,3 @@
-import "app/styles/index.scss"
 import { useTheme } from "app/providers/ThemeProvider"
 import { AppRouter } from "./providers/Router/ui/AppRouter"
 import { Navbar } from "widgets/navbar/"
