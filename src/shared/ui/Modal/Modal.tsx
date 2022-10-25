@@ -1,3 +1,4 @@
+import { useTheme } from "app/providers/ThemeProvider"
 import React, { PropsWithChildren } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 import { Portal } from "../Portal/Portal"
@@ -11,6 +12,7 @@ type ModalProps = {
 
 export const Modal = (props: ModalProps) => {
   const { className = "", children, isOpen = false, onClose } = props
+  const { theme } = useTheme()
 
   const hundleClose = () => {
     onClose?.()
@@ -23,7 +25,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <Portal>
       <div
-        className={classNames([styles.Modal, className], {
+        className={classNames([styles.Modal, className, theme], {
           [styles.opened]: isOpen,
         })}
       >

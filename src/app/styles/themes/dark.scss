@@ -1,11 +1,10 @@
-body {
-  .dark {
-    --bg-color: linear-gradient(270deg, #150f3e, #261023 50%, #061b37);
-    --bg-revesed-color: #fff;
-    --bg-secondary-color: #121214;
+.dark_theme {
+  --bg-app: linear-gradient(270deg, #150f3e, #261023 50%, #061b37);
+  --bg-navbar: #121212;
+  --bg-primary-color: #1d1d1d;
+  --bg-secondary-color: #ef6c00;
 
-    --primary-color: #fff;
-    --revesed-color: #000;
-    --secondary-color: #a6a8ad;
-  }
+  --primary-color: #fff;
+  --revesed-color: #000;
+  --secondary-color: #a6a8ad;
 }

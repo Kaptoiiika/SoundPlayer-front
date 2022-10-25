@@ -1,11 +1,10 @@
-body {
-  .light {
-    --bg-color: linear-gradient(270deg, #b6b6b6, #fcdaf7 50%, #b6b6b6);
-    --bg-revesed-color: #fff;
-    --bg-secondary-color: #fcdaf7;
+.light_theme {
+  --bg-app: linear-gradient(270deg, #150f3e, #261023 50%, #061b37);
+  --bg-navbar: #b6b6b6;
+  --bg-primary-color: #1d1d1d;
+  --bg-secondary-color: #43a047;
 
-    --primary-color: rgb(0 0 0);
-    --revesed-color: #000;
-    --secondary-color: rgb(71 71 71);
-  }
+  --primary-color: #000;
+  --revesed-color: #fff;
+  --secondary-color: #737373;
 }

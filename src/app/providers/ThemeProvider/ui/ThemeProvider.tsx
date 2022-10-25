@@ -1,4 +1,4 @@
-import { PropsWithChildren, useMemo, useState } from "react"
+import { PropsWithChildren, useEffect, useMemo, useState } from "react"
 import {
   LOCAL_STORAGE_THEME_KEY,
   Theme,
@@ -22,6 +22,10 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     }),
     [theme]
   )
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [])
 
   return (
     <ThemeContext.Provider value={defaultProps}>

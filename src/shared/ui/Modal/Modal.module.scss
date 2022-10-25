@@ -8,6 +8,7 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
+  color: var(--primary-color);
 }
 
 .overlay {
@@ -21,7 +22,7 @@
 
 .content {
   padding: 2em;
-  background-color: var(--bg-revesed-color);
+  background-color: var(--bg-primary-color);
   border-radius: 6px;
   transition: 0.25s;
   scale: 0.5;

@@ -7,6 +7,7 @@ import Logo from "shared/assets/icons/Logo.png"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
 import { Modal } from "shared/ui/Modal/Modal"
+import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher"
 
 type NavbarProps = {
   className?: string
@@ -66,6 +67,7 @@ export const Navbar = (props: NavbarProps) => {
       </div>
 
       <div className={styles.appLinks}>
+        <ThemeSwitcher />
         <LanguageSwitcher />
         <AppLink
           variant={AppLinkTheme.PRIMARY}
@@ -82,7 +84,11 @@ export const Navbar = (props: NavbarProps) => {
         onClose={() => {
           setIsOpen(false)
         }}
-      />
+      >
+        {
+          "Minim sunt exercitation fugiat occaecat fugiat tempor sunt ipsum officia laboris eiusmod."
+        }
+      </Modal>
     </div>
   )
 }
