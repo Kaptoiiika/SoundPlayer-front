@@ -25,14 +25,36 @@
   background-color: var(--bg-primary-color);
   border-radius: 6px;
   transition: 0.25s;
-  scale: 0.5;
+  transform: scale(0.5);
 }
 
 .opened {
+  animation: started-animations 0.25s;
   opacity: 1;
   pointer-events: all;
 
   .content {
-    scale: 1;
+    animation: started-scale 0.25s;
+    transform: scale(1);
+  }
+}
+
+@keyframes started-animations {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes started-scale {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

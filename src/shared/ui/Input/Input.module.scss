@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font: var(--font-m);
+}
+
+.label {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.input {
+  background: rgb(255 255 255 / 20%);
+  border: 0.25rem var(--bg-secondary-color) solid;
+  font: var(--font-m);
+  border-radius: 4px;
+}

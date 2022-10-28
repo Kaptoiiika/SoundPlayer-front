@@ -6,5 +6,7 @@
   "AudioPage": "AudioPage",
   "HomePage": "HomePage",
   "PageNotFound": "Страница не найдена",
-  "ErrorPageMessage": "Произошла ошибка попробуйте перезапустить страницу"
+  "ErrorPageMessage": "Произошла ошибка попробуйте перезапустить страницу",
+  "uploadAudio": "загрузит аудиозапись",
+  "audioName": "название аудиозапись"
 }

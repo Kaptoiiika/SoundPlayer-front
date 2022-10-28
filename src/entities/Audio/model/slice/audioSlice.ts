@@ -1,19 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { AudioSchema } from "../types/audioSchema"
 
-const initialState: AudioSchema = {
-  name: "asd",
-}
+const initialState: AudioSchema = { list: [] }
 
 export const audioSlice = createSlice({
   name: "audio",
   initialState: initialState,
   reducers: {
     changeName: (state) => {
-      state.name = state.name + "1"
+      state.list.push({ id: 24, name: "asd", size: 213 })
     },
     clearName: (state) => {
-      state.name = ""
+      state.list = []
     },
   },
 })

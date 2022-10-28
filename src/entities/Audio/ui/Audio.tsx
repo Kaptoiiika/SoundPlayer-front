@@ -12,7 +12,9 @@ type AudioProps = {
 export const Audio = (props: AudioProps) => {
   const { className = "" } = props
   const dispatch = useDispatch()
-  const audioName = useSelector((state: StateSchema) => state.audio.name)
+  const audioName = useSelector(
+    (state: StateSchema) => state.audio.list[0]?.name
+  )
 
   const hundleChangeName = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value

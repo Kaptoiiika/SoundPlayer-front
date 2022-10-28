@@ -1,5 +1,5 @@
 import { useTheme } from "app/providers/ThemeProvider"
-import React, { PropsWithChildren } from "react"
+import React, { PropsWithChildren, useEffect, useState } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 import { Portal } from "../Portal/Portal"
 import styles from "./Modal.module.scss"
@@ -13,6 +13,13 @@ type ModalProps = {
 export const Modal = (props: ModalProps) => {
   const { className = "", children, isOpen = false, onClose } = props
   const { theme } = useTheme()
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
 
   const hundleClose = () => {
     onClose?.()
@@ -20,6 +27,10 @@ export const Modal = (props: ModalProps) => {
 
   const hundleContentClick = (e: React.MouseEvent) => {
     e.stopPropagation()
+  }
+
+  if (!isMounted) {
+    return null
   }
 
   return (

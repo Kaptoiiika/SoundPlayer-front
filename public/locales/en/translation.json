@@ -6,5 +6,7 @@
   "AudioPage": "AudioPage",
   "HomePage": "HomePage",
   "PageNotFound": "Page not found",
-  "ErrorPageMessage": "Somthing went wrong try to reload page"
+  "ErrorPageMessage": "Somthing went wrong try to reload page",
+  "uploadAudio": "upload audio",
+  "audioName": "audio name"
 }
