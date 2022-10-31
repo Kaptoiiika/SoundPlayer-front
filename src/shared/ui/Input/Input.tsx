@@ -4,7 +4,6 @@ import styles from "./Input.module.scss"
 
 type InputProps = {
   className?: string
-  value?: string
   onValueChange?: (newValue: string) => void
   label?: string
 } & InputHTMLAttributes<HTMLInputElement>
@@ -12,7 +11,6 @@ type InputProps = {
 export const Input = memo((props: InputProps) => {
   const {
     className = "",
-    value,
     onValueChange,
     onChange,
     type = "text",
@@ -33,7 +31,6 @@ export const Input = memo((props: InputProps) => {
         {...otherProps}
         className={styles.input}
         type={type}
-        value={value}
         onChange={onChangeHundler}
       />
     </div>

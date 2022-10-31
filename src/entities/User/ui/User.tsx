@@ -1,5 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames"
-import styles from "./User.module.scss"
 
 type UserProps = {
   className?: string

@@ -27,7 +27,7 @@ export const Audio = (props: AudioProps) => {
   }
 
   return (
-    <div className={classNames(["", className])}>
+    <div className={classNames([styles.Audio, className])}>
       <input type="text" onChange={hundleChangeName} />
       <button onClick={hundleClearName}>{"clear"}</button>
       {audioName}

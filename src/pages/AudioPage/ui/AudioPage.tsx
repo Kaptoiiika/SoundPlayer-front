@@ -1,4 +1,3 @@
-import { Audio } from "entities/Audio"
 import { UploadAudioModal } from "features/UploadAudio"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"

@@ -17,6 +17,7 @@ type ButtonProps = {
   className?: string
   variant?: ButtonVariant
   size?: ButtonSizes
+  disabled?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = (props: ButtonProps) => {
@@ -25,18 +26,20 @@ export const Button = (props: ButtonProps) => {
     children,
     variant = ButtonVariant.PRIMARY,
     size = ButtonSizes.M,
+    disabled = false,
     ...otherProps
   } = props
 
   return (
     <button
       type="button"
-      className={classNames([
-        styles.Button,
-        className,
-        styles[variant],
-        styles[size],
-      ])}
+      className={classNames(
+        [styles.Button, className, styles[variant], styles[size]],
+        {
+          [styles.disabled]: disabled,
+        }
+      )}
+      disabled={disabled}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

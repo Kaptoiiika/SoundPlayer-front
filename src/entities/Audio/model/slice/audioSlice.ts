@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { AudioSchema } from "../types/audioSchema"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AudioModel, AudioSchema } from "../types/audioSchema"
 
 const initialState: AudioSchema = { list: [] }
 
@@ -12,6 +12,9 @@ export const audioSlice = createSlice({
     },
     clearName: (state) => {
       state.list = []
+    },
+    addAudioToList: (state, action: PayloadAction<AudioModel>) => {
+      state.list.push(action.payload)
     },
   },
 })

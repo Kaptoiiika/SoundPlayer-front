@@ -4,18 +4,18 @@
 }
 
 .primary {
-  color: var(--revesed-color);
-  background-color: var(--bg-secondary-color);
+  color: rgb(var(--revesed-color));
+  background-color: rgb(var(--bg-secondary-color));
   border-radius: 100px;
   padding: 0.25rem 1.25rem;
 }
 
 .secondary {
-  color: var(--secondary-color);
+  color: rgb(var(--secondary-color));
 }
 
 .active {
-  color: var(--primary-color);
+  color: rgb(var(--primary-color));
 
   &::after {
     content: "";
@@ -25,6 +25,6 @@
     height: 4px;
     border-radius: 1em;
     margin: 1.5em 0 0;
-    background: var(--bg-secondary-color);
+    background: rgb(var(--bg-secondary-color));
   }
 }

@@ -1,6 +1,6 @@
 .Button {
   cursor: pointer;
-  color: var(--primary-color);
+  color: rgb(var(--primary-color));
   transition: color 0.25s;
   border-radius: 100px;
   padding: 0.25rem 1.25rem;
@@ -10,13 +10,27 @@
 }
 
 .primary {
-  color: var(--revesed-color);
-  background-color: var(--bg-secondary-color);
+  color: rgb(var(--revesed-color));
+  background-color: rgb(var(--bg-secondary-color));
+
+  &.disabled {
+    color: rgb(var(--revesed-color) 0.5);
+    background-color: rgb(var(--bg-secondary-color) 0.5);
+  }
 }
 
 .outline {
-  color: var(--primary-color);
-  box-shadow: 0 0 0 0.25rem var(--bg-secondary-color) inset;
+  color: rgb(var(--primary-color));
+  box-shadow: 0 0 0 0.25rem rgb(var(--bg-secondary-color)) inset;
+
+  &.disabled {
+    color: rgb(var(--primary-color) 0.5);
+    box-shadow: 0 0 0 0.25rem rgb(var(--bg-secondary-color) 0.5) inset;
+  }
+}
+
+.disabled {
+  cursor: default;
 }
 
 .size-m {
