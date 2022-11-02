@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema"
-import axios from "axios"
 import { audioActions, AudioModel } from "entities/Audio"
 
 interface UploadAudioDTO {
@@ -17,7 +16,10 @@ export const UploadAudioToServer = createAsyncThunk<
   body.append("name", name)
   body.append("audio", audio)
   try {
-    const { data } = await thunkAPI.extra.api.post<AudioModel>("/api/uploads/audio", body)
+    const { data } = await thunkAPI.extra.api.post<AudioModel>(
+      "/api/uploads/audio",
+      body
+    )
     const { id, name, size, authorId, duratation, fileName, peaks } = data
 
     thunkAPI.dispatch(

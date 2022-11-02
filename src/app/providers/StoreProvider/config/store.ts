@@ -7,7 +7,11 @@ import {
 import { audioReducer } from "entities/Audio"
 import { apiClient } from "shared/api/apiClient"
 import { createReducerManager } from "./ReducerManager"
-import { ReduxStoreWithManager, StateSchema, ThunkExtraArg } from "./StateSchema"
+import {
+  ReduxStoreWithManager,
+  StateSchema,
+  ThunkExtraArg,
+} from "./StateSchema"
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -34,12 +38,12 @@ export function createReduxStore(
           extraArgument: extraArg,
         },
       }),
-  }) as ReduxStoreWithManager
+  })
 
+  //@ts-ignore
   store.reducerManager = reducerManager
 
   return store
 }
 
-type AppStore = ReturnType<typeof createReduxStore>
-export type AppDispatch = AppStore["dispatch"]
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"]
