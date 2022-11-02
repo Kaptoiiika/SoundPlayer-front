@@ -10,6 +10,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
@@ -22,5 +23,5 @@
     }
   },
   "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts"],
-  "exclude": ["./src/**/*.test.*"]
+  "exclude": ["./src/**/*.test.*", "./src/**/*.stories.*"]
 }

@@ -3,7 +3,7 @@ import { AudioModel, AudioSchema } from "../types/audioSchema"
 
 const initialState: AudioSchema = { list: [] }
 
-export const audioSlice = createSlice({
+const audioSlice = createSlice({
   name: "audio",
   initialState: initialState,
   reducers: {

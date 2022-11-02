@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { audioSlice } from "entities/Audio/model/slice/audioSlice"
-import { AudioModel } from "entities/Audio/model/types/audioSchema"
+import { audioActions, AudioModel } from "entities/Audio"
 
 interface UploadAudioDTO {
   name: string
@@ -19,16 +18,16 @@ export const UploadAudioToServer = createAsyncThunk<
   try {
     const { data } = await axios.post<AudioModel>("/api/uploads/audio", body)
     const { id, name, size, authorId, duratation, fileName, peaks } = data
-    
+
     thunkAPI.dispatch(
-      audioSlice.actions.addAudioToList({
+      audioActions.addAudioToList({
         id,
-        name,
-        size,
-        authorId,
-        duratation,
-        fileName,
         peaks,
+        name: name || "",
+        size: size || 0,
+        duratation: duratation || 0,
+        authorId: authorId || undefined,
+        fileName: fileName || undefined,
       })
     )
 

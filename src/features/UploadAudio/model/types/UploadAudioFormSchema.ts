@@ -2,8 +2,8 @@ export interface UploadAudioFormSchema {
   name: string
   audio?: UploadAudioFile
 
-  audioIsLoaded?: boolean
   isloading: boolean
+  audioIsLoaded?: boolean
   error?: string
 }
 

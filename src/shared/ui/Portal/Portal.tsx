@@ -8,6 +8,5 @@ type PortalProps = {
 
 export const Portal = (props: PortalProps) => {
   const { children, element = document.getElementById("root")! } = props
-
   return createPortal(children, element)
 }

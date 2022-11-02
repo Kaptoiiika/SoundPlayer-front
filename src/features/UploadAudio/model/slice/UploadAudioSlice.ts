@@ -5,7 +5,7 @@ import {
   UploadAudioFormSchema,
 } from "../types/UploadAudioFormSchema"
 
-const initialState: UploadAudioFormSchema = {
+export const uploadAudioInitialState: UploadAudioFormSchema = {
   name: "",
   isloading: false,
   audioIsLoaded: false,
@@ -13,7 +13,7 @@ const initialState: UploadAudioFormSchema = {
 
 export const uploadAudioSlice = createSlice({
   name: "audio",
-  initialState: initialState,
+  initialState: uploadAudioInitialState,
   reducers: {
     setAudioName: (state, action: PayloadAction<string>) => {
       state.name = action.payload

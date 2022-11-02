@@ -1,7 +1,8 @@
+import { Suspense } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
+import { Loader } from "shared/ui/Loader/Loader"
 import { Modal } from "shared/ui/Modal/Modal"
-import { UploadAudioForm } from "../UploadAudioForm/UploadAudioForm"
-import styles from "./UploadAudioModal.module.scss"
+import { UploadAudioFormLazy } from "../UploadAudioForm/UploadAudioForm.lazy"
 
 type UploadAudioModalProps = {
   className?: string
@@ -15,9 +16,11 @@ export const UploadAudioModal = (props: UploadAudioModalProps) => {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      className={classNames([styles.UploadAudioModal, className])}
+      className={classNames([className])}
     >
-      <UploadAudioForm />
+      <Suspense fallback={<Loader />}>
+        <UploadAudioFormLazy onSuccess={onClose} />
+      </Suspense>
     </Modal>
   )
 }

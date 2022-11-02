@@ -1,4 +1,7 @@
-import { uploadAudioActions } from "../../model/slice/UploadAudioSlice"
+import {
+  uploadAudioActions,
+  uploadAudioReducer,
+} from "../../model/slice/UploadAudioSlice"
 import { ChangeEvent, FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -8,15 +11,18 @@ import { Input } from "shared/ui/Input/Input"
 import styles from "./UploadAudioForm.module.scss"
 import { getUploadFormState } from "../../model/selectors/getUploadFormState/getUploadFormState"
 import { UploadAudioToServer } from "features/UploadAudio/model/services/UploadAudioToServer/UploadAudioToServer"
-import { useAppDispatch } from "shared/lib/useAppDispatch/useAppDispatch"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 
 type UploadAudioFormProps = {
   className?: string
+  onSuccess?: () => void
 }
 
 export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
-  const { className = "" } = props
+  useDynamicModuleLoader({ reducers: { audioForm: uploadAudioReducer } })
+  const { className = "", onSuccess } = props
   const dispatch = useAppDispatch()
   const { name, audio, error, isloading, audioIsLoaded } =
     useSelector(getUploadFormState)
@@ -52,14 +58,17 @@ export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
           uploadAudioActions.setValidationError(t("loadAudioFirst"))
         )
 
-      dispatch(
+      const result = await dispatch(
         UploadAudioToServer({
           audio: audio.blob,
           name: name,
         })
       )
+      if (result.meta.requestStatus === "fulfilled") {
+        onSuccess?.()
+      }
     },
-    [audio, dispatch, name, t]
+    [audio, dispatch, name, onSuccess, t]
   )
 
   return (

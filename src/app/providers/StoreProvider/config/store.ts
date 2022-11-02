@@ -1,19 +1,30 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit"
 import { audioReducer } from "entities/Audio"
-import { uploadAudioReducer } from "features/UploadAudio"
+import { createReducerManager } from "./ReducerManager"
 import { StateSchema } from "./StateSchema"
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     audio: audioReducer,
-    audioForm: uploadAudioReducer,
   }
 
-  return configureStore<StateSchema>({
-    reducer: rootReducers,
+  const reducerManager = createReducerManager(rootReducers)
+
+  const store = configureStore<StateSchema>({
+    //@ts-ignore
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   })
+
+  //@ts-ignore
+  store.reducerManager = reducerManager
+
+  return store
 }
 
 export type AppStore = ReturnType<typeof createReduxStore>

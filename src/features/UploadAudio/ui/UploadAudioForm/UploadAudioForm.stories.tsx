@@ -15,7 +15,7 @@ export const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [
   StoreDecorator({
-    audioForm: { audioIsLoaded: true },
+    audioForm: { name: "asd", isloading: false, audioIsLoaded: true },
   }),
 ]
 
@@ -23,7 +23,12 @@ export const FormWithError = Template.bind({})
 FormWithError.args = {}
 FormWithError.decorators = [
   StoreDecorator({
-    audioForm: { error: "some error", audioIsLoaded: true },
+    audioForm: {
+      name: "asd",
+      isloading: false,
+      error: "some error",
+      audioIsLoaded: true,
+    },
   }),
 ]
 
@@ -31,6 +36,6 @@ export const FormIsLoading = Template.bind({})
 FormIsLoading.args = {}
 FormIsLoading.decorators = [
   StoreDecorator({
-    audioForm: { isloading: true },
+    audioForm: { isloading: true, name: "asd" },
   }),
 ]
