@@ -16,4 +16,7 @@ export interface AudioModel {
 
 export interface AudioSchema {
   list: AudioModel[]
+  
+  isLoading: boolean
+  isInitial: boolean
 }

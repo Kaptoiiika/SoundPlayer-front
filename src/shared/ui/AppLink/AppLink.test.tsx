@@ -6,7 +6,7 @@ describe("AppLink", () => {
   test("test children render text", () => {
     render(
       <BrowserRouter>
-        <AppLink to={"/asd"}>{"someTextButton"}</AppLink>
+        <AppLink to={"/asd"} title={"someTextButton"} />
       </BrowserRouter>
     )
     expect(screen.getByText("someTextButton")).toBeInTheDocument()

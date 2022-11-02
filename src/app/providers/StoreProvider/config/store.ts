@@ -8,7 +8,6 @@ import { audioReducer } from "entities/Audio"
 import { apiClient } from "shared/api/apiClient"
 import { createReducerManager } from "./ReducerManager"
 import {
-  ReduxStoreWithManager,
   StateSchema,
   ThunkExtraArg,
 } from "./StateSchema"

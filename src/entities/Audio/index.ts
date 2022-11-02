@@ -1,3 +1,5 @@
+export { fetchAudioList } from "./model/services/fetchAudioList/fetchAudioList"
+
 export { getAudioList } from "./model/selectors/getAudioList/getAudioList"
 
 export { Audio } from "./ui/Audio"

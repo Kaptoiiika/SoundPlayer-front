@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { Link, LinkProps } from "react-router-dom"
 import { classNames } from "shared/lib/classNames/classNames"
 import styles from "./AppLink.module.scss"
@@ -11,15 +12,15 @@ export const enum AppLinkTheme {
 type AppLinkProps = {
   className?: string
   variant?: AppLinkTheme
-} & LinkProps &
-  React.PropsWithChildren
+  title?: string
+} & LinkProps
 
-export const AppLink = (props: AppLinkProps) => {
+export const AppLink = memo((props: AppLinkProps) => {
   const {
     variant = AppLinkTheme.PRIMARY,
     className = "",
     to,
-    children,
+    title,
     ...otherProps
   } = props
 
@@ -30,7 +31,7 @@ export const AppLink = (props: AppLinkProps) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
-      {children}
+      {title}
     </Link>
   )
-}
+})

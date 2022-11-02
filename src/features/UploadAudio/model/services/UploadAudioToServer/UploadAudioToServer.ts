@@ -11,7 +11,7 @@ export const UploadAudioToServer = createAsyncThunk<
   void,
   UploadAudioDTO,
   ThunkConfig<string>
->("audio/UploadAudioToServer", async ({ audio, name }, thunkAPI) => {
+>("audioForm/UploadAudioToServer", async ({ audio, name }, thunkAPI) => {
   const body = new FormData()
   body.append("name", name)
   body.append("audio", audio)

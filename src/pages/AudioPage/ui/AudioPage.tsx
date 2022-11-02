@@ -1,5 +1,5 @@
 import { UploadAudioModal } from "features/UploadAudio"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
 import { Button } from "shared/ui/Button/Button"
@@ -11,9 +11,9 @@ const AudioPage = () => {
 
   const [uploadModalisOpen, setUploadAudioModalOpen] = useState(false)
 
-  const hundleTogleUploadModal = () => {
+  const hundleTogleUploadModal = useCallback(() => {
     setUploadAudioModalOpen((newValue) => !newValue)
-  }
+  }, [])
 
   return (
     <div className={classNames(styles.AudioPage)}>
