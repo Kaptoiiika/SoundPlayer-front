@@ -1,6 +1,9 @@
 import { Dispatch } from "@reduxjs/toolkit"
 import axios from "axios"
-import { StateSchema } from "../../../../../app/providers/StoreProvider"
+import {
+  StateSchema,
+  ThunkExtraArg,
+} from "../../../../../app/providers/StoreProvider"
 import { audioActions } from "../../../../../entities/Audio"
 import { UploadAudioToServer } from "./UploadAudioToServer"
 jest.mock("axios")
@@ -22,17 +25,18 @@ const { id, duratation, fileName, name, size, peaks, authorId } = mockedValue
 describe("UploadAudioToServer", () => {
   let dispatch: Dispatch
   let getState: () => StateSchema
-
+  let extraArg: ThunkExtraArg
   beforeEach(() => {
     dispatch = jest.fn()
     getState = jest.fn()
+    extraArg = { api: mockedAxios }
   })
 
   test("test work status ok", async () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: mockedValue }))
 
     const action = UploadAudioToServer({ audio: new Blob(), name: "somename" })
-    const res = await action(dispatch, getState, undefined)
+    const res = await action(dispatch, getState, extraArg)
 
     expect(mockedAxios.post).toHaveBeenCalled()
     expect(dispatch).toHaveBeenCalledWith(
@@ -53,7 +57,7 @@ describe("UploadAudioToServer", () => {
     mockedAxios.post.mockReturnValue(Promise.reject({ status: 400 }))
 
     const action = UploadAudioToServer({ audio: new Blob(), name: "somename" })
-    const res = await action(dispatch, getState, undefined)
+    const res = await action(dispatch, getState, extraArg)
 
     expect(dispatch).toHaveBeenCalledTimes(2)
     expect(mockedAxios.post).toHaveBeenCalled()

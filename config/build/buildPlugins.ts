@@ -2,12 +2,13 @@ import webpack from "webpack"
 import HTMLWebpackPlugin from "html-webpack-plugin"
 import { BuildOptions } from "./types/config"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import { buildDefinePlugins } from "./plugins/buildDefinePlugins"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 export function buildPlugins(
   options: BuildOptions
 ): webpack.WebpackPluginInstance[] {
-  const { paths, isDev } = options
+  const { paths } = options
 
   return [
     new HTMLWebpackPlugin({
@@ -18,9 +19,7 @@ export function buildPlugins(
       filename: "css/[name].[contenthash:6].css",
       chunkFilename: "css/[name].[contenthash:6].css",
     }),
-    new webpack.DefinePlugin({
-      __IS_DEV__: isDev,
-    }),
+    buildDefinePlugins(options),
     new webpack.HotModuleReplacementPlugin(),
     // new BundleAnalyzerPlugin({
     //   openAnalyzer: false,

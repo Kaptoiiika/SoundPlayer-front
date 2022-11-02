@@ -1,7 +1,13 @@
-import { configureStore, ReducersMapObject } from "@reduxjs/toolkit"
+import {
+  CombinedState,
+  configureStore,
+  Reducer,
+  ReducersMapObject,
+} from "@reduxjs/toolkit"
 import { audioReducer } from "entities/Audio"
+import { apiClient } from "shared/api/apiClient"
 import { createReducerManager } from "./ReducerManager"
-import { StateSchema } from "./StateSchema"
+import { ReduxStoreWithManager, StateSchema, ThunkExtraArg } from "./StateSchema"
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -14,18 +20,26 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducers)
 
-  const store = configureStore<StateSchema>({
-    //@ts-ignore
-    reducer: reducerManager.reduce,
+  const extraArg: ThunkExtraArg = {
+    api: apiClient,
+  }
+
+  const store = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-  })
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg,
+        },
+      }),
+  }) as ReduxStoreWithManager
 
-  //@ts-ignore
   store.reducerManager = reducerManager
 
   return store
 }
 
-export type AppStore = ReturnType<typeof createReduxStore>
+type AppStore = ReturnType<typeof createReduxStore>
 export type AppDispatch = AppStore["dispatch"]

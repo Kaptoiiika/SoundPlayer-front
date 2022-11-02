@@ -5,6 +5,7 @@ import {
   Reducer,
   ReducersMapObject,
 } from "@reduxjs/toolkit"
+import { AxiosInstance } from "axios"
 import { AudioSchema } from "entities/Audio"
 import { UploadAudioFormSchema } from "features/UploadAudio"
 
@@ -13,6 +14,7 @@ export interface StateSchema {
 
   audioForm?: UploadAudioFormSchema
 }
+
 export type StateSchemaKey = keyof StateSchema
 
 export interface ReducerManager {
@@ -24,4 +26,13 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T
+  extra: ThunkExtraArg
 }

@@ -1,6 +1,7 @@
 import path from "path"
 import webpack, { Configuration, RuleSetRule } from "webpack"
 import { buildCssLoaders } from "../build/loaders/buildCssLoaders"
+import { buildDefinePlugins } from "../build/plugins/buildDefinePlugins"
 import { BuildPaths } from "../build/types/config"
 
 export default ({ config }: { config: Configuration }) => {
@@ -19,7 +20,7 @@ export default ({ config }: { config: Configuration }) => {
 
   config.module!.rules = config.module!.rules!.map((rule) => {
     if (rule === "...") return rule
-    
+
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i }
     }
@@ -32,9 +33,7 @@ export default ({ config }: { config: Configuration }) => {
   })
 
   config.plugins!.push(
-    new webpack.DefinePlugin({
-      __IS_DEV__: true,
-    })
+    buildDefinePlugins({ apiURL: "http://localhost", isDev: true })
   )
 
   return config
