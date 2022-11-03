@@ -4,5 +4,6 @@ export interface AuthByUsernameSchema {
   email?: string
 
   isloading: boolean
-  error?: string
+  loginError?: string
+  registrationError?: string
 }

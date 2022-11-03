@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import AudioPage from "./AudioPage"
+import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator"
 
 export default {
   title: "pages/AudioPage",
@@ -9,3 +10,4 @@ export default {
 const Story: ComponentStory<typeof AudioPage> = () => <AudioPage />
 
 export const Default = Story.bind({})
+Default.decorators = [StoreDecorator({})]

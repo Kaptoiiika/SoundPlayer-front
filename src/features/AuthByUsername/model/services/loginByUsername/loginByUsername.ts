@@ -12,12 +12,12 @@ export const loginByUsername = createAsyncThunk<
   loginByUsernameDTO,
   ThunkConfig<string>
 >("AuthByUsername/loginByUsername", async ({ password, username }, thunkAPI) => {
-  if (password || username) return thunkAPI.rejectWithValue("unknownError")
+  if (!password || !username) return thunkAPI.rejectWithValue("unknownError")
 
   const body = { password, username }
   try {
     const { data } = await thunkAPI.extra.api.post<UserModel>(
-      "/api/uploads/audio",
+      "/api/auth/audio",
       body
     )
     const { username } = data

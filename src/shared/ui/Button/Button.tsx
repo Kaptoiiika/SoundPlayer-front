@@ -1,6 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames"
 import { ButtonHTMLAttributes, memo } from "react"
 import styles from "./Button.module.scss"
+import { Loader } from "../Loader/Loader"
 
 export const enum ButtonVariant {
   OUTLINE = "outline",
@@ -18,6 +19,7 @@ type ButtonProps = {
   variant?: ButtonVariant
   size?: ButtonSizes
   disabled?: boolean
+  loader?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = memo((props: ButtonProps) => {
@@ -27,6 +29,7 @@ export const Button = memo((props: ButtonProps) => {
     variant = ButtonVariant.PRIMARY,
     size = ButtonSizes.M,
     disabled = false,
+    loader,
     ...otherProps
   } = props
 
@@ -43,7 +46,7 @@ export const Button = memo((props: ButtonProps) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
-      {children}
+      {loader ? <Loader className={styles.loader} /> : children}
     </button>
   )
 })

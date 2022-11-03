@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { loginByUsername } from "../services/loginByUsername/loginByUsername"
+import { registrationByUsername } from "../services/registrationByUsernameAndEmail/registrationByUsernameAndEmail"
 import { AuthByUsernameSchema } from "../types/AuthByUserNameSchema"
 
-export const AuthByUsernameSlice: AuthByUsernameSchema = {
+export const authByUsernameInitial: AuthByUsernameSchema = {
   username: "",
   password: "",
   email: "",
@@ -12,7 +13,7 @@ export const AuthByUsernameSlice: AuthByUsernameSchema = {
 
 export const authByUsernameSlice = createSlice({
   name: "audio",
-  initialState: AuthByUsernameSlice,
+  initialState: authByUsernameInitial,
   reducers: {
     setUsername: (state, action: PayloadAction<string>) => {
       state.username = action.payload
@@ -31,14 +32,25 @@ export const authByUsernameSlice = createSlice({
       })
       .addCase(loginByUsername.fulfilled, (state) => {
         state.isloading = false
-        state.error = undefined
+        state.loginError = undefined
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.isloading = false
-        state.error = action.payload
+        state.loginError = action.payload
+      })
+      .addCase(registrationByUsername.pending, (state) => {
+        state.isloading = true
+      })
+      .addCase(registrationByUsername.fulfilled, (state) => {
+        state.isloading = false
+        state.registrationError = undefined
+      })
+      .addCase(registrationByUsername.rejected, (state, action) => {
+        state.isloading = false
+        state.registrationError = action.payload
       })
   },
 })
 
-export const { actions: uploadAudioActions } = authByUsernameSlice
-export const { reducer: uploadAudioReducer } = authByUsernameSlice
+export const { actions: authByUsernameSliceActions } = authByUsernameSlice
+export const { reducer: authByUsernameSliceReducer } = authByUsernameSlice
