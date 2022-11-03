@@ -1,5 +1,5 @@
-import { getAudioList } from "entities/Audio"
-import { fetchAudioList } from "entities/Audio"
+import { getAudioList } from "../../model/selectors/getAudioList/getAudioList"
+import { fetchAudioList } from "../../model/services/fetchAudioList/fetchAudioList"
 import { memo, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { classNames } from "shared/lib/classNames/classNames"
@@ -17,7 +17,7 @@ export const AudioList = memo((props: AudioListProps) => {
 
   useEffect(() => {
     dispatch(fetchAudioList({}))
-    console.log("agaaa")
+    console.log(dispatch)
   }, [dispatch])
 
   return (

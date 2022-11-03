@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react"
 import { createReduxStore } from "../config/store"
 import { Provider } from "react-redux"
 import { StateSchema } from "../config/StateSchema"
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit"
+import { ReducersMapObject } from "@reduxjs/toolkit"
 
 type StoreProviderProps = {
   initialState?: DeepPartial<StateSchema>

@@ -1,7 +1,4 @@
 .inputWrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
   font: var(--font-m);
 }
 
@@ -13,6 +10,7 @@
 
 .input {
   background: rgb(255 255 255 / 20%);
+  width: calc(100% - 0.5rem);
   border: 0.25rem rgb(var(--bg-secondary-color)) solid;
   font: var(--font-m);
   border-radius: 4px;

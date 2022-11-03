@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, memo } from "react"
+import { InputHTMLAttributes, memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 import styles from "./Input.module.scss"
 

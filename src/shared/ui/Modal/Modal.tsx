@@ -1,6 +1,7 @@
 import { useTheme } from "app/providers/ThemeProvider"
 import React, { PropsWithChildren, useEffect, useState } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
+import { Paper } from "../Paper/Paper"
 import { Portal } from "../Portal/Portal"
 import styles from "./Modal.module.scss"
 
@@ -41,9 +42,9 @@ export const Modal = (props: ModalProps) => {
         })}
       >
         <div className={styles.overlay} onClick={hundleClose}>
-          <div className={styles.content} onClick={hundleContentClick}>
+          <Paper className={styles.content} onClick={hundleContentClick}>
             {children}
-          </div>
+          </Paper>
         </div>
       </div>
     </Portal>

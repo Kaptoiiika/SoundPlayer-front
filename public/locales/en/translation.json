@@ -8,6 +8,10 @@
   "PageNotFound": "Page not found",
   "ErrorPageMessage": "Somthing went wrong try to reload page",
   "uploadAudio": "upload audio",
-  "audioName": "audio name",
-  "loadAudioFirst": "load audio first"
+  "audioName": "Audio name",
+  "loadAudioFirst": "load audio first",
+  "Login": "Login",
+  "Username": "Username",
+  "Password": "Password",
+  "Registration": "Registration"
 }

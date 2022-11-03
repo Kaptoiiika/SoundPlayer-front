@@ -23,5 +23,5 @@
     }
   },
   "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts"],
-  "exclude": ["./src/**/*.test.*", "./src/**/*.stories.*"]
+  "exclude": ["./src/**/*.test.*"]
 }

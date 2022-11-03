@@ -3,6 +3,11 @@ import { buildCssLoaders } from "./loaders/buildCssLoaders"
 import { BuildOptions } from "./types/config"
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const tsLoader = {
+    test: /\.tsx?$/,
+    use: { loader: "ts-loader", options: { transpileOnly: true } },
+    exclude: [/node_modules/],
+  }
   const cssLoader = buildCssLoaders(options)
 
   const svgLoader = {
@@ -20,14 +25,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   }
 
-  return [
-    {
-      test: /\.tsx?$/,
-      use: "ts-loader",
-      exclude: [/node_modules/],
-    },
-    cssLoader,
-    svgLoader,
-    fileLoader,
-  ]
+  return [tsLoader, cssLoader, svgLoader, fileLoader]
 }

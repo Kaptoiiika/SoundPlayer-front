@@ -2,7 +2,7 @@
   cursor: pointer;
   color: rgb(var(--primary-color));
   transition: color 0.25s;
-  border-radius: 100px;
+  border-radius: 4px;
   padding: 0.25rem 1.25rem;
   border: none;
   background: none;
@@ -10,11 +10,11 @@
 }
 
 .primary {
-  color: rgb(var(--revesed-color));
+  color: rgb(var(--primary-color));
   background-color: rgb(var(--bg-secondary-color));
 
   &.disabled {
-    color: rgba(var(--revesed-color), 0.5);
+    color: rgba(var(--primary-color), 0.5);
     background-color: rgba(var(--bg-secondary-color), 0.5);
   }
 }

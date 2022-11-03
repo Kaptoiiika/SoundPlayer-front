@@ -1,6 +1,6 @@
 import { Story } from "@storybook/react"
 import { StoreProvider } from "app/providers/StoreProvider"
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit"
+import {  ReducersMapObject } from "@reduxjs/toolkit"
 import { uploadAudioReducer } from "features/UploadAudio"
 import { StateSchema } from "app/providers/StoreProvider/config/StateSchema"
 

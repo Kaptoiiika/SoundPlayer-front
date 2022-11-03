@@ -12,7 +12,9 @@ describe("getUploadAudioForm", () => {
       audioIsLoaded: false,
     }
 
-    expect(getUploadFormState(state as StateSchema)).toEqual(uploadAudioInitialState)
+    expect(getUploadFormState(state as StateSchema)).toEqual(
+      uploadAudioInitialState
+    )
   })
 
   test("test get value", () => {

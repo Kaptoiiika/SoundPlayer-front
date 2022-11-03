@@ -18,16 +18,11 @@ export const Navbar = (props: NavbarProps) => {
   const { className = "" } = props
 
   const [currentPage, setCurrentPage] = useState(location.pathname)
-  const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
 
   const hundleChangePage = (link: string) => () => {
     setCurrentPage(link)
   }
-
-  const toggleLoginModal = useCallback(() => {
-    setIsOpen((prev) => !prev)
-  }, [])
 
   const links = useMemo(
     () => [
@@ -74,16 +69,11 @@ export const Navbar = (props: NavbarProps) => {
         <LanguageSwitcher />
         <AppLink
           variant={AppLinkTheme.PRIMARY}
-          to={RoutePaths.login}
-          onClick={toggleLoginModal}
+          to={RoutePaths.auth}
+          onClick={hundleChangePage(RoutePaths.auth)}
           title={t("signIn")}
         />
       </div>
-      <Modal isOpen={isOpen} onClose={toggleLoginModal}>
-        {
-          "Minim sunt exercitation fugiat occaecat fugiat tempor sunt ipsum officia laboris eiusmod."
-        }
-      </Modal>
     </div>
   )
 }
