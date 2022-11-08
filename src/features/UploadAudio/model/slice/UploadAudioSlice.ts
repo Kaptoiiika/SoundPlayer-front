@@ -12,7 +12,7 @@ export const uploadAudioInitialState: UploadAudioFormSchema = {
 }
 
 export const uploadAudioSlice = createSlice({
-  name: "audio",
+  name: "profile",
   initialState: uploadAudioInitialState,
   reducers: {
     setAudioName: (state, action: PayloadAction<string>) => {

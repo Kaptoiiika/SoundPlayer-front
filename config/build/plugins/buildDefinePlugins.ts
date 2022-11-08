@@ -7,7 +7,7 @@ export const buildDefinePlugins = (options: {
   const { isDev, apiURL } = options
 
   return new webpack.DefinePlugin({
-    __IS_DEV__: isDev,
-    __API_URL__: apiURL,
+    __IS_DEV__: JSON.stringify(isDev),
+    __API_URL__: JSON.stringify(apiURL),
   })
 }

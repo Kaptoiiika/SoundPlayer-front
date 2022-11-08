@@ -7,6 +7,9 @@ import Logo from "shared/assets/icons/Logo.png"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher"
+import { useSelector } from "react-redux"
+import { getAuthData } from "entities/User/model/selectors/getAuthData/getAuthData"
+import { Button } from "shared/ui/Button/Button"
 
 type NavbarProps = {
   className?: string
@@ -16,6 +19,7 @@ export const Navbar = (props: NavbarProps) => {
   const { className = "" } = props
 
   const [currentPage, setCurrentPage] = useState(location.pathname)
+  const authData = useSelector(getAuthData)
   const { t } = useTranslation()
 
   const hundleChangePage = useCallback((link: string) => {
@@ -65,12 +69,16 @@ export const Navbar = (props: NavbarProps) => {
       <div className={styles.appLinks}>
         <ThemeSwitcher />
         <LanguageSwitcher />
-        <AppLink
-          variant={AppLinkTheme.PRIMARY}
-          to={RoutePaths.auth}
-          title={t("signIn")}
-          onLinkClick={hundleChangePage}
-        />
+        {authData ? (
+          <Button>{authData.username}</Button>
+        ) : (
+          <AppLink
+            variant={AppLinkTheme.PRIMARY}
+            to={RoutePaths.auth}
+            title={t("signIn")}
+            onLinkClick={hundleChangePage}
+          />
+        )}
       </div>
     </div>
   )

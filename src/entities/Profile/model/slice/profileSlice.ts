@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { fetchAudioList } from "../services/fetchAudioList/fetchAudioList"
-import { AudioModel, AudioSchema } from "../types/audioSchema"
 
 const initialState: AudioSchema = {
   list: [],
@@ -8,7 +6,7 @@ const initialState: AudioSchema = {
   isInitial: false,
 }
 
-const audioSlice = createSlice({
+const profileSlice = createSlice({
   name: "profile",
   initialState: initialState,
   reducers: {
@@ -38,5 +36,5 @@ const audioSlice = createSlice({
   },
 })
 
-export const { actions: audioActions } = audioSlice
-export const { reducer: audioReducer } = audioSlice
+export const { actions: audioActions } = profileSlice
+export const { reducer: audioReducer } = profileSlice

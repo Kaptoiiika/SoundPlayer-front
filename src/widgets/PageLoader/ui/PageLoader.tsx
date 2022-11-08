@@ -10,7 +10,7 @@ export const PageLoader = (props: PageLoaderProps) => {
   const { className = "" } = props
   return (
     <div className={classNames([styles.PageLoader, className])}>
-      <LoaderBars />
+      <LoaderBars className={styles.icon} />
     </div>
   )
 }

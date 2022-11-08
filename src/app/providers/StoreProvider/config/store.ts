@@ -5,12 +5,10 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit"
 import { audioReducer } from "entities/Audio"
+import { userReducer } from "entities/User"
 import { apiClient } from "shared/api/apiClient"
 import { createReducerManager } from "./ReducerManager"
-import {
-  StateSchema,
-  ThunkExtraArg,
-} from "./StateSchema"
+import { StateSchema, ThunkExtraArg } from "./StateSchema"
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -19,8 +17,8 @@ export function createReduxStore(
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     audio: audioReducer,
+    user: userReducer,
   }
-
   const reducerManager = createReducerManager(rootReducers)
 
   const extraArg: ThunkExtraArg = {

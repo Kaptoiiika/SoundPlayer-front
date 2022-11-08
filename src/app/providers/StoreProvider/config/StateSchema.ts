@@ -7,11 +7,13 @@ import {
 } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
 import { AudioSchema } from "entities/Audio"
+import { UserSchema } from "entities/User"
 import { AuthByUsernameSchema } from "features/AuthByUsername/model/types/AuthByUserNameSchema"
 import { UploadAudioFormSchema } from "features/UploadAudio"
 
 export interface StateSchema {
   audio: AudioSchema
+  user: UserSchema
 
   audioForm?: UploadAudioFormSchema
   authByUsername?: AuthByUsernameSchema

@@ -1,8 +1,9 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, useEffect } from "react"
 import { createReduxStore } from "../config/store"
 import { Provider } from "react-redux"
 import { StateSchema } from "../config/StateSchema"
 import { ReducersMapObject } from "@reduxjs/toolkit"
+import { initalAuthData } from "entities/User"
 
 type StoreProviderProps = {
   initialState?: DeepPartial<StateSchema>
@@ -16,6 +17,10 @@ export const StoreProvider = (props: StoreProviderProps) => {
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>
   )
+
+  useEffect(() => {
+    store.dispatch(initalAuthData())
+  }, [store])
 
   return <Provider store={store}>{children}</Provider>
 }

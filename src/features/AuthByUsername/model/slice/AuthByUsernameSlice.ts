@@ -12,7 +12,7 @@ export const authByUsernameInitial: AuthByUsernameSchema = {
 }
 
 export const authByUsernameSlice = createSlice({
-  name: "audio",
+  name: "profile",
   initialState: authByUsernameInitial,
   reducers: {
     setUsername: (state, action: PayloadAction<string>) => {
