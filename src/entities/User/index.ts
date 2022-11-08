@@ -1,3 +1,5 @@
+export { getAuthData } from "./model/selectors/getAuthData/getAuthData"
+
 export { initalAuthData } from "./model/services/initialAuth/initAuthData"
 
 export { userActions, userReducer } from "./model/slice/userSlice"

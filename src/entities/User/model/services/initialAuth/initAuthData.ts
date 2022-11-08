@@ -11,11 +11,14 @@ export const initalAuthData = createAsyncThunk<
 >("user/initalAuthData", async (dto, thunkAPI) => {
   const token = localStorage.getItem(localstorageKeys.TOKEN)
   if (!token) return thunkAPI.rejectWithValue("auth not found")
+  const BearerTokken = `Bearer ${token}`
 
   try {
     const { data } = await thunkAPI.extra.api.get<UserModel>("/api/auth", {
-      headers: { Authorization: token },
+      headers: { Authorization: BearerTokken },
     })
+
+    if (!data) throw new Error("unknown server data")
 
     saveTokenToApi(thunkAPI.extra.api, token)
 

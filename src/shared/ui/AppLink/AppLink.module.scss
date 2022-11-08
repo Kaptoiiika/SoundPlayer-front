@@ -1,6 +1,6 @@
 .AppLink {
-  transition: color 0.25s;
   position: relative;
+  transition: background-color 0.25s;
 }
 
 .primary {
@@ -8,6 +8,10 @@
   background-color: rgb(var(--bg-secondary-color));
   border-radius: 100px;
   padding: 0.25rem 1.25rem;
+
+  &:hover {
+    background-color: rgba(var(--bg-secondary-color), 0.85);
+  }
 }
 
 .secondary {

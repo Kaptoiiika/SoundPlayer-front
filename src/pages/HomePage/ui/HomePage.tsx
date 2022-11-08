@@ -5,5 +5,3 @@ export const HomePage = () => {
 
   return <div>{t("HomePage")}</div>
 }
-
-export default HomePage

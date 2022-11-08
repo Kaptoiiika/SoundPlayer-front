@@ -6,7 +6,7 @@ import { classNames } from "shared/lib/classNames/classNames"
 import { Button } from "shared/ui/Button/Button"
 import styles from "./AudioPage.module.scss"
 
-const AudioPage = () => {
+export const AudioPage = () => {
   const { t } = useTranslation()
 
   const [uploadModalisOpen, setUploadAudioModalOpen] = useState(false)
@@ -26,5 +26,3 @@ const AudioPage = () => {
     </div>
   )
 }
-
-export default AudioPage

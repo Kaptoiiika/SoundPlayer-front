@@ -2,12 +2,14 @@ import { AudioPage } from "pages/AudioPage"
 import { AuthorizationPage } from "pages/AuthorizationPage"
 import { HomePage } from "pages/HomePage"
 import { NotFoundPage } from "pages/NotFoundPage"
+import { ProfilePage } from "pages/ProfilePage"
 import { RouteProps } from "react-router-dom"
 
 export const enum AppRoutes {
   MAIN = "main",
   AUDIO = "audio",
   AUTH = "auth",
+  PROFILE = "proifle",
   NOT_FOUND = "not_found",
 }
 
@@ -16,6 +18,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.AUDIO]: "/audio",
   [AppRoutes.AUTH]: "/auth",
+  [AppRoutes.PROFILE]: "/profile",
 }
 
 export const routeConfig: RouteProps[] = [
@@ -30,6 +33,10 @@ export const routeConfig: RouteProps[] = [
   {
     path: RoutePaths.auth,
     element: <AuthorizationPage />,
+  },
+  {
+    path: RoutePaths.proifle,
+    element: <ProfilePage />,
   },
 
   ///////////////

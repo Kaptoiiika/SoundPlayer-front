@@ -13,5 +13,11 @@
   "Login": "Login",
   "Username": "Username",
   "Password": "Password",
-  "Registration": "Registration"
+  "Registration": "Registration",
+  "edit": "edit",
+  "username": "Username",
+  "save": "save",
+  "avatar": "avatar",
+  "changeavatar": "change avatar",
+  "change": "change"
 }

@@ -1,0 +1,21 @@
+import { Suspense } from "react"
+import { Loader } from "shared/ui/Loader/Loader"
+import { Modal } from "shared/ui/Modal/Modal"
+import { UploadImageLazy } from "../UploadImage/UploadImage.lazy"
+
+type UploadImageModalProps = {
+  isOpen?: boolean
+  onClose?: () => void
+  initalSrc?: string
+}
+
+export const UploadImageModal = (props: UploadImageModalProps) => {
+  const { isOpen, onClose, initalSrc } = props
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <Suspense fallback={<Loader />}>
+        <UploadImageLazy initalSrc={initalSrc} />
+      </Suspense>
+    </Modal>
+  )
+}

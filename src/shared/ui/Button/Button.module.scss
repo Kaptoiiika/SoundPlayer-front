@@ -1,12 +1,12 @@
 .Button {
   cursor: pointer;
   color: rgb(var(--primary-color));
-  transition: color 0.25s;
   border-radius: 4px;
   padding: 0.25rem 1.25rem;
   border: none;
   background: none;
   font-weight: 600;
+  transition: background-color 0.25s;
 }
 
 .primary {
@@ -16,6 +16,10 @@
   &.disabled {
     color: rgba(var(--primary-color), 0.5);
     background-color: rgba(var(--bg-secondary-color), 0.5);
+  }
+
+  &:hover {
+    background-color: rgba(var(--bg-secondary-color), 0.85);
   }
 }
 

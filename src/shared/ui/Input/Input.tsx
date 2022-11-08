@@ -6,6 +6,7 @@ type InputProps = {
   className?: string
   onValueChange?: (newValue: string) => void
   label?: string
+  readOnly?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Input = memo((props: InputProps) => {
@@ -15,6 +16,7 @@ export const Input = memo((props: InputProps) => {
     onChange,
     type = "text",
     label,
+    readOnly = false,
     ...otherProps
   } = props
 
@@ -24,7 +26,11 @@ export const Input = memo((props: InputProps) => {
   }
 
   return (
-    <div className={classNames([styles.inputWrapper, className])}>
+    <div
+      className={classNames([styles.inputWrapper, className], {
+        [styles.readOnly]: readOnly,
+      })}
+    >
       {label !== undefined && <label className={styles.label}>{label}</label>}
       <input
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -32,6 +38,7 @@ export const Input = memo((props: InputProps) => {
         className={styles.input}
         type={type}
         onChange={onChangeHundler}
+        readOnly={readOnly}
       />
     </div>
   )

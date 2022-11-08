@@ -82,7 +82,12 @@ export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
         onValueChange={onNameChange}
         value={name}
       />
-      <Input label={audio?.name} type="file" onChange={onAudioChange} />
+      <Input
+        label={audio?.name}
+        type="file"
+        accept="audio/mpeg3"
+        onChange={onAudioChange}
+      />
       {error && <Typography type={TypographyTypes.ERROR}>{error}</Typography>}
 
       <Button type="submit" disabled={!!isloading || !audioIsLoaded}>

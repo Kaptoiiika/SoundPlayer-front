@@ -18,3 +18,10 @@
 .logo {
   height: 100%;
 }
+
+.authUsername {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 150px;
+}

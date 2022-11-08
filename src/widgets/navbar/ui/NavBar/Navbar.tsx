@@ -9,7 +9,6 @@ import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher"
 import { useSelector } from "react-redux"
 import { getAuthData } from "entities/User/model/selectors/getAuthData/getAuthData"
-import { Button } from "shared/ui/Button/Button"
 
 type NavbarProps = {
   className?: string
@@ -70,7 +69,12 @@ export const Navbar = (props: NavbarProps) => {
         <ThemeSwitcher />
         <LanguageSwitcher />
         {authData ? (
-          <Button>{authData.username}</Button>
+          <AppLink
+            to={RoutePaths.proifle}
+            className={styles.authUsername}
+            onLinkClick={hundleChangePage}
+            title={authData.username}
+          />
         ) : (
           <AppLink
             variant={AppLinkTheme.PRIMARY}

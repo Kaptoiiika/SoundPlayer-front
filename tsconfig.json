@@ -22,6 +22,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts", "src/features/UploadAudio/ui/UploadAudioModal"],
   "exclude": ["./src/**/*.test.*"]
 }

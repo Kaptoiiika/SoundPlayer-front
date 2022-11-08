@@ -9,7 +9,7 @@ type ReactArrowComponentsProps = {
 
 export const ReactArrowComponents = (props: ReactArrowComponentsProps) => {
   const { className = "" } = props
-  return (<div className={classNames(['', className])}></div>)
+  return <div className={classNames(['', className])}></div>
 }
 
 // vscode snippets 
@@ -29,7 +29,7 @@ export const ReactArrowComponents = (props: ReactArrowComponentsProps) => {
       "",
       "export const $TM_FILENAME_BASE = (props: ${TM_FILENAME_BASE}Props) => {",
       "  const { className = \"\" } = props",
-      "  return (<div className={classNames(['', className])}></div>)",
+      "  return <div className={classNames(['', className])}></div>",
       "}"
     ]
   }
