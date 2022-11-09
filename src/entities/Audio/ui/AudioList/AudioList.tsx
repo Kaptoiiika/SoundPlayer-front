@@ -17,7 +17,6 @@ export const AudioList = memo((props: AudioListProps) => {
 
   useEffect(() => {
     dispatch(fetchAudioList({}))
-    console.log(dispatch)
   }, [dispatch])
 
   return (

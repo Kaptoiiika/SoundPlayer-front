@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import AudioPage from "./AudioPage"
+import { AudioPage } from "./AudioPage"
 import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator"
 
 export default {
