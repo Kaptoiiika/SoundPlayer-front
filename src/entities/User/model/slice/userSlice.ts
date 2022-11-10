@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { localstorageKeys } from "shared/lib/localstorageKeys/localstorageKeys"
+import { localstorageKeys } from "shared/const/localstorageKeys/localstorageKeys"
 import { initalAuthData } from "../services/initialAuth/initAuthData"
 import {  UserModel, UserSchema } from "../types/userSchema"
 

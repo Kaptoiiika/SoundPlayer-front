@@ -1,0 +1,33 @@
+.AudioCard {
+  display: flex;
+  width: 410px;
+  height: 150px;
+  padding: 15px 20px;
+  gap: 20px;
+}
+
+.image {
+  display: block;
+  width: 150px;
+  height: 150px;
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info {
+  display: block;
+}
+
+.actions {
+  display: block;
+}

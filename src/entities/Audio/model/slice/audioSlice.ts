@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { fetchAudioList } from "../services/fetchAudioList/fetchAudioList"
-import { AudioModel, AudioSchema } from "../types/audioSchema"
+import { AudioModel } from "../types/audioModel"
+import { AudioSchema } from "../types/audioSchema"
 
 const initialState: AudioSchema = {
   list: [],
@@ -12,12 +13,6 @@ const audioSlice = createSlice({
   name: "profile",
   initialState: initialState,
   reducers: {
-    changeName: (state) => {
-      state.list.push({ id: 24, name: "asd", size: 213 })
-    },
-    clearName: (state) => {
-      state.list = []
-    },
     addAudioToList: (state, action: PayloadAction<AudioModel>) => {
       state.list.push(action.payload)
     },

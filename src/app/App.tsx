@@ -1,6 +1,7 @@
 import { AppRouter } from "./providers/Router/ui/AppRouter"
 import { Navbar } from "widgets/navbar/"
 import { Suspense } from "react"
+import { FooterAudioPlayer } from "widgets/FooterAudioPlayer"
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Suspense>
         <Navbar />
         <AppRouter />
+        <FooterAudioPlayer />
       </Suspense>
     </div>
   )

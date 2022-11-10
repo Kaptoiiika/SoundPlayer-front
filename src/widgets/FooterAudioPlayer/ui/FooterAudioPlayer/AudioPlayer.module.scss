@@ -1,0 +1,11 @@
+.AudioPlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(var(--bg-navbar));
+  height: var(--navbar-height);
+  box-shadow: 0 -8px 8px 0 rgba(var(--bg-navbar), 0.2);
+}

@@ -90,7 +90,7 @@ export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
       />
       {error && <Typography type={TypographyTypes.ERROR}>{error}</Typography>}
 
-      <Button type="submit" disabled={!!isloading || !audioIsLoaded}>
+      <Button type="submit" disabled={!!isloading || !audioIsLoaded} loader={isloading}>
         {t("uploadAudio")}
       </Button>
     </form>

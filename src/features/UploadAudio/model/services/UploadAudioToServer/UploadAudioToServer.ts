@@ -26,11 +26,11 @@ export const UploadAudioToServer = createAsyncThunk<
       audioActions.addAudioToList({
         id,
         peaks,
+        fileName: fileName,
         name: name || "",
         size: size || 0,
         duratation: duratation || 0,
         authorId: authorId || undefined,
-        fileName: fileName || undefined,
       })
     )
 

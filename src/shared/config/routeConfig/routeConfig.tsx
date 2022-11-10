@@ -13,6 +13,10 @@ export const enum AppRoutes {
   NOT_FOUND = "not_found",
 }
 
+export type AppRouteProps = {
+  authRequire?: boolean
+} & RouteProps
+
 export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: "*",
   [AppRoutes.MAIN]: "/",
@@ -21,27 +25,28 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.PROFILE]: "/profile",
 }
 
-export const routeConfig: RouteProps[] = [
-  {
+export const routeConfig: Record<string, AppRouteProps> = {
+  [RoutePaths.main]: {
     path: RoutePaths.main,
     element: <HomePage />,
   },
-  {
+  [RoutePaths.audio]: {
     path: RoutePaths.audio,
     element: <AudioPage />,
   },
-  {
+  [RoutePaths.auth]: {
     path: RoutePaths.auth,
     element: <AuthorizationPage />,
   },
-  {
+  [RoutePaths.proifle]: {
     path: RoutePaths.proifle,
     element: <ProfilePage />,
+    authRequire: true,
   },
 
   ///////////////
-  {
+  [RoutePaths.not_found]: {
     path: RoutePaths.not_found,
     element: <NotFoundPage />,
   },
-]
+}

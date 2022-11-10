@@ -46,7 +46,7 @@ describe("UploadAudioToServer", () => {
         size: size || 0,
         duratation: duratation || 0,
         authorId: authorId || undefined,
-        fileName: fileName || undefined,
+        fileName: fileName,
         peaks,
       })
     )

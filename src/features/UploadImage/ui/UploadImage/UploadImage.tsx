@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from "react"
+import { ChangeEvent, useCallback, useRef, useState } from "react"
 import styles from "./UploadImage.module.scss"
 import Cropper from "react-easy-crop"
 import { Button } from "shared/ui/Button/Button"
@@ -6,12 +6,13 @@ import { Area } from "react-easy-crop/types"
 import { generateCropedImage } from "../../utils/cropImage"
 import { useTranslation } from "react-i18next"
 
-type UploadImageProps = {
+export type UploadImageProps = {
   initalSrc?: string
+  onLoad?: (cropedImageUrl: string) => void
 }
 
 export const UploadImage = (props: UploadImageProps) => {
-  const { initalSrc } = props
+  const { initalSrc, onLoad } = props
   const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement | null>(null)
 
@@ -20,59 +21,61 @@ export const UploadImage = (props: UploadImageProps) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
 
-  const triggerFileSelectPopup = () => {
+  const triggerFileSelectPopup = useCallback(() => {
     inputRef.current?.click()
-  }
+  }, [])
 
-  const onCropComplete = (cropedPercent: any, croppedAreaPixels: Area) => {
-    setCroppedArea(croppedAreaPixels)
-  }
+  const onCropComplete = useCallback(
+    (cropedPercent: any, croppedAreaPixels: Area) => {
+      setCroppedArea(croppedAreaPixels)
+    },
+    []
+  )
 
-  const onSelectFile = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files?.[0]) return
+  const onSelectFile = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files?.[0]) return
 
-    if (initalSrc !== image && image) URL.revokeObjectURL(image)
-    const src = URL.createObjectURL(event.target.files[0])
-    setImage(src)
-  }
+      if (initalSrc !== image && image) URL.revokeObjectURL(image)
+      const src = URL.createObjectURL(event.target.files[0])
+      setImage(src)
+    },
+    [image, initalSrc]
+  )
 
-  const onSave = async () => {
+  const onSave = useCallback(async () => {
     if (!image || !croppedArea) return
     const cropedImageUrl = await generateCropedImage(image, croppedArea)
-    console.log(cropedImageUrl)
-  }
+    onLoad?.(cropedImageUrl)
+  }, [croppedArea, image, onLoad])
 
   return (
     <div className={styles.container}>
       <div className={styles["container-cropper"]}>
-        {image ? (
-          <>
-            <div className={styles.cropper}>
-              <Cropper
-                image={image}
-                crop={crop}
-                zoom={zoom}
-                aspect={1}
-                onCropChange={setCrop}
-                onZoomChange={setZoom}
-                onCropComplete={onCropComplete}
-                style={{
-                  cropAreaStyle: { borderRadius: "50%" },
-                }}
-              />
-            </div>
+        <div className={styles.cropper}>
+          <Cropper
+            image={image}
+            crop={crop}
+            zoom={zoom}
+            aspect={1}
+            onCropChange={setCrop}
+            onZoomChange={setZoom}
+            onCropComplete={onCropComplete}
+            style={{
+              cropAreaStyle: { borderRadius: "50%" },
+            }}
+          />
+        </div>
 
-            <input
-              className={styles.slider}
-              min={1}
-              max={3}
-              step={0.1}
-              value={zoom}
-              type="range"
-              onChange={(e) => setZoom(Number(e.target.value))}
-            />
-          </>
-        ) : null}
+        <input
+          className={styles.slider}
+          min={1}
+          max={3}
+          step={0.1}
+          value={zoom}
+          type="range"
+          onChange={(e) => setZoom(Number(e.target.value))}
+        />
       </div>
 
       <div className={styles["container-buttons"]}>

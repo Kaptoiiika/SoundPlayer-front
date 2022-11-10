@@ -27,11 +27,11 @@ export const fetchAudioList = createAsyncThunk<
       return {
         id: audio.id,
         peaks: audio.peaks,
+        fileName: audio.fileName,
         name: audio.name || "",
         size: audio.size || 0,
         duratation: audio.duratation || 0,
         authorId: audio.authorId || undefined,
-        fileName: audio.fileName || undefined,
       }
     })
 

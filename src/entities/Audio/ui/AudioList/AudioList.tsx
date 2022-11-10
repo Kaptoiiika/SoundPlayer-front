@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import styles from "./AudioList.module.scss"
+import { AudioCard } from "../AudioCard/AudioCard"
 
 type AudioListProps = {
   className?: string
@@ -22,7 +23,7 @@ export const AudioList = memo((props: AudioListProps) => {
   return (
     <div className={classNames([styles.AudioList, className])}>
       {audioList.map((audioItem) => (
-        <div key={audioItem.id}>{audioItem.fileName}</div>
+        <AudioCard key={audioItem.id} audio={audioItem} />
       ))}
     </div>
   )
