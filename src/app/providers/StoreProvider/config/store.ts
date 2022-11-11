@@ -17,8 +17,8 @@ export function createReduxStore(
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
-    audio: audioReducer,
     user: userReducer,
+    audio: audioReducer,
     audioPlayer: audioPlayerReducer
   }
   const reducerManager = createReducerManager(rootReducers)

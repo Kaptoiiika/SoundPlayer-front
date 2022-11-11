@@ -1,0 +1,25 @@
+.AudioPlayer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 2em);
+  height: 100%;
+  margin: 0 1em;
+  gap: 1em;
+}
+
+.audioInfo {
+  display: flex;
+  justify-content: flex-start;
+  width: 300px;
+}
+
+.actions {
+  width: 100%;
+}
+
+.volume {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+}

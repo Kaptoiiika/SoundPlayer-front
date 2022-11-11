@@ -13,8 +13,8 @@ import { AuthByUsernameSchema } from "features/AuthByUsername/model/types/AuthBy
 import { UploadAudioFormSchema } from "features/UploadAudio"
 
 export interface StateSchema {
-  audio: AudioSchema
   user: UserSchema
+  audio: AudioSchema
   audioPlayer: AudioPlayerSchema
 
   audioForm?: UploadAudioFormSchema

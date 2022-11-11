@@ -3,7 +3,7 @@ import styles from "./UploadImage.module.scss"
 import Cropper from "react-easy-crop"
 import { Button } from "shared/ui/Button/Button"
 import { Area } from "react-easy-crop/types"
-import { generateCropedImage } from "../../utils/cropImage"
+import { generateCropedImage } from "../../model/utils/cropImage"
 import { useTranslation } from "react-i18next"
 
 export type UploadImageProps = {

@@ -1,0 +1,16 @@
+.AudioPlayerSlider {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.audioProgress {
+  display: block;
+  min-width: 200px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.time {
+  font: var(--font-s);
+}

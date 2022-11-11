@@ -5,11 +5,11 @@ export interface AudioModel {
 
   size: number
 
+  duratation: number
+
   fileName: string
 
   peaks?: number[]
-
-  duratation?: number
 
   authorId?: number
 }
