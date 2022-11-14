@@ -5,7 +5,7 @@ import {
 import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
 import { ChangeEvent, useCallback } from "react"
 import { useSelector } from "react-redux"
-import { formatMsToMMSS } from "shared/lib/formaters/formatTime/formatTime"
+import { formatSToMMSS } from "shared/lib/formaters/formatTime/formatTime"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Typography } from "shared/ui/Typography/Typography"
 import styles from "./AudioPlayerSlider.module.scss"
@@ -14,6 +14,7 @@ export const AudioPlayerSlider = () => {
   const dispatch = useAppDispatch()
   const time = useSelector(getAudioPlayerCurrentTime)
   const duration = useSelector(getAudioPlayerCurrentDuration)
+  const durationInS = duration / 1000
 
   const hundleChangeTime = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,10 +23,10 @@ export const AudioPlayerSlider = () => {
     },
     [dispatch]
   )
-
+  
   return (
     <div className={styles.AudioPlayerSlider}>
-      <Typography className={styles.time}>{formatMsToMMSS(time)}</Typography>
+      <Typography className={styles.time}>{formatSToMMSS(time)}</Typography>
 
       <input
         className={styles.audioProgress}
@@ -33,11 +34,11 @@ export const AudioPlayerSlider = () => {
         value={time}
         onChange={hundleChangeTime}
         min={0}
-        max={duration / 1000}
+        max={durationInS}
       />
 
       <Typography className={styles.time}>
-        {formatMsToMMSS(Math.max(duration - time, 0))}
+        {formatSToMMSS(Math.max(durationInS - time, 0))}
       </Typography>
     </div>
   )

@@ -12,3 +12,7 @@
   min-height: 100vh;
   background: var(--bg-app);
 }
+
+.page-layer {
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+}

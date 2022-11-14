@@ -1,10 +1,11 @@
 .AudioPlayer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: calc(100% - 2em);
   height: 100%;
-  margin: 0 1em;
+  margin: calc(var(--footer-height) * 2) 1em 0 1em;
   gap: 1em;
 }
 

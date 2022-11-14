@@ -1,0 +1,9 @@
+.Equalizer {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: calc(var(--footer-height) * 2);
+  max-width: var(--maxwidth);
+  bottom: var(--footer-height);
+  left: 0;
+}

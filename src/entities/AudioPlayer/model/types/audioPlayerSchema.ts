@@ -7,7 +7,10 @@ export interface AudioPlayerModel {
 
 export interface AudioPlayerSchema {
   currentAudio?: AudioModel
+  currentPlayList: AudioModel[]
+
   volume: number
   currentTime: number
+  _currentTime: number
   isPlaying: boolean
 }

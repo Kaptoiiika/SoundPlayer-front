@@ -10,4 +10,25 @@ export default {
 const Story: ComponentStory<typeof AudioPage> = () => <AudioPage />
 
 export const Default = Story.bind({})
-Default.decorators = [StoreDecorator({})]
+Default.decorators = [
+  StoreDecorator({
+    audio: {
+      list: [
+        {
+          name: "someName",
+          id: 2,
+          fileName: "filename",
+          duratation: 1000,
+          size: 20000,
+        },
+        {
+          name: "someOtherName",
+          id: 3,
+          fileName: "filename",
+          duratation: 2000,
+          size: 30000,
+        },
+      ],
+    },
+  }),
+]

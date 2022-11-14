@@ -4,18 +4,17 @@ import styles from "./AudioCard.module.scss"
 import { memo } from "react"
 import { Button } from "shared/ui/Button/Button"
 import DefaultAudioIcon from "shared/assets/icons/DefaultAudioIcon.png"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { audioPlayerActions } from "entities/AudioPlayer"
+
 type AudioCardProps = {
   audio: AudioModel
+  onPlay: (audio: AudioModel) => void
 }
 
 export const AudioCard = memo((props: AudioCardProps) => {
-  const { audio } = props
-  const dispatch = useAppDispatch()
+  const { audio, onPlay } = props
 
   const hundlePlay = () => {
-    dispatch(audioPlayerActions.setCurrentAudio(audio))
+    onPlay?.(audio)
   }
 
   return (

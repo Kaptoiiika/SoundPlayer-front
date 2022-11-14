@@ -10,6 +10,12 @@ export default {
 const Story: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
 
 export const Default = Story.bind({})
+Default.decorators = [
+  StoreDecorator({
+    user: {},
+  }),
+]
+
 export const AuthUser = Story.bind({})
 AuthUser.decorators = [
   StoreDecorator({
