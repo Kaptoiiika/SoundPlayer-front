@@ -65,6 +65,7 @@ export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
         })
       )
       if (result.meta.requestStatus === "fulfilled") {
+        dispatch(uploadAudioActions.clearState())
         onSuccess?.()
       }
     },

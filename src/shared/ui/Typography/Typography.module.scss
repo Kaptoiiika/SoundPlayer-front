@@ -1,8 +1,25 @@
-// .Typography {
-// }
+.align-left {
+  text-align: left;
+}
 
-.text {
-  font: (var(--font-m));
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.sizeM {
+  font: var(--font-m);
+}
+
+.sizeL {
+  font: var(--font-l);
+}
+
+.sizeS {
+  font: var(--font-s);
 }
 
 .error {

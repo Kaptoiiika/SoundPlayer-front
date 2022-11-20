@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.tsx",
   "scripts": {
-    "start": "webpack serve --env mode=development port=3000 ",
+    "start": "webpack serve --env mode=development port=3000 apiURL=http://localhost/",
     "build": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint": "npm run lint:ts && npm run lint:scss",

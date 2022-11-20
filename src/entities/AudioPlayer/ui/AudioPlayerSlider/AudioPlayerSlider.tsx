@@ -7,7 +7,8 @@ import { ChangeEvent, useCallback } from "react"
 import { useSelector } from "react-redux"
 import { formatSToMMSS } from "shared/lib/formaters/formatTime/formatTime"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Typography } from "shared/ui/Typography/Typography"
+import { Slider } from "shared/ui/Slider/Slider"
+import { Typography, TypographyAlign } from "shared/ui/Typography/Typography"
 import styles from "./AudioPlayerSlider.module.scss"
 
 export const AudioPlayerSlider = () => {
@@ -17,22 +18,22 @@ export const AudioPlayerSlider = () => {
   const durationInS = duration / 1000
 
   const hundleChangeTime = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      const newTime = Number(e.target.value)
-      if (newTime != NaN) dispatch(audioPlayerActions.setTime(newTime))
+    (newValue: number) => {
+      dispatch(audioPlayerActions.setTime(newValue))
     },
     [dispatch]
   )
-  
+
   return (
     <div className={styles.AudioPlayerSlider}>
-      <Typography className={styles.time}>{formatSToMMSS(time)}</Typography>
+      <Typography align={TypographyAlign.RIGHT} className={styles.time}>
+        {formatSToMMSS(time)}
+      </Typography>
 
-      <input
+      <Slider
         className={styles.audioProgress}
-        type="range"
+        onValueChange={hundleChangeTime}
         value={time}
-        onChange={hundleChangeTime}
         min={0}
         max={durationInS}
       />

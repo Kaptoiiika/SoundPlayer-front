@@ -27,10 +27,18 @@ export const uploadAudioSlice = createSlice({
     setValidationError: (state, action: PayloadAction<string>) => {
       state.error = action.payload
     },
+    clearState: (state) => {
+      state.audioIsLoaded = uploadAudioInitialState.audioIsLoaded
+      state.name = uploadAudioInitialState.name
+      state.isloading = uploadAudioInitialState.isloading
+      state.audio = undefined
+      state.error = undefined
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(UploadAudioToServer.pending, (state) => {
+        state.error = ''
         state.isloading = true
       })
       .addCase(UploadAudioToServer.fulfilled, (state) => {

@@ -14,7 +14,7 @@ export const initalAuthData = createAsyncThunk<
   const BearerTokken = `Bearer ${token}`
 
   try {
-    const { data } = await thunkAPI.extra.api.get<UserModel>("/api/auth", {
+    const { data } = await thunkAPI.extra.api.get<UserModel>("/api/users/me", {
       headers: { Authorization: BearerTokken },
     })
 

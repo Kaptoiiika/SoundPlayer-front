@@ -1,11 +1,11 @@
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import styles from "./Equalizer.module.scss"
 
 type Props = {
   analyser: AnalyserNode
 }
 
-export const Equalizer = memo((props: Props) => {
+export const Equalizer = (props: Props) => {
   const { analyser } = props
   const requestRef = useRef<number>()
   const previousTimeRef = useRef<number>()
@@ -17,8 +17,6 @@ export const Equalizer = memo((props: Props) => {
   const dataArray = useMemo(() => new Uint8Array(bufferLength), [bufferLength])
 
   const animate = (time: any) => {
-    // Это удалит requestAnimationFrame(animate)
-    // и если у нас появится canvas, useEffect вернет requestAnimationFrame(animate)
     if (!ctx || !canvas)
       return cancelAnimationFrame(requestRef.current as number)
 
@@ -30,27 +28,31 @@ export const Equalizer = memo((props: Props) => {
     analyser.getByteFrequencyData(dataArray)
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    dataArray.forEach((value: number, index: number) => {
-      // ctx.fillStyle = scaleFn(value)
-      ctx.fillStyle = "#fff"
+    dataArray.forEach((value, index) => {
+      const red = value  + 32
+      const green = 198 - value / 8
+      const blue = value / 4 + 32
+      ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`
 
-      if (!index) {
-        ctx.fillRect(WIDTH / 2, HEIGHT - value / 2, barWidth, value / 2)
+      const formatedValue = (value / 255) * HEIGHT
+
+      if (index === 0) {
+        ctx.fillRect(WIDTH / 2, HEIGHT - formatedValue, barWidth, formatedValue)
         return
       }
 
       ctx.fillRect(
         WIDTH / 2 + index * barWidth,
-        HEIGHT - value / 2,
+        HEIGHT - formatedValue,
         barWidth,
-        value / 2
+        formatedValue
       )
 
       ctx.fillRect(
         WIDTH / 2 - index * barWidth,
-        HEIGHT - value / 2,
+        HEIGHT - formatedValue,
         barWidth,
-        value / 2
+        formatedValue
       )
     })
 
@@ -75,5 +77,11 @@ export const Equalizer = memo((props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canvas])
 
-  return <canvas className={styles.Equalizer} ref={handleCanvas} width="1920" />
-})
+  return (
+    <canvas
+      className={styles.Equalizer}
+      ref={handleCanvas}
+      width={window.innerWidth * 2}
+    />
+  )
+}

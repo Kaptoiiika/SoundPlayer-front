@@ -5,7 +5,6 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit"
 import { audioReducer } from "entities/Audio"
-import { audioPlayerReducer } from "entities/AudioPlayer"
 import { userReducer } from "entities/User"
 import { apiClient } from "shared/api/apiClient"
 import { createReducerManager } from "./ReducerManager"
@@ -19,7 +18,6 @@ export function createReduxStore(
     ...asyncReducers,
     user: userReducer,
     audio: audioReducer,
-    audioPlayer: audioPlayerReducer
   }
   const reducerManager = createReducerManager(rootReducers)
 

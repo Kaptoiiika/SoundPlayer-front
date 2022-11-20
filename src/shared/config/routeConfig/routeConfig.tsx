@@ -1,3 +1,4 @@
+import { AlbumDetailsPage } from "pages/AlbumDetailsPage"
 import { AudioPage } from "pages/AudioPage"
 import { AuthorizationPage } from "pages/AuthorizationPage"
 import { HomePage } from "pages/HomePage"
@@ -6,11 +7,13 @@ import { ProfilePage } from "pages/ProfilePage"
 import { RouteProps } from "react-router-dom"
 
 export const enum AppRoutes {
+  NOT_FOUND = "not_found",
+
   MAIN = "main",
   AUDIO = "audio",
   AUTH = "auth",
   PROFILE = "proifle",
-  NOT_FOUND = "not_found",
+  ALBUM_DETAILS = "album_details",
 }
 
 export type AppRouteProps = {
@@ -19,13 +22,21 @@ export type AppRouteProps = {
 
 export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: "*",
+
   [AppRoutes.MAIN]: "/",
   [AppRoutes.AUDIO]: "/audio",
   [AppRoutes.AUTH]: "/auth",
   [AppRoutes.PROFILE]: "/profile",
+  [AppRoutes.ALBUM_DETAILS]: "/album/", // + :id
 }
 
 export const routeConfig: Record<string, AppRouteProps> = {
+  [RoutePaths.not_found]: {
+    path: RoutePaths.not_found,
+    element: <NotFoundPage />,
+  },
+  ///////////////
+
   [RoutePaths.main]: {
     path: RoutePaths.main,
     element: <HomePage />,
@@ -43,10 +54,8 @@ export const routeConfig: Record<string, AppRouteProps> = {
     element: <ProfilePage />,
     authRequire: true,
   },
-
-  ///////////////
-  [RoutePaths.not_found]: {
-    path: RoutePaths.not_found,
-    element: <NotFoundPage />,
+  [RoutePaths.album_details]: {
+    path: `${RoutePaths.album_details}:id`,
+    element: <AlbumDetailsPage />,
   },
 }

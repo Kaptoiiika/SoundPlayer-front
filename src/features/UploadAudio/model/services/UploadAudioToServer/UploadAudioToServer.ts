@@ -36,6 +36,8 @@ export const UploadAudioToServer = createAsyncThunk<
 
     return
   } catch (error: any) {
-    return thunkAPI.rejectWithValue(error?.message || "unknownError")
+    return thunkAPI.rejectWithValue(
+      error?.response?.data?.message || error?.message || "unknownError"
+    )
   }
 })

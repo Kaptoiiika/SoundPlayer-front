@@ -1,5 +1,5 @@
 import { ChangeEvent, useCallback, useRef, useState } from "react"
-import styles from "./UploadImage.module.scss"
+import styles from "./CropImage.module.scss"
 import Cropper from "react-easy-crop"
 import { Button } from "shared/ui/Button/Button"
 import { Area } from "react-easy-crop/types"
@@ -8,10 +8,10 @@ import { useTranslation } from "react-i18next"
 
 export type UploadImageProps = {
   initalSrc?: string
-  onLoad?: (cropedImageUrl: string) => void
+  onLoad?: (cropedImage: Blob) => void
 }
 
-export const UploadImage = (props: UploadImageProps) => {
+export const CropImage = (props: UploadImageProps) => {
   const { initalSrc, onLoad } = props
   const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -45,8 +45,8 @@ export const UploadImage = (props: UploadImageProps) => {
 
   const onSave = useCallback(async () => {
     if (!image || !croppedArea) return
-    const cropedImageUrl = await generateCropedImage(image, croppedArea)
-    onLoad?.(cropedImageUrl)
+    const cropedImage = await generateCropedImage(image, croppedArea)
+    onLoad?.(cropedImage)
   }, [croppedArea, image, onLoad])
 
   return (

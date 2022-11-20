@@ -6,20 +6,20 @@ import { Input } from "shared/ui/Input/Input"
 import styles from "./LoginForm.module.scss"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useCallback } from "react"
-import { authByUsernameSliceActions } from "features/AuthByUsername/model/slice/AuthByUsernameSlice"
-import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername"
+import { authByUsernameSliceActions } from "../../model/slice/AuthByUsernameSlice"
+import { loginByUsernameOrEmail } from "../../model/services/loginByUsernameOrEmail/loginByUsernameOrEmail"
 import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
 
 export const LoginForm = () => {
   const { t } = useTranslation()
-  const { username, password, loginError, isloading } = useSelector(
+  const { identifier, password, loginError, isloading } = useSelector(
     getAuthByUsernameState
   )
   const dispatch = useAppDispatch()
 
-  const changeUsername = useCallback(
+  const changeIdentifier = useCallback(
     (value: string) => {
-      dispatch(authByUsernameSliceActions.setUsername(value))
+      dispatch(authByUsernameSliceActions.setIdentifier(value))
     },
     [dispatch]
   )
@@ -32,16 +32,17 @@ export const LoginForm = () => {
   )
 
   const hundleLogin = () => {
-    dispatch(loginByUsername({ password, username }))
+    dispatch(loginByUsernameOrEmail({ password, identifier }))
   }
+  console.log("__API_URL__",__API_URL__)
 
   return (
     <form className={styles.LoginForm}>
       <Input
-        onValueChange={changeUsername}
-        label={t("Username")}
+        onValueChange={changeIdentifier}
+        label={t("UsernameOrEmail")}
         type="text"
-        value={username}
+        value={identifier}
       />
       <Input
         onValueChange={changePassword}

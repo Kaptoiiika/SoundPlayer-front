@@ -16,5 +16,9 @@
   "save": "сохранить",
   "avatar": "аватар",
   "changeavatar": "Изменить аватар",
-  "change": "изменить"
+  "change": "изменить",
+  "AlbumNotFound": "альбом не найден",
+  "errorOnLoadAlbum": "Произошла ошибка при загрузке альбома.",
+  "UsernameOrEmail": "Имя пользователя или почта",
+  "Email or Username are already taken":"Почта или имя пользователя уже заняты"
 }

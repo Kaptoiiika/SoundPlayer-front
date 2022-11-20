@@ -10,7 +10,7 @@ const initialState: AudioSchema = {
 }
 
 const audioSlice = createSlice({
-  name: "profile",
+  name: "audio",
   initialState: initialState,
   reducers: {
     addAudioToList: (state, action: PayloadAction<AudioModel>) => {

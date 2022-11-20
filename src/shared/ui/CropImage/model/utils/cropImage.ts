@@ -50,11 +50,12 @@ export async function generateCropedImage(imageSrc: string, pixelCrop: Area) {
     0 - safeArea / 2 + image.height * 0.5 - pixelCrop.y
   )
 
-  return new Promise<string>((resolve) => {
+  return new Promise<Blob>((resolve, reject) => {
     canvas.toBlob((blob) => {
-      if (!blob) return
-      const cropedImageurl = URL.createObjectURL(blob)
-      resolve(cropedImageurl)
+      if (blob) {
+        resolve(blob)
+      }
+      reject("Uknown blob type")
     }, "image/png")
   })
 }

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema"
 import { userActions } from "entities/User"
+import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { AuthRespounce } from "shared/api/types/AuthRespounce"
 import { saveTokenToApi } from "../../../../../shared/api/saveTokenToApi/saveTokenToApi"
 
@@ -18,31 +19,28 @@ export const registrationByUsername = createAsyncThunk<
   "AuthByUsername/registrationByUsername",
   async ({ password, username, email }, thunkAPI) => {
     if (!password || !username || !email)
-      return thunkAPI.rejectWithValue("unknownError")
+      return thunkAPI.rejectWithValue("Missing or invalid credentials")
 
     const body = { password, username, email }
     try {
       const { data } = await thunkAPI.extra.api.post<AuthRespounce>(
-        "/api/auth/registration",
+        "/api/auth/local/register",
         body
       )
-      const { token, user } = data
+      const { jwt: token, user } = data
 
       thunkAPI.dispatch(
         userActions.setAuthData({
           email: user.email,
           id: user.id,
           username: user.username,
-          avatar: user.avatar || undefined,
         })
       )
       saveTokenToApi(thunkAPI.extra.api, token)
 
       return
     } catch (error: any) {
-      return thunkAPI.rejectWithValue(
-        error?.response?.data?.message || error?.message || "unknownError"
-      )
+      return thunkAPI.rejectWithValue(FormateError(error))
     }
   }
 )

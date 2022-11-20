@@ -1,6 +1,7 @@
 export interface AuthByUsernameSchema {
   password: string
   username: string
+  identifier: string
   email?: string
 
   isloading: boolean

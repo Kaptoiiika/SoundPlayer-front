@@ -14,12 +14,18 @@ export const AppRouter = () => {
         return (
           <Route
             key={path}
-            path={path}
+            path={routerProps.path}
             element={<RequireAuth>{routerProps.element}</RequireAuth>}
           />
         )
 
-      return <Route key={path} path={path} element={routerProps.element} />
+      return (
+        <Route
+          key={path}
+          path={routerProps.path}
+          element={routerProps.element}
+        />
+      )
     },
     []
   )

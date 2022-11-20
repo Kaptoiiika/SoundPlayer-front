@@ -83,6 +83,13 @@ export const Navbar = (props: NavbarProps) => {
             onLinkClick={hundleChangePage}
           />
         )}
+
+        <AppLink
+          variant={AppLinkTheme.PRIMARY}
+          to={RoutePaths.album_details + '2'}
+          title={'album_details'}
+          onLinkClick={hundleChangePage}
+        />
       </div>
     </div>
   )

@@ -1,9 +1,13 @@
 export interface AuthRespounce {
-  token: string
+  jwt: string
   user: {
     id: number
     username: string
     email: string
-    avatar: string | null
+    provider: string
+    createdAt: string
+    updatedAt: string
+    confirmed: boolean
+    blocked: boolean
   }
 }

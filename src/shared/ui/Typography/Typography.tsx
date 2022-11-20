@@ -7,11 +7,25 @@ export const enum TypographyTypes {
   ERROR = "error",
 }
 
+export const enum TypographyAlign {
+  LEFT = "align-left",
+  RIGHT = "align-right",
+  CENTER = "align-center",
+}
+
+export const enum TypographySize {
+  M = "sizeM",
+  L = "sizeL",
+  S = "sizeS",
+}
+
 type TypographyProps = {
   className?: string
   type?: TypographyTypes
+  align?: TypographyAlign
   oneLine?: boolean
   bold?: boolean
+  size?: TypographySize
 } & PropsWithChildren
 
 export const Typography = memo((props: TypographyProps) => {
@@ -19,18 +33,28 @@ export const Typography = memo((props: TypographyProps) => {
     className = "",
     children,
     type = TypographyTypes.TEXT,
+    align = TypographyAlign.LEFT,
+    size = TypographySize.M,
     oneLine,
     bold,
   } = props
 
   return (
-    <span
-      className={classNames([styles.Typography, styles[type], className], {
-        [styles.oneLine]: oneLine,
-        [styles.bold]: bold,
-      })}
+    <p
+      className={classNames(
+        [
+          styles[type],
+          styles[align],
+          styles[size],
+          className,
+        ],
+        {
+          [styles.oneLine]: oneLine,
+          [styles.bold]: bold,
+        }
+      )}
     >
       {children}
-    </span>
+    </p>
   )
 })

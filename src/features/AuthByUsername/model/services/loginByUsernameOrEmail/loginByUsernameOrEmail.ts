@@ -1,37 +1,38 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema"
 import { userActions } from "entities/User"
+import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { AuthRespounce } from "shared/api/types/AuthRespounce"
 import { saveTokenToApi } from "../../../../../shared/api/saveTokenToApi/saveTokenToApi"
 
-interface loginByUsernameDTO {
-  username: string
+interface loginByUsernameOrEmailDTO {
+  identifier: string
   password: string
 }
 
-export const loginByUsername = createAsyncThunk<
+export const loginByUsernameOrEmail = createAsyncThunk<
   void,
-  loginByUsernameDTO,
+  loginByUsernameOrEmailDTO,
   ThunkConfig<string>
 >(
-  "AuthByUsername/loginByUsername",
-  async ({ password, username }, thunkAPI) => {
-    if (!password || !username) return thunkAPI.rejectWithValue("unknownError")
+  "AuthByUsername/loginByUsernameOrEmail",
+  async ({ password, identifier }, thunkAPI) => {
+    if (!password || !identifier)
+      return thunkAPI.rejectWithValue("unknownError")
 
-    const body = { password, username }
+    const body = { password, identifier }
     try {
       const { data } = await thunkAPI.extra.api.post<AuthRespounce>(
-        "/api/auth/login",
+        "/api/auth/local",
         body
       )
-      const { user, token } = data
+      const { user, jwt: token } = data
 
       thunkAPI.dispatch(
         userActions.setAuthData({
-          email: user.email,
           id: user.id,
+          email: user.email,
           username: user.username,
-          avatar: user.avatar || undefined,
         })
       )
       saveTokenToApi(thunkAPI.extra.api, token)
@@ -39,9 +40,7 @@ export const loginByUsername = createAsyncThunk<
       return
     } catch (error: any) {
       console.log(error)
-      return thunkAPI.rejectWithValue(
-        error?.response?.data?.message || error?.message || "unknownError"
-      )
+      return thunkAPI.rejectWithValue(FormateError(error))
     }
   }
 )

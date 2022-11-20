@@ -8,10 +8,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     historyApiFallback: true,
     allowedHosts: "all",
     hot: true,
-    proxy: {
-      "/api": {
-        target: "http://localhost",
-      },
-    },
+
   }
 }

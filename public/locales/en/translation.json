@@ -19,5 +19,8 @@
   "save": "save",
   "avatar": "avatar",
   "changeavatar": "change avatar",
-  "change": "change"
+  "change": "change",
+  "AlbumNotFound": "Album is not found",
+  "errorOnLoadAlbum": "An error occurred while loading the album.",
+  "UsernameOrEmail": "Username or email"
 }

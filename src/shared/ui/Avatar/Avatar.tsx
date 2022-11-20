@@ -4,11 +4,13 @@ import styles from "./Avatar.module.scss"
 
 export const enum AvatarSize {
   M = "sizeM",
+  L = "sizeL",
+  AUTO = "sizeAuto"
 }
 
 type AvatarProps = {
+  src?: string
   className?: string
-  avatar?: string
   size?: AvatarSize
 }
 
@@ -16,7 +18,7 @@ const emptyImg =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
 export const Avatar = memo((props: AvatarProps) => {
-  const { className = "", avatar, size = AvatarSize.M } = props
+  const { className = "", src: avatar, size = AvatarSize.M } = props
   const src = `${__API_URL__}api/file/avatar/${avatar}`
 
   const hundleErrorLoadImage = (e: SyntheticEvent<HTMLImageElement, Event>) => {
@@ -28,6 +30,7 @@ export const Avatar = memo((props: AvatarProps) => {
       className={classNames([styles.Avatar, styles[size], className])}
       src={src}
       onError={hundleErrorLoadImage}
+      alt={""}
     />
   )
 })

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { loginByUsername } from "../services/loginByUsername/loginByUsername"
+import { loginByUsernameOrEmail } from "../services/loginByUsernameOrEmail/loginByUsernameOrEmail"
 import { registrationByUsername } from "../services/registrationByUsernameAndEmail/registrationByUsernameAndEmail"
 import { AuthByUsernameSchema } from "../types/AuthByUserNameSchema"
 
@@ -7,6 +7,7 @@ export const authByUsernameInitial: AuthByUsernameSchema = {
   username: "",
   password: "",
   email: "",
+  identifier: "",
 
   isloading: false,
 }
@@ -24,17 +25,20 @@ export const authByUsernameSlice = createSlice({
     setEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload
     },
+    setIdentifier: (state, action: PayloadAction<string>) => {
+      state.identifier = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginByUsername.pending, (state) => {
+      .addCase(loginByUsernameOrEmail.pending, (state) => {
         state.isloading = true
       })
-      .addCase(loginByUsername.fulfilled, (state) => {
+      .addCase(loginByUsernameOrEmail.fulfilled, (state) => {
         state.isloading = false
         state.loginError = undefined
       })
-      .addCase(loginByUsername.rejected, (state, action) => {
+      .addCase(loginByUsernameOrEmail.rejected, (state, action) => {
         state.isloading = false
         state.loginError = action.payload
       })

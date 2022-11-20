@@ -6,8 +6,10 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
+import { AlbumSchema } from "entities/Album/model/types/AlbumSchema"
 import { AudioSchema } from "entities/Audio"
 import { AudioPlayerSchema } from "entities/AudioPlayer/model/types/audioPlayerSchema"
+import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
 import { AuthByUsernameSchema } from "features/AuthByUsername/model/types/AuthByUserNameSchema"
 import { UploadAudioFormSchema } from "features/UploadAudio"
@@ -15,8 +17,13 @@ import { UploadAudioFormSchema } from "features/UploadAudio"
 export interface StateSchema {
   user: UserSchema
   audio: AudioSchema
-  audioPlayer: AudioPlayerSchema
 
+  // ??
+  audioPlayer?: AudioPlayerSchema
+  albumDetails?: AlbumSchema
+  profile?: ProfileSchema
+
+  // forms
   audioForm?: UploadAudioFormSchema
   authByUsername?: AuthByUsernameSchema
 }
