@@ -1,4 +1,7 @@
-export { getAuthData } from "./model/selectors/getAuthData/getAuthData"
+export {
+  getAuthIsInited,
+  getAuthData,
+} from "./model/selectors/getAuthData/getAuthData"
 
 export { initalAuthData } from "./model/services/initialAuth/initAuthData"
 

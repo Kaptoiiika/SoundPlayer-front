@@ -1,4 +1,4 @@
-import { ProfileDetails } from "entities/Profile"
+import { Profile } from "entities/Profile"
 import { useParams } from "react-router-dom"
 import styles from "./ProfilePage.module.scss"
 
@@ -7,7 +7,7 @@ export const ProfilePage = () => {
 
   return (
     <div className={styles.ProfilePage}>
-      <ProfileDetails id={id}/>
+      <Profile id={id}/>
     </div>
   )
 }

@@ -5,7 +5,7 @@ export interface UserModel {
   avatar?: string
 }
 
-
 export interface UserSchema {
   authData?: UserModel
+  isInited: boolean
 }

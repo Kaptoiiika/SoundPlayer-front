@@ -1,8 +1,10 @@
-import { getAuthData } from "entities/User"
+import { getAuthIsInited } from "entities/User"
+import { getAuthData } from "entities/User/model/selectors/getAuthData/getAuthData"
 import { ReactNode } from "react"
 import { useSelector } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
+import { PageLoader } from "widgets/PageLoader"
 
 type RequireAuthProps = {
   children: ReactNode
@@ -10,8 +12,13 @@ type RequireAuthProps = {
 
 export const RequireAuth = (props: RequireAuthProps) => {
   const { children } = props
+  const isInited = useSelector(getAuthIsInited)
   const authData = useSelector(getAuthData)
   const location = useLocation()
+
+  if (!isInited) {
+    return <PageLoader />
+  }
 
   if (!authData)
     return <Navigate to={RoutePaths.auth} state={{ from: location }} replace />

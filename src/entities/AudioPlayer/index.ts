@@ -4,5 +4,5 @@ export { getCurrentWaveform } from "./model/selectors/getCurrentWaveform/getCurr
 
 export {
   audioPlayerActions,
-  audioPlayerReducer,
 } from "./model/slice/audioPlayerSlice"
+export type { AudioPlayerSchema } from "./model/types/audioPlayerSchema"

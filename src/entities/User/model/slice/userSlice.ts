@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { localstorageKeys } from "shared/const/localstorageKeys/localstorageKeys"
 import { initalAuthData } from "../services/initialAuth/initAuthData"
-import {  UserModel, UserSchema } from "../types/userSchema"
+import { UserModel, UserSchema } from "../types/userSchema"
 
 const initialState: UserSchema = {
   authData: undefined,
+  isInited: false,
 }
 
 export const userSlice = createSlice({
@@ -20,9 +21,14 @@ export const userSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(initalAuthData.fulfilled, (state, action) => {
-      state.authData = action.payload
-    })
+    builder
+      .addCase(initalAuthData.fulfilled, (state, action) => {
+        state.authData = action.payload
+        state.isInited = true
+      })
+      .addCase(initalAuthData.rejected, (state) => {
+        state.isInited = true
+      })
   },
 })
 

@@ -6,12 +6,13 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
-import { AlbumSchema } from "entities/Album/model/types/AlbumSchema"
+import { AlbumSchema } from "entities/Album"
 import { AudioSchema } from "entities/Audio"
-import { AudioPlayerSchema } from "entities/AudioPlayer/model/types/audioPlayerSchema"
 import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
-import { AuthByUsernameSchema } from "features/AuthByUsername/model/types/AuthByUserNameSchema"
+import { AudioPlayerSchema } from "entities/AudioPlayer"
+import { AuthByUsernameSchema } from "features/AuthByUsername"
+import { EditableProfileSchema } from "features/EditableProfile"
 import { UploadAudioFormSchema } from "features/UploadAudio"
 
 export interface StateSchema {
@@ -26,6 +27,7 @@ export interface StateSchema {
   // forms
   audioForm?: UploadAudioFormSchema
   authByUsername?: AuthByUsernameSchema
+  editableProfileSchema?: EditableProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
