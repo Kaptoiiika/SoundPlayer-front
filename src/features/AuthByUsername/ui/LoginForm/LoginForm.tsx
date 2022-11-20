@@ -34,7 +34,6 @@ export const LoginForm = () => {
   const hundleLogin = () => {
     dispatch(loginByUsernameOrEmail({ password, identifier }))
   }
-  console.log("__API_URL__",__API_URL__)
 
   return (
     <form className={styles.LoginForm}>

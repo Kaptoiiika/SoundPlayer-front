@@ -17,7 +17,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
   return (
     <Paper className={classNames([styles.ProfileCard, className])}>
       <div className={styles.header}>
-        <Avatar className={styles.avatar} size={AvatarSize.M} src={avatar} />
+        <Avatar className={styles.avatar} size={AvatarSize.M} src={avatar?.url} />
       </div>
       <div className={styles.info}>
         <Typography bold oneLine>

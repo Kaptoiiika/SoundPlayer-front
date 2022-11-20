@@ -33,7 +33,7 @@ export const AudioPlayerComponent = memo(() => {
   const volume = useSelector(getAudioPlayerVolume)
 
   useEffect(() => {
-    player.src = `${__API_URL__}api/uploads/audio/${currentAudioData?.fileName}`
+    player.src = `${__API_URL__}/api/uploads/audio/${currentAudioData?.fileName}`
   }, [currentAudioData])
 
   useEffect(() => {

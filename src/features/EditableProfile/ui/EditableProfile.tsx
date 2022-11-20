@@ -40,9 +40,9 @@ export const EditableProfile = (props: EditableProfileProps) => {
   )
 
   return (
-    <div className={classNames(["", className])}>
+    <div className={classNames([styles.EditableProfile, className])}>
       <div className={classNames(className)}>
-        <Profile />
+        <Profile id={"me"} />
         <div>
           <Button onClick={hundleOpenUploadImage}>{t("changeavatar")}</Button>
         </div>
@@ -50,7 +50,7 @@ export const EditableProfile = (props: EditableProfileProps) => {
           isOpen={imageUploadIsOpen}
           onClose={hundleCloseUploadImage}
           onLoad={hundleUploadImage}
-          initalSrc={`${__API_URL__}api/file/avatar/`}
+          initalSrc={`${__API_URL__}/api/file/avatar/`}
         />
       </div>
     </div>

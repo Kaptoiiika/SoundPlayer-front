@@ -70,7 +70,7 @@ export const Navbar = (props: NavbarProps) => {
         <LanguageSwitcher />
         {authData ? (
           <AppLink
-            to={RoutePaths.proifle}
+            to={RoutePaths.proifle + 'me'}
             className={styles.authUsername}
             onLinkClick={hundleChangePage}
             title={authData.username}

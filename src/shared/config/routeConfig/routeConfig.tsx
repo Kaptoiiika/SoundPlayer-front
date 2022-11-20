@@ -26,7 +26,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.AUDIO]: "/audio",
   [AppRoutes.AUTH]: "/auth",
-  [AppRoutes.PROFILE]: "/profile",
+  [AppRoutes.PROFILE]: "/profile/",
   [AppRoutes.ALBUM_DETAILS]: "/album/", // + :id
 }
 
@@ -50,9 +50,8 @@ export const routeConfig: Record<string, AppRouteProps> = {
     element: <AuthorizationPage />,
   },
   [RoutePaths.proifle]: {
-    path: RoutePaths.proifle,
+    path: `${RoutePaths.proifle}:id`,
     element: <ProfilePage />,
-    authRequire: true,
   },
   [RoutePaths.album_details]: {
     path: `${RoutePaths.album_details}:id`,
