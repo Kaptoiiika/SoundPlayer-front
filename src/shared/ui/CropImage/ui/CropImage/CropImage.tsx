@@ -7,16 +7,15 @@ import { generateCropedImage } from "../../model/utils/cropImage"
 import { useTranslation } from "react-i18next"
 
 export type UploadImageProps = {
-  initalSrc?: string
   onLoad?: (cropedImage: Blob) => void
 }
 
 export const CropImage = (props: UploadImageProps) => {
-  const { initalSrc, onLoad } = props
+  const { onLoad } = props
   const { t } = useTranslation()
   const inputRef = useRef<HTMLInputElement | null>(null)
 
-  const [image, setImage] = useState(initalSrc)
+  const [image, setImage] = useState("")
   const [croppedArea, setCroppedArea] = useState<Area>()
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
@@ -36,11 +35,11 @@ export const CropImage = (props: UploadImageProps) => {
     (event: ChangeEvent<HTMLInputElement>) => {
       if (!event.target.files?.[0]) return
 
-      if (initalSrc !== image && image) URL.revokeObjectURL(image)
+      if (image) URL.revokeObjectURL(image)
       const src = URL.createObjectURL(event.target.files[0])
       setImage(src)
     },
-    [image, initalSrc]
+    [image]
   )
 
   const onSave = useCallback(async () => {

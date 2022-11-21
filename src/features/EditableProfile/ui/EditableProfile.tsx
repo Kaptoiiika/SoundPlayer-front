@@ -1,4 +1,4 @@
-import { Profile } from "entities/Profile"
+import { Profile, profileReducer } from "entities/Profile"
 import { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
@@ -16,7 +16,10 @@ type EditableProfileProps = {
 
 export const EditableProfile = (props: EditableProfileProps) => {
   useDynamicModuleLoader({
-    reducers: { editableProfileSchema: editableProfileReducer },
+    reducers: {
+      editableProfileSchema: editableProfileReducer,
+      profile: profileReducer
+    },
   })
   const { className = "" } = props
   const dispatch = useAppDispatch()
@@ -50,7 +53,6 @@ export const EditableProfile = (props: EditableProfileProps) => {
           isOpen={imageUploadIsOpen}
           onClose={hundleCloseUploadImage}
           onLoad={hundleUploadImage}
-          initalSrc={`${__API_URL__}/api/file/avatar/`}
         />
       </div>
     </div>

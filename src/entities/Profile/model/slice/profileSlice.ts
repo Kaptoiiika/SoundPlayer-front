@@ -10,7 +10,9 @@ const initialState: ProfileSchema = {
 const profileSlice = createSlice({
   name: "profile",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchProfileDataById.fulfilled, (state, action) => {

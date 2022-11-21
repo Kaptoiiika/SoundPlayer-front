@@ -10,11 +10,11 @@ type CropImageModalProps = {
 } & UploadImageProps
 
 export const CropImageModal = (props: CropImageModalProps) => {
-  const { isOpen, onClose, initalSrc, onLoad } = props
+  const { isOpen, onClose, onLoad } = props
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <Suspense fallback={<Loader />}>
-        <CropImageLazy initalSrc={initalSrc} onLoad={onLoad} />
+        <CropImageLazy  onLoad={onLoad} />
       </Suspense>
     </Modal>
   )

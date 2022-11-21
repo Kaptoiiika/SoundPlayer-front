@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema"
+import { fetchProfileDataById } from "entities/Profile"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 
 interface UploadAvatarDTO {
@@ -19,7 +20,7 @@ export const UpdateProfileAvatar = createAsyncThunk<
   body.append("field", "avatar")
   try {
     await thunkAPI.extra.api.post("/api/upload", body)
-
+    thunkAPI.dispatch(fetchProfileDataById({ id: "me", noCashe: true }))
     return
   } catch (error: any) {
     return thunkAPI.rejectWithValue(FormateError(error))

@@ -5,6 +5,7 @@ import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 
 interface fetchProfileDataByIdDTO {
   id: string
+  noCashe?: boolean
 }
 
 export const fetchProfileDataById = createAsyncThunk<
@@ -12,8 +13,13 @@ export const fetchProfileDataById = createAsyncThunk<
   fetchProfileDataByIdDTO,
   ThunkConfig<string>
 >("profile/fetchProfileDataById", async (dto, thunkAPI) => {
-  const { id } = dto
+  const { id, noCashe } = dto
   const params = { populate: "*" }
+  
+  if (!noCashe) {
+    const profile = thunkAPI.getState().profile?.profiles[id]
+    if (profile) return { user: profile, isMe: id === "me" }
+  }
 
   try {
     const { data } = await thunkAPI.extra.api.get<Required<UserModel>>(

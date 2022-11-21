@@ -17,7 +17,7 @@ type ProfileDetailsProps = {
   id: string
 }
 
-export const ProfileDetails = (props: ProfileDetailsProps) => {
+export const     ProfileDetails = (props: ProfileDetailsProps) => {
   useDynamicModuleLoader({ reducers: { profile: profileReducer } })
   const { className = "", id } = props
   const dispatch = useAppDispatch()
@@ -39,3 +39,4 @@ export const ProfileDetails = (props: ProfileDetailsProps) => {
 
   return <div className={classNames(className)}>{content}</div>
 }
+ 

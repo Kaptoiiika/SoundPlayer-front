@@ -12,29 +12,26 @@ export type ReducersList = {
 
 interface DynamicModuleLoaderProps {
   reducers: ReducersList
-  removeAfterUnmount?: boolean
 }
 
 export function useDynamicModuleLoader({
   reducers,
-  removeAfterUnmount,
 }: DynamicModuleLoaderProps) {
   const store = useStore() as ReduxStoreWithManager
   const dispatch = useDispatch()
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
+      if (store.reducerManager.getReducerMap()[name as StateSchemaKey]) return
       store.reducerManager.add(name as StateSchemaKey, reducer)
       dispatch({ type: `@INIT ${name} reducer` })
     })
 
     return () => {
-      if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([name]) => {
-          store.reducerManager.remove(name as StateSchemaKey)
-          dispatch({ type: `@DESTROY ${name} reducer` })
-        })
-      }
+      Object.entries(reducers).forEach(([name]) => {
+        store.reducerManager.remove(name as StateSchemaKey)
+        dispatch({ type: `@DESTROY ${name} reducer` })
+      })
     }
     // eslint-disable-next-line
   }, [])
