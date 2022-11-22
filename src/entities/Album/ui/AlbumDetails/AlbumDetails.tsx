@@ -4,11 +4,15 @@ import {
   getAlbumDetailsIsLoading,
 } from "entities/Album/model/selectors/getAlbumDetails/getAlbumDetails"
 import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
+import { albumReducer } from "entities/Album/model/slice/albumSlice"
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 import {
@@ -24,10 +28,12 @@ type AlbumDetailsProps = {
 }
 
 export const AlbumDetails = (props: AlbumDetailsProps) => {
+  useDynamicModuleLoader({ reducers: { albumDetails: albumReducer } })
   const { className = "", id } = props
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
-  const album = useSelector(getAlbumDetailsData)
+  const albums = useSelector(getAlbumDetailsData)
+  const album = albums?.[id]
   const isLoading = useSelector(getAlbumDetailsIsLoading)
   const error = useSelector(getAlbumDetailsError)
 
@@ -66,7 +72,7 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
           <div className={styles.header}>
             <div className={styles.avatarWrapper}>
               <Avatar
-                src={album.image}
+                src={album.image?.url}
                 className={styles.avatar}
                 size={AvatarSize.L}
               />
@@ -75,9 +81,13 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
               <Typography className={styles.title} bold size={TypographySize.L}>
                 {album.title}
               </Typography>
-              <Typography className={styles.author} size={TypographySize.M}>
-                {album.authorId}
-              </Typography>
+              <AppLink
+                to={RoutePaths.proifle + album.author?.id}
+                className={styles.author}
+                variant={AppLinkTheme.SECONDARY}
+              >
+                {album.author?.username || t("unknownAuthor")}
+              </AppLink>
             </div>
           </div>
           <div className={styles.content}>

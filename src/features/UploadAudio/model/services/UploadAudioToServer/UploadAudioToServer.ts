@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema"
-import { audioActions, AudioModel } from "entities/Audio"
+import { AudioModel } from "entities/Audio"
+import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 
 interface UploadAudioDTO {
   name: string
@@ -20,24 +21,10 @@ export const UploadAudioToServer = createAsyncThunk<
       "/api/uploads/audio",
       body
     )
-    const { id, name, size, authorId, duratation, fileName, peaks } = data
-
-    thunkAPI.dispatch(
-      audioActions.addAudioToList({
-        id,
-        peaks,
-        fileName: fileName,
-        name: name || "",
-        size: size || 0,
-        duratation: duratation || 0,
-        authorId: authorId || undefined,
-      })
-    )
 
     return
   } catch (error: any) {
-    return thunkAPI.rejectWithValue(
-      error?.response?.data?.message || error?.message || "unknownError"
+    return thunkAPI.rejectWithValue(FormateError(error)
     )
   }
 })

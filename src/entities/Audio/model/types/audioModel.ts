@@ -1,3 +1,6 @@
+import { UserModel } from "entities/User"
+import { FileRespounce } from "shared/api/types/FilteTypes"
+
 export interface AudioModel {
   id: number
 
@@ -7,9 +10,9 @@ export interface AudioModel {
 
   duratation: number
 
-  fileName: string
-
   peaks?: number[]
 
-  authorId?: number
+  audioFile: FileRespounce
+
+  author?: UserModel
 }

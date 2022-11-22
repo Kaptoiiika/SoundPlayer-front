@@ -27,12 +27,12 @@ export function useDynamicModuleLoader({
       dispatch({ type: `@INIT ${name} reducer` })
     })
 
-    return () => {
-      Object.entries(reducers).forEach(([name]) => {
-        store.reducerManager.remove(name as StateSchemaKey)
-        dispatch({ type: `@DESTROY ${name} reducer` })
-      })
-    }
+    // return () => {
+    //   Object.entries(reducers).forEach(([name]) => {
+    //     store.reducerManager.remove(name as StateSchemaKey)
+    //     dispatch({ type: `@DESTROY ${name} reducer` })
+    //   })
+    // }
     // eslint-disable-next-line
   }, [])
 

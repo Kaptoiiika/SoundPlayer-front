@@ -1,21 +1,23 @@
 import { AudioModel } from "entities/Audio"
+import { UserModel } from "entities/User"
+import { FileRespounce } from "shared/api/types/FilteTypes"
 
 export enum AlbumType {
   SINGLE = "single",
 }
 
 export interface AlbumModel {
-  title: string
-  authorId: number
   id: number
-  image: string
-  trackList: AudioModel[]
+  title: string
+  audioList: AudioModel[]
+  image?: FileRespounce
+  author?: UserModel
   type?: AlbumType
 }
 
 export interface AlbumSchema {
-  album?: AlbumModel
-
+  albums: Record<string, AlbumModel>
   isLoading: boolean
+
   error?: string
 }

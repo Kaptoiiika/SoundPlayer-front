@@ -20,5 +20,6 @@
   "AlbumNotFound": "альбом не найден",
   "errorOnLoadAlbum": "Произошла ошибка при загрузке альбома.",
   "UsernameOrEmail": "Имя пользователя или почта",
-  "Email or Username are already taken":"Почта или имя пользователя уже заняты"
+  "Email or Username are already taken": "Почта или имя пользователя уже заняты",
+  "unknownAuthor": "Неизвестный"
 }

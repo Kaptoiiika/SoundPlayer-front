@@ -12,17 +12,17 @@ export const fetchProfileDataById = createAsyncThunk<
   { user: UserModel; isMe: boolean },
   fetchProfileDataByIdDTO,
   ThunkConfig<string>
->("profile/fetchProfileDataById", async (dto, thunkAPI) => {
+>("profile/fetchProfileDataById", async (dto, thunkApi) => {
   const { id, noCashe } = dto
   const params = { populate: "*" }
-  
+
   if (!noCashe) {
-    const profile = thunkAPI.getState().profile?.profiles[id]
+    const profile = thunkApi.getState().profile?.profiles[id]
     if (profile) return { user: profile, isMe: id === "me" }
   }
 
   try {
-    const { data } = await thunkAPI.extra.api.get<Required<UserModel>>(
+    const { data } = await thunkApi.extra.api.get<Required<UserModel>>(
       `/api/users/${id}`,
       {
         params,
@@ -31,6 +31,6 @@ export const fetchProfileDataById = createAsyncThunk<
 
     return { user: data, isMe: id === "me" }
   } catch (error: any) {
-    return thunkAPI.rejectWithValue(FormateError(error))
+    return thunkApi.rejectWithValue(FormateError(error))
   }
 })

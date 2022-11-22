@@ -22,5 +22,6 @@
   "change": "change",
   "AlbumNotFound": "Album is not found",
   "errorOnLoadAlbum": "An error occurred while loading the album.",
-  "UsernameOrEmail": "Username or email"
+  "UsernameOrEmail": "Username or email",
+  "unknownAuthor": "Unknown"
 }
