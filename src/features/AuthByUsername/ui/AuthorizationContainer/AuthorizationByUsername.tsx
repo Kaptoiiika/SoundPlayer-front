@@ -1,6 +1,10 @@
+import { getAuthData } from "entities/User"
 import { authByUsernameSliceReducer } from "features/AuthByUsername/model/slice/AuthByUsernameSlice"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 import { Button, ButtonVariant } from "shared/ui/Button/Button"
 import { Paper } from "shared/ui/Paper/Paper"
@@ -12,6 +16,8 @@ export const AuthorizationByUsername = () => {
   useDynamicModuleLoader({
     reducers: { authByUsername: authByUsernameSliceReducer },
   })
+  const authData = useSelector(getAuthData)
+  const navigate = useNavigate()
   const { t } = useTranslation()
   const [isLoginSelect, selIsLoginSelect] = useState(true)
 
@@ -22,6 +28,10 @@ export const AuthorizationByUsername = () => {
   const hundleSelectRegistration = useCallback(() => {
     selIsLoginSelect(false)
   }, [])
+  
+  useEffect(() => {
+    if (authData) navigate(RoutePaths.my_profile)
+  }, [authData, navigate])
 
   return (
     <Paper className={styles.AuthorizationByUsername}>

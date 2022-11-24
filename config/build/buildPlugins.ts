@@ -21,6 +21,6 @@ export function buildPlugins(
     }),
     buildDefinePlugins(options),
     new webpack.HotModuleReplacementPlugin(),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
   ]
 }

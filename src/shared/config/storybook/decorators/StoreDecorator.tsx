@@ -1,12 +1,10 @@
 import { Story } from "@storybook/react"
 import { StoreProvider } from "app/providers/StoreProvider"
 import { ReducersMapObject } from "@reduxjs/toolkit"
-import { uploadAudioReducer } from "features/UploadAudio"
 import { StateSchema } from "app/providers/StoreProvider/config/StateSchema"
 import { authByUsernameSliceReducer } from "features/AuthByUsername/model/slice/AuthByUsernameSlice"
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
-  audioForm: uploadAudioReducer,
   authByUsername: authByUsernameSliceReducer,
 }
 

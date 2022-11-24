@@ -15,7 +15,7 @@ export const getAudioPlayerTime = (state: StateSchema) =>
   state.audioPlayer?._currentTime || 0
 
 export const getAudioPlayerCurrentDuration = (state: StateSchema) =>
-  state.audioPlayer?.currentAudio?.duratation || 0
+  state.audioPlayer?.duratation || 0
 
 export const getAudioPlayerIsPlaying = (state: StateSchema) =>
   state.audioPlayer?.isPlaying || false

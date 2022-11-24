@@ -17,7 +17,7 @@ type EditableProfileProps = {
 export const EditableProfile = (props: EditableProfileProps) => {
   useDynamicModuleLoader({
     reducers: {
-      editableProfileSchema: editableProfileReducer,
+      editableProfile: editableProfileReducer,
       profile: profileReducer
     },
   })

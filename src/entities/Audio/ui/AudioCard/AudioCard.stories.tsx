@@ -13,9 +13,12 @@ const Template: ComponentStory<typeof AudioCard> = (args) => (
 export const Default = Template.bind({})
 Default.args = {
   audio: {
-    name: "someName",
+    title: "someName",
     id: 2,
-    fileName: "filename",
+    audioFile: {
+      id: 2,
+      url: "",
+    },
     duratation: 1000,
     size: 20000,
   },

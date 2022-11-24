@@ -3,7 +3,7 @@ import {
   getAudioPlayerCurrentTime,
 } from "entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
 import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
-import { ChangeEvent, useCallback } from "react"
+import { useCallback } from "react"
 import { useSelector } from "react-redux"
 import { formatSToMMSS } from "shared/lib/formaters/formatTime/formatTime"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"

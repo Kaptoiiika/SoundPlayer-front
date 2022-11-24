@@ -1,3 +1,5 @@
+export { FormateAtributedAudio } from "./model/services/FormateAudio/FormateAtributesAudio"
+
 export { AudioList } from "./ui/AudioList/AudioList"
 
 export { audioReducer } from "./model/slice/audioSlice"

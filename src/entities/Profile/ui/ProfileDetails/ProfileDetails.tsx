@@ -1,4 +1,4 @@
-import { profileReducer } from "../../model/slice/ProfileSlice"
+import { profileReducer } from "../../model/slice/profileSlice"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 import { ProfileCard } from "../ProfileCard/ProfileCard"

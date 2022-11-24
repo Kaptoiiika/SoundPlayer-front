@@ -5,6 +5,12 @@
   border-radius: 50%;
   overflow: hidden;
   background-color: rgb(var(--bg-primary-color));
+  flex-shrink: 0;
+}
+
+.sizeS {
+  width: 48px;
+  height: 48px;
 }
 
 .sizeM {

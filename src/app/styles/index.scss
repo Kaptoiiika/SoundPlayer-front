@@ -14,5 +14,8 @@
 }
 
 .page-layer {
-  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height) * 3);
+  max-width: 1366px;
+  padding: 1em;
+  margin: auto;
 }

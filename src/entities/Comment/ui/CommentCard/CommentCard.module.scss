@@ -1,0 +1,15 @@
+.CommentCard {
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  &:hover {
+    background-color: rgba(var(--primary-color), 0.1);
+  }
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

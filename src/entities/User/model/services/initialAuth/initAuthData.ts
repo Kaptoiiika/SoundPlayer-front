@@ -16,9 +16,10 @@ export const initalAuthData = createAsyncThunk<
   try {
     const { data } = await thunkAPI.extra.api.get<UserModel>("/api/users/me", {
       headers: { Authorization: BearerTokken },
+      params: {
+        populate: "avatar",
+      },
     })
-
-    if (!data) throw new Error("unknown server data")
 
     saveTokenToApi(thunkAPI.extra.api, token)
 

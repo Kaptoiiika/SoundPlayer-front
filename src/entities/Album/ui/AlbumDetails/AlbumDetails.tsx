@@ -5,6 +5,7 @@ import {
 } from "entities/Album/model/selectors/getAlbumDetails/getAlbumDetails"
 import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
 import { albumReducer } from "entities/Album/model/slice/albumSlice"
+import { AudioList } from "entities/Audio"
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -38,8 +39,8 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
   const error = useSelector(getAlbumDetailsError)
 
   useEffect(() => {
-    dispatch(fetchAlbumById(id))
-  }, [dispatch, id])
+    if (!album) dispatch(fetchAlbumById(id))
+  }, [album, dispatch, id])
 
   let content
 
@@ -51,7 +52,6 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
           <div className={styles.info}>
             <Skeleton className={styles.title} />
             <Skeleton className={styles.author} />
-            <Skeleton className={styles.author} />
           </div>
         </div>
         <div className={styles.content}>
@@ -61,9 +61,12 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
     )
   } else if (error || !album) {
     content = (
-      <Typography align={TypographyAlign.CENTER}>
-        {t("errorOnLoadAlbum")}
-      </Typography>
+      <>
+        <Typography align={TypographyAlign.CENTER}>
+          {t("errorOnLoadAlbum")}
+        </Typography>
+        <Typography align={TypographyAlign.CENTER}>{error}</Typography>
+      </>
     )
   } else {
     content = (
@@ -91,7 +94,7 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
             </div>
           </div>
           <div className={styles.content}>
-            <Skeleton className={styles.trackList} />
+            <AudioList audioList={album.audioList} />
           </div>
         </div>
       </>

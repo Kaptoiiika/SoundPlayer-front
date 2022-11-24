@@ -11,6 +11,7 @@ export interface AudioPlayerSchema {
 
   volume: number
   currentTime: number
+  duratation: number
   _currentTime: number
   isPlaying: boolean
 }

@@ -3,9 +3,10 @@ import { classNames } from "shared/lib/classNames/classNames"
 import styles from "./Avatar.module.scss"
 
 export const enum AvatarSize {
+  S = "sizeS",
   M = "sizeM",
   L = "sizeL",
-  AUTO = "sizeAuto"
+  AUTO = "sizeAuto",
 }
 
 type AvatarProps = {

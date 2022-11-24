@@ -4,8 +4,12 @@ import styles from "./AudioPlayer.module.scss"
 import { AudioPlayerActions } from "../AudioPlayerActions/AudioPlayerActions"
 
 import { AudioPlayerComponent } from "../AudioPlayerComponent/AudioPlayerComponent"
+import { audioPlayerReducer } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 
 export const AudioPlayer = () => {
+  useDynamicModuleLoader({ reducers: { audioPlayer: audioPlayerReducer } })
+
   return (
     <div className={styles.AudioPlayer}>
       <AudioPlayerComponent />

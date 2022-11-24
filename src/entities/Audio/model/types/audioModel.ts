@@ -4,7 +4,7 @@ import { FileRespounce } from "shared/api/types/FilteTypes"
 export interface AudioModel {
   id: number
 
-  name: string
+  title: string
 
   size: number
 

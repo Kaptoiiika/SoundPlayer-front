@@ -1,3 +1,5 @@
+export { FormateAtributedUser } from "./model/services/FormatedUser/FormatedUser"
+
 export {
   getAuthIsInited,
   getAuthData,
@@ -6,4 +8,4 @@ export {
 export { initalAuthData } from "./model/services/initialAuth/initAuthData"
 
 export { userActions, userReducer } from "./model/slice/userSlice"
-export type { UserSchema, UserModel, UserAvatar } from "./model/types/userSchema"
+export type { UserSchema, UserModel } from "./model/types/userSchema"

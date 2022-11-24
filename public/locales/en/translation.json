@@ -23,5 +23,8 @@
   "AlbumNotFound": "Album is not found",
   "errorOnLoadAlbum": "An error occurred while loading the album.",
   "UsernameOrEmail": "Username or email",
-  "unknownAuthor": "Unknown"
+  "unknownAuthor": "Unknown",
+  "noCommentsYet": "No comments yet",
+  "Comments": "Comments",
+  "WriteYourText": "Write your text"
 }

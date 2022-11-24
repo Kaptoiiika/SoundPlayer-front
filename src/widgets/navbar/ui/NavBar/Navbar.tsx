@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react"
+import { useMemo } from "react"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "shared/ui/LanguageSwitcher/LanguageSwitcher"
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher"
 import { useSelector } from "react-redux"
 import { getAuthData } from "entities/User/model/selectors/getAuthData/getAuthData"
+import { useLocation } from "react-router-dom"
 
 type NavbarProps = {
   className?: string
@@ -17,13 +18,9 @@ type NavbarProps = {
 export const Navbar = (props: NavbarProps) => {
   const { className = "" } = props
 
-  const [currentPage, setCurrentPage] = useState(location.pathname)
   const authData = useSelector(getAuthData)
+  const location = useLocation()
   const { t } = useTranslation()
-
-  const hundleChangePage = useCallback((link: string) => {
-    setCurrentPage(link)
-  }, [])
 
   const links = useMemo(
     () => [
@@ -46,21 +43,19 @@ export const Navbar = (props: NavbarProps) => {
           variant={AppLinkTheme.SECONDARY}
           className={styles.logo}
           to={RoutePaths.main}
-          onLinkClick={hundleChangePage}
         >
           <img className={styles.logo} src={Logo} />
         </AppLink>
         {links.map((link) => (
           <AppLink
             variant={
-              currentPage === link.to
+              location.pathname === link.to
                 ? AppLinkTheme.ACTIVE
                 : AppLinkTheme.SECONDARY
             }
             key={link.to}
             to={link.to}
             title={link.title}
-            onLinkClick={hundleChangePage}
           />
         ))}
       </div>
@@ -70,9 +65,9 @@ export const Navbar = (props: NavbarProps) => {
         <LanguageSwitcher />
         {authData ? (
           <AppLink
-            to={RoutePaths.proifle + 'me'}
+            variant={AppLinkTheme.PRIMARY}
+            to={RoutePaths.proifle + "me"}
             className={styles.authUsername}
-            onLinkClick={hundleChangePage}
             title={authData.username}
           />
         ) : (
@@ -80,15 +75,13 @@ export const Navbar = (props: NavbarProps) => {
             variant={AppLinkTheme.PRIMARY}
             to={RoutePaths.auth}
             title={t("signIn")}
-            onLinkClick={hundleChangePage}
           />
         )}
 
         <AppLink
           variant={AppLinkTheme.PRIMARY}
-          to={RoutePaths.album_details + '1'}
-          title={'album_details'}
-          onLinkClick={hundleChangePage}
+          to={RoutePaths.album_details + "1"}
+          title={"album_details"}
         />
       </div>
     </div>

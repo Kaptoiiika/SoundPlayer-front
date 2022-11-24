@@ -6,6 +6,7 @@ import { AudioPlayerSchema } from "../types/audioPlayerSchema"
 const initialState: AudioPlayerSchema = {
   currentPlayList: [],
   volume: Number(localStorage.getItem(localstorageKeys.PLAYER_VOLUME)) || 0.5,
+  duratation: 0,
   currentTime: 0,
   _currentTime: 0,
   isPlaying: false,
@@ -58,6 +59,9 @@ const audioPlayerSlice = createSlice({
       const volume = Math.max(Math.min(action.payload, 1), 0)
       state.volume = volume
       localStorage.setItem(localstorageKeys.PLAYER_VOLUME, volume.toString())
+    },
+    setDuratation: (state, action: PayloadAction<number>) => {
+      state.duratation = action.payload
     },
   },
 })

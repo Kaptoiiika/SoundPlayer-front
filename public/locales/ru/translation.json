@@ -21,5 +21,8 @@
   "errorOnLoadAlbum": "Произошла ошибка при загрузке альбома.",
   "UsernameOrEmail": "Имя пользователя или почта",
   "Email or Username are already taken": "Почта или имя пользователя уже заняты",
-  "unknownAuthor": "Неизвестный"
+  "unknownAuthor": "Неизвестный",
+  "noCommentsYet": "Пока без коментариев",
+  "Comments": "Коментарии",
+  "WriteYourText": "Введите текст комментария"
 }

@@ -17,11 +17,13 @@ const albumSlice = createSlice({
         state.albums[action.payload.id] = action.payload
         state.isLoading = false
       })
-      .addCase(fetchAlbumById.rejected, (state) => {
+      .addCase(fetchAlbumById.rejected, (state, action) => {
         state.isLoading = false
+        state.error = action.payload
       })
       .addCase(fetchAlbumById.pending, (state) => {
         state.isLoading = true
+        state.error = undefined
       })
   },
 })

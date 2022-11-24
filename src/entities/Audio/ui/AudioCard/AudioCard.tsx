@@ -23,7 +23,7 @@ export const AudioCard = memo((props: AudioCardProps) => {
         <img src={DefaultAudioIcon} />
       </div>
       <div className={styles.content}>
-        <div className={styles.info}>{audio.name}</div>
+        <div className={styles.info}>{audio.title}</div>
         <div className={styles.actions}>
           <Button onClick={hundlePlay}>E</Button>
         </div>

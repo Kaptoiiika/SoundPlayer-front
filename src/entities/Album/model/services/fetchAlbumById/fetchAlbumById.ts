@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider"
+import { FormateAtributedAudio } from "entities/Audio"
+import { FormateAtributedUser } from "entities/User"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { AlbumModel } from "../../types/AlbumSchema"
 import { AlbumResounce } from "./AlbumResounce"
@@ -33,29 +35,14 @@ export const fetchAlbumById = createAsyncThunk<
       title: data.attributes.title,
       image: data.attributes.image?.data
         ? {
-          ...data.attributes.image.data.attributes,
-          id: data.attributes.image.data.id,
-        }
+            ...data.attributes.image.data.attributes,
+            id: data.attributes.image.data.id,
+          }
         : undefined,
-      author: data.attributes.author?.data
-        ? {
-          ...data.attributes.author.data.attributes,
-          id: data.attributes.author.data.id,
-        }
-        : undefined,
-      audioList: data.attributes.audioList.data.map((audio) => ({
-        ...audio.attributes,
-        id: audio.id,
-        author: {
-          ...audio.attributes.author.data.attributes,
-          id: audio.attributes.author.data.id,
-          avatar: undefined,
-        },
-        audioFile: {
-          ...audio.attributes.audioFile.data.attributes.audioFile,
-          id: audio.attributes.audioFile.data.id,
-        },
-      })),
+      author: FormateAtributedUser(data.attributes.author),
+      audioList: data.attributes.audioList.data.map((audio) =>
+        FormateAtributedAudio(audio)
+      ),
     }
 
     return parsedAlbums

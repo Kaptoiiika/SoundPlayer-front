@@ -4,15 +4,11 @@ import {
   getAudioPlayerIsPlaying,
   getAudioPlayerVolume,
 } from "../../model/selectors/getAudioPlayerData/getAudioPlayerData"
-import {
-  audioPlayerActions,
-  audioPlayerReducer,
-} from "../../model/slice/audioPlayerSlice"
+import { audioPlayerActions } from "../../model/slice/audioPlayerSlice"
 import { useEffect, memo } from "react"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Equalizer } from "../Equalizer/Equalizer"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 
 const player = new Audio()
 const context = new AudioContext()
@@ -21,11 +17,10 @@ analyser.fftSize = 256
 const audioSourceNode = context.createMediaElementSource(player)
 audioSourceNode.connect(analyser)
 analyser.connect(context.destination)
-console.log(analyser)
+console.log("player", player)
+player.crossOrigin = "anonymous"
 
 export const AudioPlayerComponent = memo(() => {
-  useDynamicModuleLoader({ reducers: { audioPlayer: audioPlayerReducer } })
-  
   const dispatch = useAppDispatch()
   const currentAudioData = useSelector(getAudioPlayerCurrentAudio)
   const currentTime = useSelector(getAudioPlayerTime)
@@ -33,8 +28,10 @@ export const AudioPlayerComponent = memo(() => {
   const volume = useSelector(getAudioPlayerVolume)
 
   useEffect(() => {
-    player.src = `${__API_URL__}/api/uploads/audio/${currentAudioData?.fileName}`
-  }, [currentAudioData])
+    if (currentAudioData) {
+      player.src = `${__API_URL__}${currentAudioData.audioFile.url}`
+    }
+  }, [currentAudioData, dispatch])
 
   useEffect(() => {
     player.currentTime = currentTime
@@ -60,6 +57,10 @@ export const AudioPlayerComponent = memo(() => {
   useEffect(() => {
     player.ontimeupdate = () => {
       dispatch(audioPlayerActions.setPlayerTime(player.currentTime))
+    }
+
+    player.ondurationchange = () => {
+      dispatch(audioPlayerActions.setDuratation(player.duration * 1000))
     }
   }, [dispatch])
 

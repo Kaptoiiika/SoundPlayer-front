@@ -20,7 +20,6 @@ module.exports = {
   rules: {
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
-    indent: ["warn", 2],
     "react/jsx-filename-extension": [
       2,
       {

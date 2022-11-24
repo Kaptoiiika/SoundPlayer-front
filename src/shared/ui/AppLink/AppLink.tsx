@@ -4,6 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames"
 import styles from "./AppLink.module.scss"
 
 export const enum AppLinkTheme {
+  DEFAULT = "default",
   PRIMARY = "primary",
   SECONDARY = "secondary",
   ACTIVE = "active",
@@ -19,7 +20,7 @@ type AppLinkProps = {
 
 export const AppLink = memo((props: AppLinkProps) => {
   const {
-    variant = AppLinkTheme.PRIMARY,
+    variant = AppLinkTheme.DEFAULT,
     className = "",
     to,
     title,

@@ -14,20 +14,24 @@ import { AudioPlayerSchema } from "entities/AudioPlayer"
 import { AuthByUsernameSchema } from "features/AuthByUsername"
 import { EditableProfileSchema } from "features/EditableProfile"
 import { UploadAudioFormSchema } from "features/UploadAudio"
+import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
+import { AddCommentFormSchema } from "entities/Comment"
 
 export interface StateSchema {
   user: UserSchema
-  audio: AudioSchema
-
+  
   // ??
+  audio?: AudioSchema
   audioPlayer?: AudioPlayerSchema
-  albumDetails?: AlbumSchema
   profile?: ProfileSchema
+  albumDetails?: AlbumSchema
+  albumDetailsCommets?: AlbumDetailsCommetsSchema
 
   // forms
   audioForm?: UploadAudioFormSchema
   authByUsername?: AuthByUsernameSchema
-  editableProfileSchema?: EditableProfileSchema
+  addCommentForm?: AddCommentFormSchema
+  editableProfile?: EditableProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
