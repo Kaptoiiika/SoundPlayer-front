@@ -75,7 +75,8 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
           <div className={styles.header}>
             <div className={styles.avatarWrapper}>
               <Avatar
-                src={album.image?.url}
+                square
+                avatar={album.image}
                 className={styles.avatar}
                 size={AvatarSize.L}
               />

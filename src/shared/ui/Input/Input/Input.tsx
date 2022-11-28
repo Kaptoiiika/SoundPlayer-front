@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { InputWrapper } from "../InputWrapper/InputWrapper"
 import styles from "./Input.module.scss"
 
 type InputProps = {
@@ -26,20 +26,17 @@ export const Input = memo((props: InputProps) => {
   }
 
   return (
-    <div
-      className={classNames([styles.inputWrapper, className], {
-        [styles.readOnly]: readOnly,
-      })}
-    >
+    <InputWrapper className={className}>
       {label !== undefined && <label className={styles.label}>{label}</label>}
       <input
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...otherProps}
+        size={4}
         className={styles.input}
         type={type}
         onChange={onChangeHundler}
         readOnly={readOnly}
       />
-    </div>
+    </InputWrapper>
   )
 })

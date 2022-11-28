@@ -6,7 +6,7 @@ import {
 } from "shared/api/types/DataRespounce"
 import { FileRespounce } from "shared/api/types/FilteTypes"
 
-export type AlbumResounce = {
+export type AlbumRespounce = {
   data: {
     id: number
     attributes: {

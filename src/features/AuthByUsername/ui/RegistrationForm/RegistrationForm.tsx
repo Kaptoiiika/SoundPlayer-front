@@ -1,7 +1,7 @@
 import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameState/getAuthByUsernameState"
 import { useTranslation } from "react-i18next"
 import { Button } from "shared/ui/Button/Button"
-import { Input } from "shared/ui/Input/Input"
+import { Input } from "shared/ui/Input/Input/Input"
 import styles from "./RegistrationFrom.module.scss"
 import { useSelector } from "react-redux"
 import { useCallback } from "react"

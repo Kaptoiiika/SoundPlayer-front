@@ -4,7 +4,8 @@ import { FormateAtributedAudio } from "entities/Audio"
 import { FormateAtributedUser } from "entities/User"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { AlbumModel } from "../../types/AlbumSchema"
-import { AlbumResounce } from "./AlbumResounce"
+import { FormateAtributedAlbum } from "../FormateAlbum/FormateAtributedAlbum"
+import { AlbumRespounce } from "./AlbumRespounce"
 
 export const fetchAlbumById = createAsyncThunk<
   AlbumModel,
@@ -22,7 +23,7 @@ export const fetchAlbumById = createAsyncThunk<
       ["populate[1]"]: "author",
       ["populate[2]"]: "image",
     }
-    const respounce = await extra.api.get<AlbumResounce>(
+    const respounce = await extra.api.get<AlbumRespounce>(
       `/api/albums/${albumId}`,
       {
         params,
@@ -30,20 +31,7 @@ export const fetchAlbumById = createAsyncThunk<
     )
     const data = respounce.data.data
 
-    const parsedAlbums: AlbumModel = {
-      id: data.id,
-      title: data.attributes.title,
-      image: data.attributes.image?.data
-        ? {
-            ...data.attributes.image.data.attributes,
-            id: data.attributes.image.data.id,
-          }
-        : undefined,
-      author: FormateAtributedUser(data.attributes.author),
-      audioList: data.attributes.audioList.data.map((audio) =>
-        FormateAtributedAudio(audio)
-      ),
-    }
+    const parsedAlbums: AlbumModel = FormateAtributedAlbum(data)
 
     return parsedAlbums
   } catch (e) {

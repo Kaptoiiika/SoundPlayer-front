@@ -16,14 +16,16 @@ import { EditableProfileSchema } from "features/EditableProfile"
 import { UploadAudioFormSchema } from "features/UploadAudio"
 import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
 import { AddCommentFormSchema } from "entities/Comment"
+import { AlbumPageSchema } from "pages/AlbumPage"
 
 export interface StateSchema {
   user: UserSchema
-  
+
   // ??
   audio?: AudioSchema
   audioPlayer?: AudioPlayerSchema
   profile?: ProfileSchema
+  albumPage?: AlbumPageSchema
   albumDetails?: AlbumSchema
   albumDetailsCommets?: AlbumDetailsCommetsSchema
 

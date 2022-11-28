@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames"
 import { useTranslation } from "react-i18next"
 import { FormEvent, memo, useCallback } from "react"
-import { Input } from "shared/ui/Input/Input"
+import { Input } from "shared/ui/Input/Input/Input"
 import { Button, ButtonVariant } from "shared/ui/Button/Button"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
@@ -15,6 +15,7 @@ import {
   getAddCommentFormError,
   getAddCommentFormText,
 } from "../../model/selectors/addCommentFormSelectors"
+import { TextArea, textAreaResize } from "shared/ui/Input/TextArea/TextArea"
 
 export interface AddCommentFormProps {
   className?: string
@@ -52,10 +53,11 @@ export const AddCommentForm = memo((props: AddCommentFormProps) => {
       onSubmit={onSendHandler}
       className={classNames([styles.AddCommentForm, className])}
     >
-      <Input
+      <TextArea
         className={styles.input}
         placeholder={t("WriteYourText")}
         value={text}
+        resize={textAreaResize.VERTICAL}
         onValueChange={onCommentTextChange}
       />
       <Button variant={ButtonVariant.OUTLINE} type="submit">

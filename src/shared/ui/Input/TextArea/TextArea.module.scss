@@ -1,0 +1,25 @@
+.TextArea {
+  background: rgb(255 255 255 / 20%);
+  width: calc(100% - 1.5rem);
+  border: 0.25rem rgb(var(--bg-secondary-color)) solid;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: inherit;
+  font: inherit;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.resize-vertical {
+  resize: vertical;
+}
+
+.resize-horizontal {
+  resize: horizontal;
+}
+
+.resize-both {
+  resize: both;
+}

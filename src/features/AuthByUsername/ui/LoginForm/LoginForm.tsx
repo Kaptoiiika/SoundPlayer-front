@@ -2,7 +2,7 @@ import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameS
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { Button, ButtonVariant } from "shared/ui/Button/Button"
-import { Input } from "shared/ui/Input/Input"
+import { Input } from "shared/ui/Input/Input/Input"
 import styles from "./LoginForm.module.scss"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useCallback } from "react"

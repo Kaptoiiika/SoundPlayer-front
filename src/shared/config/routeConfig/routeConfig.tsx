@@ -1,7 +1,7 @@
 import { AlbumDetailsPage } from "pages/AlbumDetailsPage"
+import { AlbumPage } from "pages/AlbumPage"
 import { AudioPage } from "pages/AudioPage"
 import { AuthorizationPage } from "pages/AuthorizationPage"
-import { HomePage } from "pages/HomePage"
 import { NotFoundPage } from "pages/NotFoundPage"
 import { ProfilePage } from "pages/ProfilePage"
 import { RouteProps } from "react-router-dom"
@@ -41,7 +41,7 @@ export const routeConfig: Record<string, AppRouteProps> = {
 
   [RoutePaths.main]: {
     path: RoutePaths.main,
-    element: <HomePage />,
+    element: <AlbumPage />,
   },
   [RoutePaths.audio]: {
     path: RoutePaths.audio,

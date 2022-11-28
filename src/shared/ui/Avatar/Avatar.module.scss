@@ -2,10 +2,15 @@
   width: 64px;
   height: 64px;
   border: 2px solid rgb(var(--bg-primary-color));
+  outline: 2px rgb(var(--bg-primary-color));
   border-radius: 50%;
   overflow: hidden;
   background-color: rgb(var(--bg-primary-color));
   flex-shrink: 0;
+}
+
+.square {
+  border-radius: 4px;
 }
 
 .sizeS {

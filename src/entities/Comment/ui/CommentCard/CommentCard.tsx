@@ -21,7 +21,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
       <div className={classNames([styles.CommentCard, className])}>
         <Avatar size={AvatarSize.S} />
         <div className={styles.content}>
-          <Skeleton width={220} />
+          <Skeleton width={220} height={"20px"} />
           <Skeleton width={"100%"} height={"32px"} />
         </div>
       </div>
@@ -35,7 +35,9 @@ export const CommentCard = memo((props: CommentCardProps) => {
         <AppLink to={RoutePaths.proifle + comment.author.id}>
           {comment.author.username}
         </AppLink>
-        <Typography>{comment.text}</Typography>
+        <pre>
+          <Typography>{comment.text}</Typography>
+        </pre>
       </div>
     </div>
   )

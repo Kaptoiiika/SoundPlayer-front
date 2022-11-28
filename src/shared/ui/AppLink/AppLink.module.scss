@@ -17,6 +17,7 @@
 .default {
   color: inherit;
   font-weight: 600;
+
   &:hover {
     text-decoration: underline;
   }
@@ -24,6 +25,7 @@
 
 .secondary {
   color: rgb(var(--secondary-color));
+
   &:hover {
     text-decoration: underline;
   }

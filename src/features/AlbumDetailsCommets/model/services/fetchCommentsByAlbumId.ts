@@ -2,8 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider"
 import { CommentModel, FormateAtributedComment } from "entities/Comment"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { FileRespounce } from "shared/api/types/FilteTypes"
-import { PaginationRespounce } from "shared/api/types/PaginationRespounce"
+import { PaginationResponse } from "shared/api/types/PaginationResponse"
 
 export const fetchCommentsByAlbumId = createAsyncThunk<
   CommentModel[],
@@ -20,7 +19,7 @@ export const fetchCommentsByAlbumId = createAsyncThunk<
       ["filters[album][id][$in]"]: albumId,
     }
 
-    const { data } = await thunkApi.extra.api.get<PaginationRespounce<any>>(
+    const { data } = await thunkApi.extra.api.get<PaginationResponse<any>>(
       "/api/comments",
       {
         params,

@@ -1,4 +1,4 @@
-export interface PaginationRespounce<T> {
+export interface PaginationResponse<T> {
   data: T
   meta: {
     pagination: {

@@ -33,7 +33,7 @@ export default ({ config }: { config: Configuration }) => {
   })
 
   config.plugins!.push(
-    buildDefinePlugins({ apiURL: "http://localhost", isDev: true })
+    buildDefinePlugins({ apiURL: "http://localhost/", isDev: true })
   )
 
   return config

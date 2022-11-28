@@ -7,8 +7,8 @@ export const FormateAtributedComment = (comment: any): CommentModel => {
     createdAt: comment.attributes.createdAt,
     text: comment.attributes.text,
     id: comment.id,
-    author: comment.attributes.author
-      ? FormateAtributedUser(comment.attributes.author)
+    author: comment.attributes.author?.data
+      ? FormateAtributedUser(comment.attributes.author.data)
       : undefined,
   }
 }

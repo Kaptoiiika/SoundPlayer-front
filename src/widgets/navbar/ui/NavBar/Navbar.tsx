@@ -77,12 +77,6 @@ export const Navbar = (props: NavbarProps) => {
             title={t("signIn")}
           />
         )}
-
-        <AppLink
-          variant={AppLinkTheme.PRIMARY}
-          to={RoutePaths.album_details + "1"}
-          title={"album_details"}
-        />
       </div>
     </div>
   )

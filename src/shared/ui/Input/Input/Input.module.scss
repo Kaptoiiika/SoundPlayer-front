@@ -1,0 +1,15 @@
+.label {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.input {
+  color: inherit;
+  font: inherit;
+  background: rgb(255 255 255 / 20%);
+  width: calc(100% - 1.5rem);
+  border: 0.25rem rgb(var(--bg-secondary-color)) solid;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
