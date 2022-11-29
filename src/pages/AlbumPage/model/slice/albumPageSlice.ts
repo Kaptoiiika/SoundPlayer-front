@@ -21,7 +21,7 @@ const initialState: AlbumPageSchema = {
 }
 
 export const albumPageSlice = createSlice({
-  name: "user",
+  name: "albumPage",
   initialState,
   reducers: {
     setPage: (state, action: PayloadAction<number>) => {

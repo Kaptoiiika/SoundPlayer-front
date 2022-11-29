@@ -2,7 +2,7 @@ import { Profile } from "entities/Profile"
 import { EditableProfile } from "features/EditableProfile"
 import { useParams } from "react-router-dom"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
-import { PageWrapper } from "shared/ui/Page/Page"
+import { PageWrapper } from "widgets/Page"
 import styles from "./ProfilePage.module.scss"
 
 export const ProfilePage = () => {

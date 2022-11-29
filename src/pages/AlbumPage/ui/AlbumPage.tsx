@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { PageWrapper } from "shared/ui/Page/Page"
+import { PageWrapper } from "widgets/Page"
 import { Typography, TypographyAlign } from "shared/ui/Typography/Typography"
 import {
   getAlbumHasMany,

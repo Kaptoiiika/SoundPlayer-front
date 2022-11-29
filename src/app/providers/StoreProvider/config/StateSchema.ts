@@ -17,9 +17,11 @@ import { UploadAudioFormSchema } from "features/UploadAudio"
 import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
 import { AddCommentFormSchema } from "entities/Comment"
 import { AlbumPageSchema } from "pages/AlbumPage"
+import { ScrollSaverSchema } from "features/ScrollSaver"
 
 export interface StateSchema {
   user: UserSchema
+  scrollSaver: ScrollSaverSchema
 
   // ??
   audio?: AudioSchema

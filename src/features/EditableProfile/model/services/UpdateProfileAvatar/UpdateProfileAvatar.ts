@@ -15,7 +15,7 @@ export const UpdateProfileAvatar = createAsyncThunk<
 >("profile/UpdateProfileAvatar", async ({ avatar, userId }, thunkAPI) => {
   const body = new FormData()
   body.append("files", avatar)
-  body.append("refId", userId.toString())
+  body.append("refId", String(userId))
   body.append("ref", "plugin::users-permissions.user")
   body.append("field", "avatar")
   try {

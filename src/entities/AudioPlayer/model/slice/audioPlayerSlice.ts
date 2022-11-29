@@ -58,7 +58,7 @@ const audioPlayerSlice = createSlice({
     setVolume: (state, action: PayloadAction<number>) => {
       const volume = Math.max(Math.min(action.payload, 1), 0)
       state.volume = volume
-      localStorage.setItem(localstorageKeys.PLAYER_VOLUME, volume.toString())
+      localStorage.setItem(localstorageKeys.PLAYER_VOLUME, String(volume))
     },
     setDuratation: (state, action: PayloadAction<number>) => {
       state.duratation = action.payload

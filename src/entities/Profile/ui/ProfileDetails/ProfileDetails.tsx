@@ -25,7 +25,7 @@ export const     ProfileDetails = (props: ProfileDetailsProps) => {
   const isLoading = useSelector(getProfileIsloading)
 
   useEffect(() => {
-    dispatch(fetchProfileDataById({ id: id.toString() }))
+    dispatch(fetchProfileDataById({ id: String(id)}))
   }, [dispatch, id])
 
   let content
