@@ -64,5 +64,6 @@ export const AudioPlayerComponent = memo(() => {
     }
   }, [dispatch])
 
+  // return <div />
   return <Equalizer analyser={analyser} />
 })

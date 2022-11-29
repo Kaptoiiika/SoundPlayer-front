@@ -13,25 +13,22 @@ type AlbumListProps = {
 export const AlbumList = (props: AlbumListProps) => {
   const { className = "", albums, isLoading } = props
 
-  if (isLoading) {
-    return (
-      <div className={classNames([styles.AlbumList, className])}>
-        <AlbumListItemSkeleton />
-        <AlbumListItemSkeleton />
-        <AlbumListItemSkeleton />
-        <AlbumListItemSkeleton />
-        <AlbumListItemSkeleton />
-        <AlbumListItemSkeleton />
-      </div>
-    )
-  }
-
   return (
     <div className={classNames([styles.AlbumList, className])}>
       {albums?.length ? (
         albums.map((album) => <AlbumListItem key={album.id} album={album} />)
       ) : (
         <>{"nothin"}</>
+      )}
+      {isLoading && (
+        <>
+          <AlbumListItemSkeleton />
+          <AlbumListItemSkeleton />
+          <AlbumListItemSkeleton />
+          <AlbumListItemSkeleton />
+          <AlbumListItemSkeleton />
+          <AlbumListItemSkeleton />
+        </>
       )}
     </div>
   )

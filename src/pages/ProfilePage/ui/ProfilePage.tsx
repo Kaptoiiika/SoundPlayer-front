@@ -2,6 +2,7 @@ import { Profile } from "entities/Profile"
 import { EditableProfile } from "features/EditableProfile"
 import { useParams } from "react-router-dom"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
+import { PageWrapper } from "shared/ui/Page/Page"
 import styles from "./ProfilePage.module.scss"
 
 export const ProfilePage = () => {
@@ -19,8 +20,8 @@ export const ProfilePage = () => {
   if (!id) return <div>{"not found"}</div>
 
   return (
-    <div className={styles.ProfilePage}>
+    <PageWrapper className={styles.ProfilePage}>
       <Profile id={id} />
-    </div>
+    </PageWrapper>
   )
 }

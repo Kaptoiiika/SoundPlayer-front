@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import {
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit"
 import { AlbumModel } from "entities/Album/model/types/AlbumSchema"
 import { fetchAlbumList } from "../services/fetchAlbumList/fetchAlbumList"
 import { AlbumPageSchema } from "../types/albumPageSchema"
@@ -9,6 +13,9 @@ export const albumListAdapter = createEntityAdapter<AlbumModel>({
 
 const initialState: AlbumPageSchema = {
   isLoading: true,
+  hasMany: true,
+  limit: 25,
+  page: 1,
   ids: [],
   entities: {},
 }
@@ -16,12 +23,22 @@ const initialState: AlbumPageSchema = {
 export const albumPageSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchAlbumList.fulfilled, (state, action) => {
         state.isLoading = false
-        albumListAdapter.setAll(state, action.payload)
+        albumListAdapter.addMany(state, action.payload.data)
+        if (
+          action.payload.meta.pagination.page >=
+          action.payload.meta.pagination.pageCount
+        ) {
+          state.hasMany = false
+        }
       })
       .addCase(fetchAlbumList.rejected, (state, action) => {
         state.isLoading = false

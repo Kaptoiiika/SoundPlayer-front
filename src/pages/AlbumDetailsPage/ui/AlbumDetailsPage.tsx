@@ -4,6 +4,7 @@ import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { classNames } from "shared/lib/classNames/classNames"
+import { PageWrapper } from "shared/ui/Page/Page"
 import styles from "./AlbumDetailsPage.module.scss"
 
 export const AlbumDetailsPage = memo(() => {
@@ -19,9 +20,9 @@ export const AlbumDetailsPage = memo(() => {
   }
 
   return (
-    <div className={classNames([styles.AlbumPage])}>
+    <PageWrapper className={classNames([styles.AlbumPage])}>
       <AlbumDetails id={id} />
       <AlbumDetailsComments id={id} />
-    </div>
+    </PageWrapper>
   )
 })

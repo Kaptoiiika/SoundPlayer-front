@@ -61,7 +61,7 @@ export const AddCommentForm = memo((props: AddCommentFormProps) => {
         onValueChange={onCommentTextChange}
       />
       <Button variant={ButtonVariant.OUTLINE} type="submit">
-        {t("Отправить")}
+        {t("send")}
       </Button>
     </form>
   )

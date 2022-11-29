@@ -8,9 +8,7 @@ const App = () => {
     <div className={`app`}>
       <Suspense>
         <Navbar />
-        <div className="page-layer">
-          <AppRouter />
-        </div>
+        <AppRouter />
         <FooterAudioPlayer />
       </Suspense>
     </div>

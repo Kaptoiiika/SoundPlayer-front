@@ -1,0 +1,16 @@
+.scrollWrapper {
+  overflow: auto;
+  height: calc(100vh - var(--navbar-height) - var(--footer-height) - 2em);
+  padding: 1em;
+}
+
+.PageWrapper {
+  min-height: 100%;
+  max-width: 1366px;
+  margin: auto;
+}
+
+.scrollTrigger {
+  margin-bottom: var(--footer-height);
+  padding-top: var(--footer-height);
+}

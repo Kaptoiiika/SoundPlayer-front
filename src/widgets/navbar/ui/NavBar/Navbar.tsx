@@ -37,7 +37,7 @@ export const Navbar = (props: NavbarProps) => {
   )
 
   return (
-    <div className={classNames([styles.navbar, className])}>
+    <header className={classNames([styles.navbar, className])}>
       <div className={styles.appLinks}>
         <AppLink
           variant={AppLinkTheme.SECONDARY}
@@ -78,6 +78,6 @@ export const Navbar = (props: NavbarProps) => {
           />
         )}
       </div>
-    </div>
+    </header>
   )
 }

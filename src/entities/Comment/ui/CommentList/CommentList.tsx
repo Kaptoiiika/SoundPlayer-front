@@ -2,7 +2,7 @@ import { CommentModel } from "../../model/types/CommentModel"
 import { classNames } from "shared/lib/classNames/classNames"
 import { CommentCard } from "../CommentCard/CommentCard"
 import styles from "./CommentList.module.scss"
-import { Typography, TypographySize } from "shared/ui/Typography/Typography"
+import { Typography } from "shared/ui/Typography/Typography"
 import { useTranslation } from "react-i18next"
 import { memo } from "react"
 
