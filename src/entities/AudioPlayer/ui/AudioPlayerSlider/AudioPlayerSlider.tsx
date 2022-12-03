@@ -19,7 +19,7 @@ export const AudioPlayerSlider = () => {
 
   const hundleChangeTime = useCallback(
     (newValue: number) => {
-      dispatch(audioPlayerActions.setTime(newValue))
+      dispatch(audioPlayerActions.changeTime(newValue))
     },
     [dispatch]
   )

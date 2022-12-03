@@ -11,8 +11,8 @@ export const getAudioPlayerVolume = (state: StateSchema) =>
 export const getAudioPlayerCurrentTime = (state: StateSchema) =>
   state.audioPlayer?.currentTime || 0
 
-export const getAudioPlayerTime = (state: StateSchema) =>
-  state.audioPlayer?._currentTime || 0
+export const getAudioChangedTime = (state: StateSchema) =>
+  state.audioPlayer?.changedTime || 0
 
 export const getAudioPlayerCurrentDuration = (state: StateSchema) =>
   state.audioPlayer?.duratation || 0

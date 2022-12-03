@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import { memo, Suspense } from "react"
 import { Loader } from "shared/ui/Loader/Loader"
 import { Modal } from "shared/ui/Modal/Modal"
 import { UploadImageProps } from "../CropImage/CropImage"
@@ -9,7 +9,7 @@ type CropImageModalProps = {
   onClose?: () => void
 } & UploadImageProps
 
-export const CropImageModal = (props: CropImageModalProps) => {
+export const CropImageModal = memo((props: CropImageModalProps) => {
   const { isOpen, onClose, onLoad } = props
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -18,4 +18,4 @@ export const CropImageModal = (props: CropImageModalProps) => {
       </Suspense>
     </Modal>
   )
-}
+})

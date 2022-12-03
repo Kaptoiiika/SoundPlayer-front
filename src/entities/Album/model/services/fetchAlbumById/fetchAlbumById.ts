@@ -1,21 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { ThunkConfig } from "app/providers/StoreProvider"
-import { FormateAtributedAudio } from "entities/Audio"
-import { FormateAtributedUser } from "entities/User"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { AlbumModel } from "../../types/AlbumSchema"
 import { FormateAtributedAlbum } from "../FormateAlbum/FormateAtributedAlbum"
 import { AlbumRespounce } from "./AlbumRespounce"
 
+type fetchAlbumByIdProps = { id: string; replace?: boolean }
+
 export const fetchAlbumById = createAsyncThunk<
   AlbumModel,
-  string,
+  fetchAlbumByIdProps,
   ThunkConfig<string>
->("albumDetails/fetchAlbumById", async (albumId, thunkApi) => {
+>("albumDetails/fetchAlbumById", async (props, thunkApi) => {
+  const { id: albumId, replace } = props
   const { extra, rejectWithValue } = thunkApi
 
   const album = thunkApi.getState().albumDetails?.albums[albumId]
-  if (album) return album
+  if (album && !replace) return album
 
   try {
     const params = {

@@ -1,8 +1,8 @@
 import {
-  getAlbumDetailsData,
   getAlbumDetailsError,
   getAlbumDetailsIsLoading,
-} from "entities/Album/model/selectors/getAlbumDetails/getAlbumDetails"
+  getSelectedAlbumDetails,
+} from "../../model/selectors/getAlbumDetails/getAlbumDetails"
 import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
 import { albumReducer } from "entities/Album/model/slice/albumSlice"
 import { AudioList } from "entities/Audio"
@@ -33,14 +33,13 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
   const { className = "", id } = props
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
-  const albums = useSelector(getAlbumDetailsData)
-  const album = albums?.[id]
+  const album = useSelector(getSelectedAlbumDetails)
   const isLoading = useSelector(getAlbumDetailsIsLoading)
   const error = useSelector(getAlbumDetailsError)
 
   useEffect(() => {
-    if (!album) dispatch(fetchAlbumById(id))
-  }, [album, dispatch, id])
+    dispatch(fetchAlbumById({ id: id }))
+  }, [dispatch, id])
 
   let content
 
@@ -48,7 +47,7 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
     content = (
       <div className={styles.AlbumDetails}>
         <div className={styles.header}>
-          <Skeleton className={styles.avatarWrapper} />
+          <Avatar square size={AvatarSize.L} />
           <div className={styles.info}>
             <Skeleton className={styles.title} />
             <Skeleton className={styles.author} />
@@ -73,25 +72,25 @@ export const AlbumDetails = (props: AlbumDetailsProps) => {
       <>
         <div className={styles.AlbumDetails}>
           <div className={styles.header}>
-            <div className={styles.avatarWrapper}>
-              <Avatar
-                square
-                avatar={album.image}
-                className={styles.avatar}
-                size={AvatarSize.L}
-              />
-            </div>
+            <Avatar
+              square
+              avatar={album.image}
+              className={styles.avatar}
+              size={AvatarSize.L}
+            />
             <div className={styles.info}>
               <Typography className={styles.title} bold size={TypographySize.L}>
                 {album.title}
               </Typography>
-              <AppLink
-                to={RoutePaths.proifle + album.author?.id}
-                className={styles.author}
-                variant={AppLinkTheme.SECONDARY}
-              >
-                {album.author?.username || t("unknownAuthor")}
-              </AppLink>
+              {album.author?.id && (
+                <AppLink
+                  to={RoutePaths.proifle + album.author?.id}
+                  className={styles.author}
+                  variant={AppLinkTheme.SECONDARY}
+                >
+                  {album.author?.username || t("unknownAuthor")}
+                </AppLink>
+              )}
             </div>
           </div>
           <div className={styles.content}>

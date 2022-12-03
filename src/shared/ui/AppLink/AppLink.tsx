@@ -1,5 +1,5 @@
-import { memo, useCallback } from "react"
-import { Link, LinkProps } from "react-router-dom"
+import { memo } from "react"
+import { Link, LinkProps, To } from "react-router-dom"
 import { classNames } from "shared/lib/classNames/classNames"
 import styles from "./AppLink.module.scss"
 
@@ -14,8 +14,7 @@ type AppLinkProps = {
   className?: string
   variant?: AppLinkTheme
   title?: string
-  onLinkClick?: (link: string) => void
-  to?: string
+  to?: To
 } & LinkProps
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -24,20 +23,14 @@ export const AppLink = memo((props: AppLinkProps) => {
     className = "",
     to,
     title,
-    onLinkClick,
     children,
     ...otherProps
   } = props
-
-  const onClickHundle = useCallback(() => {
-    onLinkClick?.(to)
-  }, [onLinkClick, to])
 
   return (
     <Link
       to={to}
       className={classNames([styles.AppLink, styles[variant], className])}
-      onClick={onClickHundle}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

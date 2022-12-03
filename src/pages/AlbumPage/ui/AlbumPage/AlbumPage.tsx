@@ -11,13 +11,12 @@ import {
   getAlbumIsError,
   getAlbumIsLoading,
   getAlbumList,
-  getAlbumPageNum,
-} from "../model/selectors/albumPageSelectors"
-import { fetchAlbumList } from "../model/services/fetchAlbumList/fetchAlbumList"
-import {
-  albumPageActions,
-  albumPageReducer,
-} from "../model/slice/albumPageSlice"
+} from "../../model/selectors/albumPageSelectors"
+import { fetchAlbumList } from "../../model/services/fetchAlbumList/fetchAlbumList"
+import { albumPageReducer } from "../../model/slice/albumPageSlice"
+import { AlbumPageFilters } from "../AlbumPageFilters/AlbumPageFilters"
+import styles from "./AlbumPage.module.scss"
+import { fetchNextArticlesPage } from "pages/AlbumPage/model/services/fetchNextAlbumPage/fetchNextAlbumPage"
 
 export const AlbumPage = () => {
   useDynamicModuleLoader({ reducers: { albumPage: albumPageReducer } })
@@ -26,22 +25,20 @@ export const AlbumPage = () => {
   const albumList = useSelector(getAlbumList.selectAll)
   const isLoading = useSelector(getAlbumIsLoading)
   const error = useSelector(getAlbumIsError)
-  const page = useSelector(getAlbumPageNum)
   const hasMany = useSelector(getAlbumHasMany)
-
+  console.log(albumList)
   useEffect(() => {
     dispatch(fetchAlbumList({}))
   }, [dispatch])
 
   const onLoadNextPage = useCallback(() => {
     if (hasMany) {
-      dispatch(fetchAlbumList({ page: page + 1 }))
-      dispatch(albumPageActions.setPage(page + 1))
+      dispatch(fetchNextArticlesPage())
     }
-  }, [dispatch, hasMany, page])
+  }, [dispatch, hasMany])
 
   return (
-    <PageWrapper onScrollEnd={onLoadNextPage}>
+    <PageWrapper className={styles.AlbumPage} onScrollEnd={onLoadNextPage}>
       {error && (
         <>
           <Typography align={TypographyAlign.CENTER}>
@@ -50,6 +47,7 @@ export const AlbumPage = () => {
           <Typography align={TypographyAlign.CENTER}>{error}</Typography>
         </>
       )}
+      <AlbumPageFilters />
 
       <AlbumList isLoading={isLoading} albums={albumList} />
     </PageWrapper>

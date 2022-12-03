@@ -11,9 +11,9 @@ export const ProfilePage = () => {
 
   if (AuthProfile) {
     return (
-      <div className={styles.ProfilePage}>
+      <PageWrapper className={styles.ProfilePage}>
         <EditableProfile />
-      </div>
+      </PageWrapper>
     )
   }
 

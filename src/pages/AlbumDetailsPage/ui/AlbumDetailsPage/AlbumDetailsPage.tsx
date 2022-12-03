@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { classNames } from "shared/lib/classNames/classNames"
 import { PageWrapper } from "widgets/Page"
+import { AlbumDetailsPageHeader } from "../AlbumDetailsPageHeader/AlbumDetailsPageHeader"
 import styles from "./AlbumDetailsPage.module.scss"
 
 export const AlbumDetailsPage = memo(() => {
@@ -21,6 +22,7 @@ export const AlbumDetailsPage = memo(() => {
 
   return (
     <PageWrapper className={classNames([styles.AlbumPage])}>
+      <AlbumDetailsPageHeader />
       <AlbumDetails id={id} />
       <AlbumDetailsComments id={id} />
     </PageWrapper>

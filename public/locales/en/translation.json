@@ -27,5 +27,10 @@
   "noCommentsYet": "No comments yet",
   "Comments": "Comments",
   "WriteYourText": "Write your text",
-  "send": "Send"
+  "send": "Send",
+  "SortBy": "Sort by",
+  "backToList": "Back to list",
+  "AddName": "Add name",
+  "name": "name",
+  "description": "description"
 }

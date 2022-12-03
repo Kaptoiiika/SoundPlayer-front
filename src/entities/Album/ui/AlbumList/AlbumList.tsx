@@ -15,11 +15,10 @@ export const AlbumList = (props: AlbumListProps) => {
 
   return (
     <div className={classNames([styles.AlbumList, className])}>
-      {albums?.length ? (
-        albums.map((album) => <AlbumListItem key={album.id} album={album} />)
-      ) : (
-        <>{"nothin"}</>
-      )}
+      
+      {albums?.length
+        ? albums.map((album) => <AlbumListItem key={album.id} album={album} />)
+        : null}
       {isLoading && (
         <>
           <AlbumListItemSkeleton />

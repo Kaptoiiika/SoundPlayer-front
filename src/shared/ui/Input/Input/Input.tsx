@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import { InputWrapper } from "../InputWrapper/InputWrapper"
 import styles from "./Input.module.scss"
 
@@ -7,6 +8,7 @@ type InputProps = {
   onValueChange?: (newValue: string) => void
   label?: string
   readOnly?: boolean
+  fullWidth?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 export const Input = memo((props: InputProps) => {
@@ -17,6 +19,7 @@ export const Input = memo((props: InputProps) => {
     type = "text",
     label,
     readOnly = false,
+    fullWidth,
     ...otherProps
   } = props
 
@@ -26,7 +29,11 @@ export const Input = memo((props: InputProps) => {
   }
 
   return (
-    <InputWrapper className={className}>
+    <InputWrapper
+      className={classNames(className, {
+        [styles.fullWidth]: fullWidth,
+      })}
+    >
       {label !== undefined && <label className={styles.label}>{label}</label>}
       <input
         // eslint-disable-next-line react/jsx-props-no-spreading

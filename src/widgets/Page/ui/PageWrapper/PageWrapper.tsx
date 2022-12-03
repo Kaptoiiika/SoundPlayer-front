@@ -1,17 +1,12 @@
 import { StateSchema } from "app/providers/StoreProvider"
 import { getScrollSaverByPath, scrollSaverActions } from "features/ScrollSaver"
-import {
-  MutableRefObject,
-  PropsWithChildren,
-  UIEvent,
-  useEffect,
-  useRef,
-} from "react"
+import { MutableRefObject, PropsWithChildren, UIEvent, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
+import { useMountedEffect } from "shared/lib/hooks/useMountedEffect/useMountedEffect"
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 import styles from "./PageWrapper.module.scss"
 
@@ -38,6 +33,10 @@ export const PageWrapper = (props: PageWrapperProps) => {
     callback: onScrollEnd,
   })
 
+  useMountedEffect(() => {
+    wrapperRef.current.scrollTop = scrollPosition
+  })
+
   const onScroll = useThrottle((e: UIEvent<HTMLElement>) => {
     dispatch(
       scrollSaverActions.setScrollPosition({
@@ -47,11 +46,6 @@ export const PageWrapper = (props: PageWrapperProps) => {
     )
   }, 500)
 
-  useEffect(() => {
-    wrapperRef.current.scrollTop = scrollPosition
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   return (
     <section
       ref={wrapperRef}
@@ -59,7 +53,7 @@ export const PageWrapper = (props: PageWrapperProps) => {
       onScroll={onScroll}
     >
       <div className={styles.PageWrapper}>{children}</div>
-      {onScrollEnd && <div className={styles.scrollTrigger} ref={triggerRef} />}
+      <div className={styles.scrollTrigger} ref={triggerRef} />
     </section>
   )
 }

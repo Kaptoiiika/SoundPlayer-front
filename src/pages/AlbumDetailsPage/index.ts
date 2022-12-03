@@ -1,1 +1,1 @@
-export { AlbumDetailsPagelazy as AlbumDetailsPage } from "./ui/AlbumDetailsPage.lazy"
+export { AlbumDetailsPagelazy as AlbumDetailsPage } from "./ui/AlbumDetailsPage/AlbumDetailsPage.lazy"

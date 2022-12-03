@@ -10,3 +10,6 @@ export const getAlbumDetailsError = (state: StateSchema) =>
 
 export const getAlbumDetailsIsLoading = (state: StateSchema) =>
   state.albumDetails?.isLoading || false
+
+export const getSelectedAlbumDetails = (state: StateSchema) =>
+  state.albumDetails?.selectedAlbum

@@ -1,6 +1,6 @@
 import {
   getAudioPlayerCurrentAudio,
-  getAudioPlayerTime,
+  getAudioChangedTime,
   getAudioPlayerIsPlaying,
   getAudioPlayerVolume,
 } from "../../model/selectors/getAudioPlayerData/getAudioPlayerData"
@@ -9,6 +9,7 @@ import { useEffect, memo } from "react"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Equalizer } from "../Equalizer/Equalizer"
+import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 
 const player = new Audio()
 const context = new AudioContext()
@@ -23,13 +24,14 @@ player.crossOrigin = "anonymous"
 export const AudioPlayerComponent = memo(() => {
   const dispatch = useAppDispatch()
   const currentAudioData = useSelector(getAudioPlayerCurrentAudio)
-  const currentTime = useSelector(getAudioPlayerTime)
+  const currentTime = useSelector(getAudioChangedTime)
   const isPlaying = useSelector(getAudioPlayerIsPlaying)
   const volume = useSelector(getAudioPlayerVolume)
 
   useEffect(() => {
     if (currentAudioData) {
       player.src = `${__API_URL__}${currentAudioData.audioFile.url}`
+      dispatch(audioPlayerActions.setPlayerTime(0))
     }
   }, [currentAudioData, dispatch])
 
@@ -54,15 +56,17 @@ export const AudioPlayerComponent = memo(() => {
     player.volume = volume
   }, [volume])
 
+  const updateTimeHundler = useThrottle(() => {
+    dispatch(audioPlayerActions.setPlayerTime(player.currentTime))
+  }, 1000)
+
   useEffect(() => {
-    player.ontimeupdate = () => {
-      dispatch(audioPlayerActions.setPlayerTime(player.currentTime))
-    }
+    player.ontimeupdate = updateTimeHundler
 
     player.ondurationchange = () => {
       dispatch(audioPlayerActions.setDuratation(player.duration * 1000))
     }
-  }, [dispatch])
+  }, [dispatch, updateTimeHundler])
 
   // return <div />
   return <Equalizer analyser={analyser} />

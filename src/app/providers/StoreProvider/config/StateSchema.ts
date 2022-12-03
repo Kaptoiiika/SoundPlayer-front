@@ -18,6 +18,7 @@ import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
 import { AddCommentFormSchema } from "entities/Comment"
 import { AlbumPageSchema } from "pages/AlbumPage"
 import { ScrollSaverSchema } from "features/ScrollSaver"
+import { EditableAlbumSchema } from "features/EditableAlbum/model/types/editableAlbumSchema"
 
 export interface StateSchema {
   user: UserSchema
@@ -36,6 +37,7 @@ export interface StateSchema {
   authByUsername?: AuthByUsernameSchema
   addCommentForm?: AddCommentFormSchema
   editableProfile?: EditableProfileSchema
+  editableAlbum?: EditableAlbumSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

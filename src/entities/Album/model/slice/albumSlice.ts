@@ -3,6 +3,7 @@ import { fetchAlbumById } from "../services/fetchAlbumById/fetchAlbumById"
 import { AlbumSchema } from "../types/AlbumSchema"
 
 const initialState: AlbumSchema = {
+  selectedAlbum: undefined,
   isLoading: false,
   albums: {},
 }
@@ -15,6 +16,7 @@ const albumSlice = createSlice({
     builder
       .addCase(fetchAlbumById.fulfilled, (state, action) => {
         state.albums[action.payload.id] = action.payload
+        state.selectedAlbum = action.payload
         state.isLoading = false
       })
       .addCase(fetchAlbumById.rejected, (state, action) => {
@@ -22,6 +24,7 @@ const albumSlice = createSlice({
         state.error = action.payload
       })
       .addCase(fetchAlbumById.pending, (state) => {
+        state.selectedAlbum = undefined
         state.isLoading = true
         state.error = undefined
       })

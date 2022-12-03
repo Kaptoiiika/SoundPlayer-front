@@ -13,5 +13,5 @@ export const getAlbumPageNum = (state: StateSchema) =>
   state.albumPage?.page || 1
 export const getAlbumPageLimit = (state: StateSchema) =>
   state.albumPage?.limit || 25
-export const getAlbumHasMany = (state: StateSchema) =>
-  state.albumPage?.hasMany
+export const getAlbumHasMany = (state: StateSchema) => state.albumPage?.hasMany
+export const getAlbumOrder = (state: StateSchema) => state.albumPage?.order

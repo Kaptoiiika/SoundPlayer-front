@@ -1,8 +1,8 @@
-type Mods = Record<string, boolean | string | undefined>
+export type classNamesMods = Record<string, boolean | string | undefined>
 
 export function classNames(
-  cls: string | string[],
-  mods: Mods = {}
+  cls: string | (string | undefined)[],
+  mods: classNamesMods = {}
 ): string | undefined {
   const unionClasses = Array.isArray(cls) ? cls.join(" ") : cls
 

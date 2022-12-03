@@ -18,6 +18,7 @@ export interface AlbumModel {
 export interface AlbumSchema {
   albums: Record<string, AlbumModel>
   isLoading: boolean
-
+  
+  selectedAlbum?: AlbumModel
   error?: string
 }

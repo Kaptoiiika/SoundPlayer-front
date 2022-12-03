@@ -14,7 +14,9 @@ export const enum AppRoutes {
   AUTH = "auth",
   PROFILE = "proifle",
   MY_PROFILE = "my_profile",
+  ALBUMS = "albums",
   ALBUM_DETAILS = "album_details",
+  ALBUM_CREATE = "album_create",
 }
 
 export type AppRouteProps = {
@@ -27,8 +29,10 @@ export const RoutePaths: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.AUDIO]: "/audio",
   [AppRoutes.AUTH]: "/auth",
-  [AppRoutes.PROFILE]: "/profile/",
+  [AppRoutes.PROFILE]: "/profile/", // + :id
   [AppRoutes.MY_PROFILE]: "/profile/me",
+  [AppRoutes.ALBUMS]: "/albums",
+  [AppRoutes.ALBUM_CREATE]: "/album/new",
   [AppRoutes.ALBUM_DETAILS]: "/album/", // + :id
 }
 
@@ -41,6 +45,10 @@ export const routeConfig: Record<string, AppRouteProps> = {
 
   [RoutePaths.main]: {
     path: RoutePaths.main,
+    element: <AlbumPage />,
+  },
+  [RoutePaths.albums]: {
+    path: RoutePaths.albums,
     element: <AlbumPage />,
   },
   [RoutePaths.audio]: {

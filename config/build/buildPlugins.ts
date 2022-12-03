@@ -4,6 +4,7 @@ import { BuildOptions } from "./types/config"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { buildDefinePlugins } from "./plugins/buildDefinePlugins"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import CopyPlugin from "copy-webpack-plugin"
 
 export function buildPlugins(
   options: BuildOptions
@@ -20,6 +21,9 @@ export function buildPlugins(
     }),
     buildDefinePlugins(options),
     new webpack.HotModuleReplacementPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }),
   ]
 
   if (isDev) {

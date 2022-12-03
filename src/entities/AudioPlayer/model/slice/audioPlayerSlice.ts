@@ -8,7 +8,7 @@ const initialState: AudioPlayerSchema = {
   volume: Number(localStorage.getItem(localstorageKeys.PLAYER_VOLUME)) || 0.5,
   duratation: 0,
   currentTime: 0,
-  _currentTime: 0,
+  changedTime: 0,
   isPlaying: false,
 }
 
@@ -49,8 +49,9 @@ const audioPlayerSlice = createSlice({
     playCurrentAudio: (state) => {
       state.isPlaying = true
     },
-    setTime: (state, action: PayloadAction<number>) => {
-      state._currentTime = action.payload
+    changeTime: (state, action: PayloadAction<number>) => {
+      state.changedTime = action.payload
+      state.currentTime = action.payload
     },
     setPlayerTime: (state, action: PayloadAction<number>) => {
       state.currentTime = action.payload
