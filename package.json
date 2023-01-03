@@ -119,6 +119,13 @@
   "overrides": {
     "chrome-remote-interface": "0.31.3"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "loki": {
     "configurations": {
       "chrome.laptop": {
