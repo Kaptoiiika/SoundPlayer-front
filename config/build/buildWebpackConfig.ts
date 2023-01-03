@@ -3,7 +3,7 @@ import { buildDevServer } from "./buildDevServer"
 import { buildLoaders } from "./buildLoaders"
 import { buildPlugins } from "./buildPlugins"
 import { buildResolvers } from "./buildResolvers"
-import { BuildOptions } from "./types/config"
+import type { BuildOptions } from "./types/config"
 
 export function buildWebpackConfig(
   options: BuildOptions
@@ -12,12 +12,13 @@ export function buildWebpackConfig(
 
   const isDevOptions = isDev
     ? {
-      devtool: "inline-source-map",
-      devServer: buildDevServer(options),
-    }
+        devtool: "inline-source-map",
+        devServer: buildDevServer(options),
+      }
     : {}
 
-  return {
+  const webPackConfig: webpack.Configuration = {
+    target: isDev ? "web" : "browserslist",
     mode: mode,
     entry: paths.entry,
     output: {
@@ -33,4 +34,6 @@ export function buildWebpackConfig(
     resolve: buildResolvers(options),
     ...isDevOptions,
   }
+
+  return webPackConfig
 }

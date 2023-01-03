@@ -1,14 +1,14 @@
-import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameState/getAuthByUsernameState"
+import { useCallback } from "react"
 import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { registrationByUsername } from "features/AuthByUsername/model/services/registrationByUsernameAndEmail/registrationByUsernameAndEmail"
+import { authByUsernameSliceActions } from "features/AuthByUsername/model/slice/AuthByUsernameSlice"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button } from "shared/ui/Button/Button"
 import { Input } from "shared/ui/Input/Input/Input"
-import styles from "./RegistrationFrom.module.scss"
-import { useSelector } from "react-redux"
-import { useCallback } from "react"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { authByUsernameSliceActions } from "features/AuthByUsername/model/slice/AuthByUsernameSlice"
-import { registrationByUsername } from "features/AuthByUsername/model/services/registrationByUsernameAndEmail/registrationByUsernameAndEmail"
 import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
+import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameState/getAuthByUsernameState"
+import styles from "./RegistrationFrom.module.scss"
 
 export const RegistrationForm = () => {
   const { t } = useTranslation()

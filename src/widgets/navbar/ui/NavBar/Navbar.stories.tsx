@@ -21,7 +21,6 @@ AuthUser.decorators = [
   StoreDecorator({
     user: {
       authData: {
-        avatar: "",
         email: "email",
         id: 2,
         username: "username",

@@ -1,3 +1,3 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema"
+import { StateSchema } from "shared/config/storeConfig"
 
-export const getAudioList = (state: StateSchema) => state.audio.list
+export const getAudioList = (state: StateSchema) => state.audio?.list

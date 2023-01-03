@@ -1,19 +1,19 @@
+import { ChangeEvent, FormEvent, memo, useCallback } from "react"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { UploadAudioToServer } from "features/UploadAudio/model/services/UploadAudioToServer/UploadAudioToServer"
+import { classNames } from "shared/lib/classNames/classNames"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { Button } from "shared/ui/Button/Button"
+import { Input } from "shared/ui/Input/Input/Input"
+import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
+import { getUploadFormState } from "../../model/selectors/getUploadFormState/getUploadFormState"
 import {
   uploadAudioActions,
   uploadAudioReducer,
 } from "../../model/slice/UploadAudioSlice"
-import { ChangeEvent, FormEvent, memo, useCallback } from "react"
-import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
-import { classNames } from "shared/lib/classNames/classNames"
-import { Button } from "shared/ui/Button/Button"
-import { Input } from "shared/ui/Input/Input/Input"
 import styles from "./UploadAudioForm.module.scss"
-import { getUploadFormState } from "../../model/selectors/getUploadFormState/getUploadFormState"
-import { UploadAudioToServer } from "features/UploadAudio/model/services/UploadAudioToServer/UploadAudioToServer"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 
 type UploadAudioFormProps = {
   className?: string
@@ -22,7 +22,7 @@ type UploadAudioFormProps = {
 
 export const UploadAudioForm = memo((props: UploadAudioFormProps) => {
   useDynamicModuleLoader({ reducers: { audioForm: uploadAudioReducer } })
-  const { className = "", onSuccess } = props
+  const { className, onSuccess } = props
   const dispatch = useAppDispatch()
   const { name, audio, error, isloading, audioIsLoaded } =
     useSelector(getUploadFormState)

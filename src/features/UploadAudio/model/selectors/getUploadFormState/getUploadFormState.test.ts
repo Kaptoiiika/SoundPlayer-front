@@ -1,5 +1,5 @@
 import { DeepPartial } from "@reduxjs/toolkit"
-import { StateSchema } from "../../../../../app/providers/StoreProvider"
+import { StateSchema } from "../../../../../shared/config/storeConfig"
 import { UploadAudioFormSchema } from "../../types/UploadAudioFormSchema"
 import { getUploadFormState } from "./getUploadFormState"
 

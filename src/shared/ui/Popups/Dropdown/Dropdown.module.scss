@@ -1,0 +1,22 @@
+.Dropdown {
+  display: block;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  background-color: rgb(var(--bg-primary-color));
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  line-height: 100%;
+  &.active {
+    background-color: rgb(var(--bg-secondary-color));
+    cursor: pointer;
+  }
+}

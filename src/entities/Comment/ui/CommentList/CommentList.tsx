@@ -1,10 +1,10 @@
-import { CommentModel } from "../../model/types/CommentModel"
+import { memo } from "react"
+import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
+import { Typography } from "shared/ui/Typography/Typography"
+import { CommentModel } from "../../model/types/CommentModel"
 import { CommentCard } from "../CommentCard/CommentCard"
 import styles from "./CommentList.module.scss"
-import { Typography } from "shared/ui/Typography/Typography"
-import { useTranslation } from "react-i18next"
-import { memo } from "react"
 
 type CommentListProps = {
   className?: string
@@ -13,7 +13,7 @@ type CommentListProps = {
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-  const { className = "", isLoading, commetList } = props
+  const { className, isLoading, commetList } = props
   const { t } = useTranslation()
 
   if (isLoading) {

@@ -1,10 +1,11 @@
+/* eslint-disable boundaries/element-types */
+import { RouteProps } from "react-router-dom"
 import { AlbumDetailsPage } from "pages/AlbumDetailsPage"
 import { AlbumPage } from "pages/AlbumPage"
 import { AudioPage } from "pages/AudioPage"
 import { AuthorizationPage } from "pages/AuthorizationPage"
 import { NotFoundPage } from "pages/NotFoundPage"
 import { ProfilePage } from "pages/ProfilePage"
-import { RouteProps } from "react-router-dom"
 
 export const enum AppRoutes {
   NOT_FOUND = "not_found",

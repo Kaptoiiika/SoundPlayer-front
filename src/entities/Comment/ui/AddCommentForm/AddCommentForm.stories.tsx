@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { AddCommentForm } from "./AddCommentForm"
 
 export default {
-  title: "shared/AddCommentForm",
+  title: "entities/AddCommentForm",
   component: AddCommentForm,
 } as ComponentMeta<typeof AddCommentForm>
 

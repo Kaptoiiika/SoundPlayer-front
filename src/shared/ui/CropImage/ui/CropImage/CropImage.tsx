@@ -1,10 +1,10 @@
 import { ChangeEvent, useCallback, useRef, useState } from "react"
-import styles from "./CropImage.module.scss"
 import Cropper from "react-easy-crop"
-import { Button } from "shared/ui/Button/Button"
 import { Area } from "react-easy-crop/types"
-import { generateCropedImage } from "../../model/utils/cropImage"
 import { useTranslation } from "react-i18next"
+import { Button } from "shared/ui/Button/Button"
+import { generateCropedImage } from "../../model/utils/cropImage"
+import styles from "./CropImage.module.scss"
 
 export type UploadImageProps = {
   onLoad?: (cropedImage: Blob) => void

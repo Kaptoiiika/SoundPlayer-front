@@ -1,8 +1,8 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { getScrollSaverByPath, scrollSaverActions } from "features/ScrollSaver"
 import { MutableRefObject, PropsWithChildren, UIEvent, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
+import { getScrollSaverByPath, scrollSaverActions } from "features/ScrollSaver"
+import { StateSchema } from "shared/config/storeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
@@ -16,7 +16,7 @@ type PageWrapperProps = {
 } & PropsWithChildren
 
 export const PageWrapper = (props: PageWrapperProps) => {
-  const { children, className = "", onScrollEnd } = props
+  const { children, className, onScrollEnd } = props
   const wrapperRef = useRef<HTMLElement>(null) as MutableRefObject<HTMLElement>
   const triggerRef = useRef<HTMLDivElement>(
     null
@@ -47,13 +47,13 @@ export const PageWrapper = (props: PageWrapperProps) => {
   }, 500)
 
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={classNames([styles.scrollWrapper, className])}
       onScroll={onScroll}
     >
       <div className={styles.PageWrapper}>{children}</div>
       <div className={styles.scrollTrigger} ref={triggerRef} />
-    </section>
+    </main>
   )
 }

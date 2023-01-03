@@ -3,6 +3,10 @@
 @import "themes/light";
 @import "variables/global";
 
+
+:root{
+  --app-max-width: 1366px
+}
 .ThemeProvider {
   font: var(--font-m);
   color: rgb(var(--primary-color));

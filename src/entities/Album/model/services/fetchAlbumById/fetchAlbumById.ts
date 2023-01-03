@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "shared/config/storeConfig"
 import { AlbumModel } from "../../types/AlbumSchema"
 import { FormateAtributedAlbum } from "../FormateAlbum/FormateAtributedAlbum"
 import { AlbumRespounce } from "./AlbumRespounce"

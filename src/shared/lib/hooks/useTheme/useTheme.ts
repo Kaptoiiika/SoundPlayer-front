@@ -1,5 +1,6 @@
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext"
 import { useContext } from "react"
+// eslint-disable-next-line boundaries/element-types
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "app/providers/ThemeProvider/lib/ThemeContext"
 
 interface UseThemeResult {
   toggleTheme: () => void

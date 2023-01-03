@@ -1,0 +1,24 @@
+.right {
+  left: 0;
+}
+.left {
+  right: 0;
+}
+.top {
+  bottom: 100%;
+}
+.bottom {
+  top: 100%;
+}
+
+
+.popupBody {
+  position: absolute;
+  background-color: rgb(var(--bg-primary-color));
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.popup{
+  position: relative;
+}

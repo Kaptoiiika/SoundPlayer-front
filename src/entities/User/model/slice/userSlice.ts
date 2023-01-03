@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { localstorageKeys } from "shared/const/localstorageKeys/localstorageKeys"
 import { initalAuthData } from "../services/initialAuth/initAuthData"
+import { logoutUser } from "../services/logoutUser/logoutUser"
 import { UserModel, UserSchema } from "../types/userSchema"
 
 const initialState: UserSchema = {
@@ -12,16 +12,18 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setAuthData: (state, action: PayloadAction<UserModel>) => {
+    setAuthData: (state, action: PayloadAction<UserModel | undefined>) => {
       state.authData = action.payload
-    },
-    logout: (state) => {
-      state.authData = undefined
-      localStorage.removeItem(localstorageKeys.TOKEN)
     },
   },
   extraReducers(builder) {
     builder
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.authData = undefined
+      })
+      .addCase(logoutUser.rejected, (state) => {
+        state.authData = undefined
+      })
       .addCase(initalAuthData.fulfilled, (state, action) => {
         state.authData = action.payload
         state.isInited = true

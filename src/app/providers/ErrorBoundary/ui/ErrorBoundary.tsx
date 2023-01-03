@@ -1,5 +1,5 @@
-import { PageError } from "widgets/PageError"
 import { Component, PropsWithChildren, Suspense } from "react"
+import { PageError } from "widgets/PageError"
 
 type ErrorBoundaryProps = {} & PropsWithChildren
 

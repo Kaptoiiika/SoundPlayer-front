@@ -23,7 +23,7 @@ const emptyImg =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
 export const Avatar = memo((props: AvatarProps) => {
-  const { className = "", src, size = AvatarSize.M, square, avatar, noBorder } = props
+  const { className, src, size = AvatarSize.M, square, avatar, noBorder } = props
 
   const hundleErrorLoadImage = (e: SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = emptyImg

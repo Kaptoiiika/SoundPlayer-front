@@ -1,14 +1,9 @@
-import {
-  getAlbumDetailsError,
-  getAlbumDetailsIsLoading,
-  getSelectedAlbumDetails,
-} from "../../model/selectors/getAlbumDetails/getAlbumDetails"
-import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
-import { albumReducer } from "entities/Album/model/slice/albumSlice"
-import { AudioList } from "entities/Audio"
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
+import { albumReducer } from "entities/Album/model/slice/albumSlice"
+import { AudioList } from "entities/Audio"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
@@ -21,6 +16,11 @@ import {
   TypographyAlign,
   TypographySize,
 } from "shared/ui/Typography/Typography"
+import {
+  getAlbumDetailsError,
+  getAlbumDetailsIsLoading,
+  getSelectedAlbumDetails,
+} from "../../model/selectors/getAlbumDetails/getAlbumDetails"
 import styles from "./AlbumDetails.module.scss"
 
 type AlbumDetailsProps = {
@@ -30,7 +30,7 @@ type AlbumDetailsProps = {
 
 export const AlbumDetails = (props: AlbumDetailsProps) => {
   useDynamicModuleLoader({ reducers: { albumDetails: albumReducer } })
-  const { className = "", id } = props
+  const { className, id } = props
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const album = useSelector(getSelectedAlbumDetails)

@@ -1,4 +1,6 @@
-import { AlbumModel } from "entities/Album"
+import { useCallback, useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
 import {
   getEditableAlbumImage,
   getEditableAlbumTitle,
@@ -9,9 +11,7 @@ import {
   editableAlbumActions,
   editableAlbumReducer,
 } from "features/EditableAlbum/model/slice/editableAlbumSlice"
-import { useCallback, useEffect, useState } from "react"
-import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
+import { AlbumModel } from "entities/Album"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar"

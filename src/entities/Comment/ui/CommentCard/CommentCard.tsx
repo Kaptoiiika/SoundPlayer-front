@@ -1,5 +1,5 @@
-import { CommentModel } from "entities/Comment/model/types/CommentModel"
 import { memo } from "react"
+import { CommentModel } from "entities/Comment/model/types/CommentModel"
 import { RoutePaths } from "shared/config/routeConfig/routeConfig"
 import { classNames } from "shared/lib/classNames/classNames"
 import { AppLink } from "shared/ui/AppLink/AppLink"
@@ -14,7 +14,7 @@ type CommentCardProps = {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-  const { className = "", comment } = props
+  const { className, comment } = props
 
   if (!comment) {
     return (

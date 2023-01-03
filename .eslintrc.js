@@ -7,6 +7,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:i18next/recommended",
     "plugin:storybook/recommended",
+    "@feature-sliced",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -15,6 +16,13 @@ module.exports = {
     },
     ecmaVersion: "latest",
     sourceType: "module",
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
   },
   plugins: ["react", "react-hooks", "@typescript-eslint", "i18next"],
   rules: {
@@ -29,7 +37,6 @@ module.exports = {
     "react/jsx-props-no-spreading": "warn",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    // Note: you must disable the base rule as it can report incorrect errors
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { args: "after-used" }],
     "react/require-default-props": "off",
@@ -49,6 +56,8 @@ module.exports = {
         ignoreAttribute: ["data-testid"],
       },
     ],
+    "import/no-internal-modules": "off",
+    "import/order": "warn",
   },
   globals: {
     __IS_DEV__: true,

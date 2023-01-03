@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
-import { AudioModel } from "entities/Audio"
 import { RowsCountResponce } from "shared/api/apiTypes"
+import { ThunkConfig } from "shared/config/storeConfig"
+import { AudioModel } from "../../types/audioModel"
+import { FormateAtributedAudio } from "../FormateAudio/FormateAtributesAudio"
 
 interface fetchAudioListDTO {
   page?: number
@@ -17,22 +18,15 @@ export const fetchAudioList = createAsyncThunk<
   const params = { page: page, limit: limit }
 
   try {
-    const { data } = await thunkAPI.extra.api.get<
-      RowsCountResponce<AudioModel>
-    >("/api/audio", {
-      params,
-    })
+    const { data } = await thunkAPI.extra.api.get<RowsCountResponce<any>>(
+      "/api/audios",
+      {
+        params,
+      }
+    )
 
     const parsedData: AudioModel[] = data.rows.map((audio) => {
-      return {
-        id: audio.id,
-        peaks: audio.peaks,
-        fileName: audio.fileName,
-        name: audio.name || "",
-        size: audio.size || 0,
-        duratation: audio.duratation || 0,
-        authorId: audio.authorId || undefined,
-      }
+      return FormateAtributedAudio(audio)
     })
 
     return parsedData

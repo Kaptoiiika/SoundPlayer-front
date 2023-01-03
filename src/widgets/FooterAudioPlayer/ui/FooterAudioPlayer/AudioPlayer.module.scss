@@ -6,3 +6,9 @@
   height: var(--footer-height);
   box-shadow: 0 -8px 8px 0 rgba(var(--bg-navbar), 0.2);
 }
+
+.wrapper {
+  max-width: var(--app-max-width);
+  width: 100%;
+  margin: 0 auto;
+}

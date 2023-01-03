@@ -1,5 +1,5 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { albumListAdapter } from "../slice/albumPageSlice"
+import { StateSchema } from "shared/config/storeConfig"
+import { albumListAdapter } from "../slice/albumListAdapter"
 
 export const getAlbumList = albumListAdapter.getSelectors<StateSchema>(
   (state) => state.albumPage || albumListAdapter.getInitialState()

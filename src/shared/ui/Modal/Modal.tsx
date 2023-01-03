@@ -1,6 +1,6 @@
-import { useTheme } from "app/providers/ThemeProvider"
 import React, { PropsWithChildren, useEffect, useState } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
+import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
 import { Paper } from "../Paper/Paper"
 import { Portal } from "../Portal/Portal"
 import styles from "./Modal.module.scss"
@@ -12,7 +12,7 @@ type ModalProps = {
 } & PropsWithChildren
 
 export const Modal = (props: ModalProps) => {
-  const { className = "", children, isOpen = false, onClose } = props
+  const { className, children, isOpen = false, onClose } = props
   const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
 

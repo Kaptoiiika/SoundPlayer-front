@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "shared/config/storeConfig"
 
 export const getAuthData = (state: StateSchema) =>
   state.user.authData || undefined

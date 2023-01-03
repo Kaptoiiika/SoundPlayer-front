@@ -1,14 +1,11 @@
 import webpack from "webpack"
+import { buildBabelLoaders } from "./loaders/buildBabelLoaders"
 import { buildCssLoaders } from "./loaders/buildCssLoaders"
 import { BuildOptions } from "./types/config"
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: { loader: "ts-loader", options: { transpileOnly: true } },
-    exclude: [/node_modules/],
-  }
   const cssLoader = buildCssLoaders(options)
+  const babelLoaders = buildBabelLoaders(options)
 
   const svgLoader = {
     test: /\.svg$/i,
@@ -17,7 +14,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   }
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif)$/i,
+    test: /\.(png|jpe?g|gif|webp)$/i,
     use: [
       {
         loader: "file-loader",
@@ -25,5 +22,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   }
 
-  return [tsLoader, cssLoader, svgLoader, fileLoader]
+  return [...babelLoaders, cssLoader, svgLoader, fileLoader]
 }

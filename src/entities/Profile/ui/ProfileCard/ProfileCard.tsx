@@ -11,7 +11,7 @@ type ProfileCardProps = {
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-  const { className = "", user } = props
+  const { className, user } = props
   const { username, avatar } = user
 
   return (

@@ -13,7 +13,7 @@ type InputProps = {
 
 export const Input = memo((props: InputProps) => {
   const {
-    className = "",
+    className,
     onValueChange,
     onChange,
     type = "text",

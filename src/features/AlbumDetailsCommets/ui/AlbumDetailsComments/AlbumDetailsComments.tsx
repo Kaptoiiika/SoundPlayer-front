@@ -1,19 +1,19 @@
+import { memo, useCallback, useEffect } from "react"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { addCommentForAlbume } from "features/AlbumDetailsCommets/model/services/addCommentForAlbum"
 import { AddCommentForm, CommentList } from "entities/Comment"
+import { getAuthData } from "entities/User"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { Typography, TypographySize } from "shared/ui/Typography/Typography"
 import {
   getAlbumComments,
   getAlbumDetailsCommentsIsloading,
 } from "../../model/selectors/getAlbumComments/getAlbumComments"
 import { fetchCommentsByAlbumId } from "../../model/services/fetchCommentsByAlbumId"
 import { albumDetailsCommentsReducer } from "../../model/slice/albumDetailsCommetsSlice"
-import { memo, useCallback, useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { Typography, TypographySize } from "shared/ui/Typography/Typography"
 import styles from "./AlbumDetailsComments.module.scss"
-import { addCommentForAlbume } from "features/AlbumDetailsCommets/model/services/addCommentForAlbum"
-import { getAuthData } from "entities/User"
 
 type AlbumDetailsCommentsProps = {
   id: string

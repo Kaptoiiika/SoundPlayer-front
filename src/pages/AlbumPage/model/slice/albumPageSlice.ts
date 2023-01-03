@@ -1,25 +1,20 @@
 import {
-  createEntityAdapter,
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit"
-import { AlbumModel } from "entities/Album/model/types/AlbumSchema"
 import { SortOrder } from "shared/types"
 import { fetchAlbumList } from "../services/fetchAlbumList/fetchAlbumList"
 import { AlbumPageSchema } from "../types/albumPageSchema"
-
-export const albumListAdapter = createEntityAdapter<AlbumModel>({
-  selectId: (album) => album.id,
-})
+import { albumListAdapter } from "./albumListAdapter"
 
 const initialState: AlbumPageSchema = {
   isLoading: true,
   hasMany: true,
-  limit: 25,
+  limit: 2,
   page: 1,
   //todo: что то придумать с этим
   order:
-    new URLSearchParams(window.location.search).get("order") || "" in SortOrder
+    new URLSearchParams(window.location.search).get("order") ?? "" in SortOrder
       ? (new URLSearchParams(window.location.search).get("order") as SortOrder)
       : undefined,
   ids: [],
@@ -36,6 +31,10 @@ export const albumPageSlice = createSlice({
 
     setOrder: (state, action: PayloadAction<SortOrder | undefined>) => {
       state.order = action.payload
+    },
+
+    setHasMany: (state, action: PayloadAction<boolean>) => {
+      state.hasMany = action.payload
     },
   },
   extraReducers(builder) {

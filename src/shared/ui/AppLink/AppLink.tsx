@@ -20,7 +20,7 @@ type AppLinkProps = {
 export const AppLink = memo((props: AppLinkProps) => {
   const {
     variant = AppLinkTheme.DEFAULT,
-    className = "",
+    className,
     to,
     title,
     children,

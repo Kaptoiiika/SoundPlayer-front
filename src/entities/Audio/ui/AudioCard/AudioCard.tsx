@@ -1,9 +1,11 @@
-import { AudioModel } from "../../model/types/audioModel"
-import { Paper } from "shared/ui/Paper/Paper"
-import styles from "./AudioCard.module.scss"
 import { memo } from "react"
-import { Button } from "shared/ui/Button/Button"
 import DefaultAudioIcon from "shared/assets/icons/DefaultAudioIcon.png"
+import { Button } from "shared/ui/Button/Button"
+import { Paper } from "shared/ui/Paper/Paper"
+import { Dropdown } from "shared/ui/Popups"
+import { HStack } from "shared/ui/Stack"
+import { AudioModel } from "../../model/types/audioModel"
+import styles from "./AudioCard.module.scss"
 
 type AudioCardProps = {
   audio: AudioModel
@@ -24,9 +26,14 @@ export const AudioCard = memo((props: AudioCardProps) => {
       </div>
       <div className={styles.content}>
         <div className={styles.info}>{audio.title}</div>
-        <div className={styles.actions}>
+        <HStack justify="between" className={styles.actions}>
           <Button onClick={hundlePlay}>E</Button>
-        </div>
+          <Dropdown
+            items={[{ content: "Play next" }]}
+            label={"..."}
+            directions={{ horizontal: "right", vertical: "bottom" }}
+          />
+        </HStack>
       </div>
     </Paper>
   )

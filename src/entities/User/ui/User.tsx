@@ -5,6 +5,6 @@ type UserProps = {
 }
 
 export const User = (props: UserProps) => {
-  const { className = "" } = props
+  const { className } = props
   return <div className={classNames(["", className])}></div>
 }

@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema"
+import { StateSchema } from "shared/config/storeConfig"
 import { uploadAudioInitialState } from "../../slice/UploadAudioSlice"
 
 export const getUploadFormState = (state: StateSchema) =>

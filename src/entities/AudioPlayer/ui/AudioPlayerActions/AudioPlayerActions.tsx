@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux"
 import { getAudioPlayerIsPlaying } from "entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
 import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
-import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button } from "shared/ui/Button/Button"
 import styles from "./AudioPlayerActions.module.scss"

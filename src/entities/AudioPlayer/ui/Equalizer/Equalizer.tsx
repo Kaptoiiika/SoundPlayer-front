@@ -29,7 +29,7 @@ export const Equalizer = (props: Props) => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     dataArray.forEach((value, index) => {
-      const red = value  + 32
+      const red = value + 32
       const green = 198 - value / 8
       const blue = value / 4 + 32
       ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`
@@ -60,7 +60,8 @@ export const Equalizer = (props: Props) => {
     requestRef.current = requestAnimationFrame(animate)
   }
 
-  const handleCanvas = useCallback((node: HTMLCanvasElement) => {
+  const handleCanvas = useCallback((node: HTMLCanvasElement | null) => {
+    if (!node) return
     setCanvas(node)
     const context = node.getContext("2d")
     if (context) {

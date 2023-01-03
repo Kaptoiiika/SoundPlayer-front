@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
 import { UserModel } from "entities/User"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "shared/config/storeConfig"
 
 interface fetchProfileDataByIdDTO {
   id: string

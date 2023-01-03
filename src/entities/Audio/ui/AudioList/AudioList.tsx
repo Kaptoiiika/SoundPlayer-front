@@ -1,10 +1,10 @@
 import { memo, useCallback } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import styles from "./AudioList.module.scss"
-import { AudioCard } from "../AudioCard/AudioCard"
 import { AudioModel } from "entities/Audio"
 import { audioPlayerActions } from "entities/AudioPlayer"
+import { classNames } from "shared/lib/classNames/classNames"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { AudioCard } from "../AudioCard/AudioCard"
+import styles from "./AudioList.module.scss"
 
 type AudioListProps = {
   className?: string
@@ -12,7 +12,7 @@ type AudioListProps = {
 }
 
 export const AudioList = memo((props: AudioListProps) => {
-  const { className = "", audioList } = props
+  const { className, audioList } = props
   const dispatch = useAppDispatch()
 
   const hundlePlay = useCallback(

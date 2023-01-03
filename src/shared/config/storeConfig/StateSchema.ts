@@ -1,3 +1,4 @@
+/* eslint-disable boundaries/element-types */
 import {
   AnyAction,
   CombinedState,
@@ -6,25 +7,27 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
+import { AlbumPageSchema } from "pages/AlbumPage"
+import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
+import { AuthByUsernameSchema } from "features/AuthByUsername"
+import { EditableAlbumSchema } from "features/EditableAlbum/model/types/editableAlbumSchema"
+import { EditableProfileSchema } from "features/EditableProfile"
+import { ScrollSaverSchema } from "features/ScrollSaver"
+import { UploadAudioFormSchema } from "features/UploadAudio"
 import { AlbumSchema } from "entities/Album"
 import { AudioSchema } from "entities/Audio"
+import { AudioPlayerSchema } from "entities/AudioPlayer"
+import { AddCommentFormSchema } from "entities/Comment"
 import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
-import { AudioPlayerSchema } from "entities/AudioPlayer"
-import { AuthByUsernameSchema } from "features/AuthByUsername"
-import { EditableProfileSchema } from "features/EditableProfile"
-import { UploadAudioFormSchema } from "features/UploadAudio"
-import { AlbumDetailsCommetsSchema } from "features/AlbumDetailsCommets"
-import { AddCommentFormSchema } from "entities/Comment"
-import { AlbumPageSchema } from "pages/AlbumPage"
-import { ScrollSaverSchema } from "features/ScrollSaver"
-import { EditableAlbumSchema } from "features/EditableAlbum/model/types/editableAlbumSchema"
+import { rtkApi } from "shared/api/RtkApi"
 
 export interface StateSchema {
   user: UserSchema
   scrollSaver: ScrollSaverSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
-  // ??
+  // models
   audio?: AudioSchema
   audioPlayer?: AudioPlayerSchema
   profile?: ProfileSchema

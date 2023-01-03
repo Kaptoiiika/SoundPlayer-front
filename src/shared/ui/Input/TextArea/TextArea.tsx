@@ -18,7 +18,7 @@ type TextAreaProps = {
 
 export const TextArea = memo((props: TextAreaProps) => {
   const {
-    className = "",
+    className,
     onChange,
     onValueChange,
     resize = textAreaResize.NONE,

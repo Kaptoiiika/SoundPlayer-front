@@ -1,7 +1,7 @@
-import { getAudioPlayerVolume } from "entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
-import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
 import { ChangeEvent } from "react"
 import { useSelector } from "react-redux"
+import { getAudioPlayerVolume } from "entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
+import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import styles from "./AudioPlayerVolume.module.scss"
 

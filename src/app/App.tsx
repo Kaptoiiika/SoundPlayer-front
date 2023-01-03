@@ -1,7 +1,7 @@
-import { AppRouter } from "./providers/Router/ui/AppRouter"
-import { Navbar } from "widgets/navbar/"
 import { Suspense } from "react"
 import { FooterAudioPlayer } from "widgets/FooterAudioPlayer"
+import { Navbar } from "widgets/navbar/"
+import { AppRouter } from "./providers/Router/ui/AppRouter"
 
 const App = () => {
   return (

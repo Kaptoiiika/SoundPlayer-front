@@ -1,16 +1,16 @@
-import { profileReducer } from "../../model/slice/profileSlice"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { ProfileCard } from "../ProfileCard/ProfileCard"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useEffect } from "react"
-import { fetchProfileDataById } from "../../model/services/fetchProfileData/fetchProfileDataById"
 import { useSelector } from "react-redux"
+import { classNames } from "shared/lib/classNames/classNames"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { Loader } from "shared/ui/Loader/Loader"
 import {
   getProfileDataById,
   getProfileIsloading,
 } from "../../model/selectors/getProfileData/getProfileData"
-import { Loader } from "shared/ui/Loader/Loader"
+import { fetchProfileDataById } from "../../model/services/fetchProfileData/fetchProfileDataById"
+import { profileReducer } from "../../model/slice/profileSlice"
+import { ProfileCard } from "../ProfileCard/ProfileCard"
 
 type ProfileDetailsProps = {
   className?: string
@@ -19,7 +19,7 @@ type ProfileDetailsProps = {
 
 export const     ProfileDetails = (props: ProfileDetailsProps) => {
   useDynamicModuleLoader({ reducers: { profile: profileReducer } })
-  const { className = "", id } = props
+  const { className, id } = props
   const dispatch = useAppDispatch()
   const profile = useSelector(getProfileDataById(id))
   const isLoading = useSelector(getProfileIsloading)

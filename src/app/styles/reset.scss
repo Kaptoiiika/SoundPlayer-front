@@ -10,6 +10,11 @@ a {
   color: inherit;
 }
 
-input {
+input,
+button {
   color: inherit;
+}
+
+li {
+  list-style-type: none;
 }

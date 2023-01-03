@@ -1,14 +1,14 @@
-import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameState/getAuthByUsernameState"
+import { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVariant } from "shared/ui/Button/Button"
 import { Input } from "shared/ui/Input/Input/Input"
-import styles from "./LoginForm.module.scss"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useCallback } from "react"
-import { authByUsernameSliceActions } from "../../model/slice/AuthByUsernameSlice"
-import { loginByUsernameOrEmail } from "../../model/services/loginByUsernameOrEmail/loginByUsernameOrEmail"
 import { Typography, TypographyTypes } from "shared/ui/Typography/Typography"
+import { getAuthByUsernameState } from "../../model/selectors/getAuthByUsernameState/getAuthByUsernameState"
+import { loginByUsernameOrEmail } from "../../model/services/loginByUsernameOrEmail/loginByUsernameOrEmail"
+import { authByUsernameSliceActions } from "../../model/slice/AuthByUsernameSlice"
+import styles from "./LoginForm.module.scss"
 
 export const LoginForm = () => {
   const { t } = useTranslation()

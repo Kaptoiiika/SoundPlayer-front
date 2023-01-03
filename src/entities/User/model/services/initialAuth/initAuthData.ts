@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
-import { saveTokenToApi } from "shared/api/saveTokenToApi/saveTokenToApi"
+import { saveTokenToApi } from "shared/api/AuthorizationToken/saveTokenToApi"
+import type { ThunkConfig } from "shared/config/storeConfig"
 import { localstorageKeys } from "shared/const/localstorageKeys/localstorageKeys"
 import { UserModel } from "../../types/userSchema"
 

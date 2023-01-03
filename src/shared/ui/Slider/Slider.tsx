@@ -11,7 +11,7 @@ type SliderProps = {
 }
 
 export const Slider = memo((props: SliderProps) => {
-  const { className = "", max, min, onValueChange, value } = props
+  const { className, max, min, onValueChange, value } = props
 
   const hundleOnChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,5 +31,4 @@ export const Slider = memo((props: SliderProps) => {
       max={max}
     />
   )
-}
-)
+})

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { AudioPage } from "./AudioPage"
 import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator"
+import { AudioPage } from "./AudioPage"
 
 export default {
   title: "pages/AudioPage",
@@ -15,16 +15,12 @@ Default.decorators = [
     audio: {
       list: [
         {
-          name: "someName",
           id: 2,
-          fileName: "filename",
           duratation: 1000,
           size: 20000,
         },
         {
-          name: "someOtherName",
           id: 3,
-          fileName: "filename",
           duratation: 2000,
           size: 30000,
         },

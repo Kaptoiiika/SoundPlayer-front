@@ -3,7 +3,7 @@ import { AlbumModel } from "entities/Album/model/types/AlbumSchema"
 import { AlbumListItem } from "./AlbumListItem"
 
 export default {
-  title: "shared/AlbumListItem",
+  title: "entities/AlbumListItem",
   component: AlbumListItem,
 } as ComponentMeta<typeof AlbumListItem>
 const album = {

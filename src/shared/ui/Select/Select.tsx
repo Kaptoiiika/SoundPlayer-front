@@ -1,7 +1,7 @@
-import { classNames } from "shared/lib/classNames/classNames"
 import { ChangeEvent, memo, useMemo } from "react"
-import styles from "./Select.module.scss"
+import { classNames } from "shared/lib/classNames/classNames"
 import { Typography } from "../Typography/Typography"
+import styles from "./Select.module.scss"
 
 interface SelectProps<T> {
   className?: string
@@ -15,7 +15,7 @@ interface SelectProps<T> {
 
 const SelectComponet = <T,>(props: SelectProps<T>) => {
   const {
-    className = "",
+    className,
     label,
     options,
     onChange,

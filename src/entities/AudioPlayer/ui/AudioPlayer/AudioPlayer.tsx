@@ -1,11 +1,11 @@
-import { AudioPlayerVolume } from "../AudioPlayerVolume/AudioPlayerVolume"
-import { AudioPlayerSlider } from "../AudioPlayerSlider/AudioPlayerSlider"
-import styles from "./AudioPlayer.module.scss"
-import { AudioPlayerActions } from "../AudioPlayerActions/AudioPlayerActions"
-
-import { AudioPlayerComponent } from "../AudioPlayerComponent/AudioPlayerComponent"
 import { audioPlayerReducer } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { AudioPlayerActions } from "../AudioPlayerActions/AudioPlayerActions"
+import { AudioPlayerComponent } from "../AudioPlayerComponent/AudioPlayerComponent"
+import { AudioPlayerSlider } from "../AudioPlayerSlider/AudioPlayerSlider"
+import { AudioPlayerVolume } from "../AudioPlayerVolume/AudioPlayerVolume"
+import styles from "./AudioPlayer.module.scss"
+
 
 export const AudioPlayer = () => {
   useDynamicModuleLoader({ reducers: { audioPlayer: audioPlayerReducer } })

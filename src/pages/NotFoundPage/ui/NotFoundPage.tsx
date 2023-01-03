@@ -1,19 +1,14 @@
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/classNames/classNames"
 import { PageWrapper } from "widgets/Page"
+import { HStack } from "shared/ui/Stack"
 import styles from "./NotFoundPage.module.scss"
 
-type NotFoundPageProps = {
-  className?: string
-}
-
-export const NotFoundPage = (props: NotFoundPageProps) => {
-  const { className = "" } = props
+export const NotFoundPage = () => {
   const { t } = useTranslation()
 
   return (
-    <PageWrapper className={classNames([styles.NotFoundPage, className])}>
-      {t("PageNotFound")}
+    <PageWrapper className={styles.NotFoundPage}>
+      <HStack justify="center">{t("PageNotFound")}</HStack>
     </PageWrapper>
   )
 }

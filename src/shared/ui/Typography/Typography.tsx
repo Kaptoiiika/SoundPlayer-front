@@ -14,9 +14,19 @@ export const enum TypographyAlign {
 }
 
 export const enum TypographySize {
+  S = "sizeS",
   M = "sizeM",
   L = "sizeL",
-  S = "sizeS",
+  XL = "sizeXL",
+}
+
+type HeaderTagType = "h1" | "h2" | "h3" | "p"
+
+const mapSizeToHeaderTag: Record<TypographySize, HeaderTagType> = {
+  [TypographySize.S]: "h3",
+  [TypographySize.M]: "p",
+  [TypographySize.L]: "h2",
+  [TypographySize.XL]: "h1",
 }
 
 type TypographyProps = {
@@ -30,7 +40,7 @@ type TypographyProps = {
 
 export const Typography = memo((props: TypographyProps) => {
   const {
-    className = "",
+    className,
     children,
     type = TypographyTypes.TEXT,
     align = TypographyAlign.LEFT,
@@ -39,22 +49,20 @@ export const Typography = memo((props: TypographyProps) => {
     bold,
   } = props
 
+  const HeaderTag = mapSizeToHeaderTag[size]
+
   return (
-    <p
+    <HeaderTag
       className={classNames(
-        [
-          styles[type],
-          styles[align],
-          styles[size],
-          className,
-        ],
+        [styles[type], styles[align], styles[size], className],
         {
           [styles.oneLine]: oneLine,
           [styles.bold]: bold,
         }
       )}
+      title={oneLine ? String(children) : undefined}
     >
       {children}
-    </p>
+    </HeaderTag>
   )
 })

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
 import { FormateAtributedComment } from "entities/Comment"
 import { getAuthData } from "entities/User"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "shared/config/storeConfig"
 import { albumDetailsCommentsActions } from "../slice/albumDetailsCommetsSlice"
 
 type addAlbumComentDTO = {

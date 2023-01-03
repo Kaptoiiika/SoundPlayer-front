@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import { StateSchema } from "shared/config/storeConfig"
 
 export const getEditableAlbumTitle = (state: StateSchema) =>
   state.editableAlbum?.title ?? ""

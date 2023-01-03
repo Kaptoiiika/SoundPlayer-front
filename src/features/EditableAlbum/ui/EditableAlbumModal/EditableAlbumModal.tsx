@@ -1,5 +1,5 @@
-import { AlbumModel } from "entities/Album"
 import { memo, Suspense } from "react"
+import { AlbumModel } from "entities/Album"
 import { Loader } from "shared/ui/Loader/Loader"
 import { Modal } from "shared/ui/Modal/Modal"
 import { EditableAlbum } from "../EditableAlbum/EditableAlbum.lazy"

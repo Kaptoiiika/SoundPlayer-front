@@ -32,5 +32,9 @@
   "backToList": "Back to list",
   "AddName": "Add name",
   "name": "name",
-  "description": "description"
+  "description": "description",
+  "asc": "asc",
+  "desc": "desc",
+  "logout": "logout",
+  "My profile": "My profile"
 }

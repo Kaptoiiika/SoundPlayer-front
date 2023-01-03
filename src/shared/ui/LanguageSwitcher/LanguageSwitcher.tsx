@@ -8,7 +8,7 @@ type LanguageSwitcherProps = {
 }
 
 export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
-  const { className = "" } = props
+  const { className } = props
   const { t, i18n } = useTranslation()
 
   const toggle = async () => {

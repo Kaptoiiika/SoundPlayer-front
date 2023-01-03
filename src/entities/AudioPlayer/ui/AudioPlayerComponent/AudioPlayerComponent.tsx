@@ -1,3 +1,7 @@
+import { useEffect, memo } from "react"
+import { useSelector } from "react-redux"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 import {
   getAudioPlayerCurrentAudio,
   getAudioChangedTime,
@@ -5,11 +9,7 @@ import {
   getAudioPlayerVolume,
 } from "../../model/selectors/getAudioPlayerData/getAudioPlayerData"
 import { audioPlayerActions } from "../../model/slice/audioPlayerSlice"
-import { useEffect, memo } from "react"
-import { useSelector } from "react-redux"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Equalizer } from "../Equalizer/Equalizer"
-import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 
 const player = new Audio()
 const context = new AudioContext()
@@ -24,7 +24,7 @@ player.crossOrigin = "anonymous"
 export const AudioPlayerComponent = memo(() => {
   const dispatch = useAppDispatch()
   const currentAudioData = useSelector(getAudioPlayerCurrentAudio)
-  const currentTime = useSelector(getAudioChangedTime)
+  const changedTime = useSelector(getAudioChangedTime)
   const isPlaying = useSelector(getAudioPlayerIsPlaying)
   const volume = useSelector(getAudioPlayerVolume)
 
@@ -36,16 +36,14 @@ export const AudioPlayerComponent = memo(() => {
   }, [currentAudioData, dispatch])
 
   useEffect(() => {
-    player.currentTime = currentTime
-  }, [currentTime])
+    player.currentTime = changedTime
+  }, [changedTime])
 
   useEffect(() => {
     if (isPlaying) {
-      player.play()
-      player.oncanplay = () => {
-        player.play()
-        context.resume()
-      }
+      player.play().catch(() => {})
+      player.oncanplay = () => player.play()
+      context.resume()
     } else {
       player.pause()
       player.oncanplay = null

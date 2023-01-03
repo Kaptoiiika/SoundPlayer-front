@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { AuthorizationPage } from "./AuthorizationPage"
 import { StoreDecorator } from "shared/config/storybook/decorators/StoreDecorator"
+import { AuthorizationPage } from "./AuthorizationPage"
 
 export default {
   title: "pages/AuthorizationPage",

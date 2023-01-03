@@ -1,8 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
-import { getAlbumHasMany, getAlbumIsLoading, getAlbumPageNum } from "../../selectors/albumPageSelectors"
+import { ThunkConfig } from "shared/config/storeConfig"
+import {
+  getAlbumHasMany,
+  getAlbumPageNum,
+} from "../../selectors/albumPageSelectors"
 import { albumPageActions } from "../../slice/albumPageSlice"
-import { fetchAlbumList } from "../fetchAlbumList/fetchAlbumList"
 
 export const fetchNextArticlesPage = createAsyncThunk<
   void,
@@ -12,10 +14,8 @@ export const fetchNextArticlesPage = createAsyncThunk<
   const { getState, dispatch } = thunkApi
   const hasMany = getAlbumHasMany(getState())
   const page = getAlbumPageNum(getState())
-  const isLoading = getAlbumIsLoading(getState())
 
-  if (hasMany && !isLoading) {
+  if (hasMany) {
     dispatch(albumPageActions.setPage(page + 1))
-    dispatch(fetchAlbumList({}))
   }
 })

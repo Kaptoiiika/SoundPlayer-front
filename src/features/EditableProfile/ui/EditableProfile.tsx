@@ -1,6 +1,6 @@
-import { Profile, profileReducer } from "entities/Profile"
 import { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { Profile, profileReducer } from "entities/Profile"
 import { classNames } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
@@ -21,7 +21,7 @@ export const EditableProfile = (props: EditableProfileProps) => {
       profile: profileReducer
     },
   })
-  const { className = "" } = props
+  const { className } = props
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const [imageUploadIsOpen, setUploadImageOpen] = useState(false)

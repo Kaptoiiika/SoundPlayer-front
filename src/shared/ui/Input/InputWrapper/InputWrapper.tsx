@@ -7,7 +7,7 @@ type InputWrapperProps = {
 } & PropsWithChildren
 
 export const InputWrapper = (props: InputWrapperProps) => {
-  const { children, className = "" } = props
+  const { children, className } = props
   return (
     <div className={classNames([className, styles.inputWrapper])}>
       {children}

@@ -6,7 +6,7 @@
 
 .PageWrapper {
   min-height: 100%;
-  max-width: 1366px;
+  max-width: var(--app-max-width);
   margin: auto;
 }
 

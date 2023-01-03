@@ -1,0 +1,39 @@
+.ListBox {
+  position: relative;
+}
+
+.trigger {
+  display: block;
+}
+
+.optionsList {
+  position: absolute;
+  background-color: rgb(var(--bg-primary-color));
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  line-height: 100%;
+  &.active {
+    background-color: rgb(var(--bg-secondary-color));
+  }
+  &.selected {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: 8px;
+      color: red;
+      background-color: red;
+      border-radius: 50%;
+    }
+  }
+  &.optionDisabled {
+    opacity: 0.5;
+  }
+}

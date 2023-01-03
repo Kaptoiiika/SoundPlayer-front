@@ -25,7 +25,7 @@ export const Waveform = (props: WaveformProps) => {
     heightMultiplier = 1,
     color = "#979797",
     fillColor = "#fff",
-    className = "",
+    className,
     onDurationClick = () => {},
   } = props
   const [canvas, setCanvas] = useState<HTMLCanvasElement>()

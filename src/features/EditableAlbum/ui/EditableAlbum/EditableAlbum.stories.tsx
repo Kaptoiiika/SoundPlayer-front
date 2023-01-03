@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { EditableAlbum } from "./EditableAlbum"
 
 export default {
-  title: "shared/EditableAlbum",
+  title: "features/EditableAlbum",
   component: EditableAlbum,
 } as ComponentMeta<typeof EditableAlbum>
 

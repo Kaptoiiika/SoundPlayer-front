@@ -1,6 +1,5 @@
+import { HStack } from "shared/ui/Stack"
 import { AlbumModel } from "../../model/types/AlbumSchema"
-import { classNames } from "shared/lib/classNames/classNames"
-import styles from "./AlbumList.module.scss"
 import { AlbumListItem } from "../AlbumListItem/AlbumListItem"
 import { AlbumListItemSkeleton } from "../AlbumListItem/AlbumListItemSkeleton"
 
@@ -11,11 +10,10 @@ type AlbumListProps = {
 }
 
 export const AlbumList = (props: AlbumListProps) => {
-  const { className = "", albums, isLoading } = props
+  const { className, albums, isLoading } = props
 
   return (
-    <div className={classNames([styles.AlbumList, className])}>
-      
+    <HStack wrap="wrap" align="stretch" gap="32" className={className}>
       {albums?.length
         ? albums.map((album) => <AlbumListItem key={album.id} album={album} />)
         : null}
@@ -29,6 +27,6 @@ export const AlbumList = (props: AlbumListProps) => {
           <AlbumListItemSkeleton />
         </>
       )}
-    </div>
+    </HStack>
   )
 }

@@ -8,20 +8,15 @@
   box-shadow: 0 8px 8px 0 rgba(var(--bg-navbar), 0.2);
 }
 
-.appLinks {
+.wrapper {
   display: flex;
-  align-items: center;
-  gap: 1em;
+  max-width: var(--app-max-width);
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
   padding: 0 1em;
 }
 
 .logo {
   height: 100%;
-}
-
-.authUsername {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 150px;
 }

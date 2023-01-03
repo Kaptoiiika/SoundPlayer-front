@@ -11,7 +11,7 @@ type SkeletonProps = {
 } & PropsWithChildren
 
 export const Skeleton = (props: SkeletonProps) => {
-  const { className = "", height, width, border, margin, children } = props
+  const { className, height, width, border, margin, children } = props
 
   const inlineStyles: CSSProperties = {
     width,

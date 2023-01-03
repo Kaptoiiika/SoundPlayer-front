@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "app/providers/StoreProvider"
 import { CommentModel, FormateAtributedComment } from "entities/Comment"
 import { FormateError } from "shared/api/Errors/FormateError/FormateError"
 import { PaginationResponse } from "shared/api/types/PaginationResponse"
+import { ThunkConfig } from "shared/config/storeConfig"
 
 export const fetchCommentsByAlbumId = createAsyncThunk<
   CommentModel[],
