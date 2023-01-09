@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, forwardRef, LegacyRef } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { Loader } from "../Loader/Loader"
 import styles from "./Button.module.scss"
 

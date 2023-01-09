@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { deleteTokenFromApi } from "shared/api/AuthorizationToken/deleteTokenFromApi"
-import type { ThunkConfig } from "shared/config/storeConfig"
+import { deleteTokenFromApi } from "@/shared/api/AuthorizationToken/deleteTokenFromApi"
+import type { ThunkConfig } from "@/shared/config/storeConfig"
 
 export const logoutUser = createAsyncThunk<
   undefined,

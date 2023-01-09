@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./InputWrapper.module.scss"
 
 type InputWrapperProps = {

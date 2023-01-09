@@ -1,21 +1,21 @@
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { fetchAlbumById } from "entities/Album/model/services/fetchAlbumById/fetchAlbumById"
-import { albumReducer } from "entities/Album/model/slice/albumSlice"
-import { AudioList } from "entities/Audio"
-import { RoutePaths } from "shared/config/routeConfig/routeConfig"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
-import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar"
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
+import { fetchAlbumById } from "@/entities/Album/model/services/fetchAlbumById/fetchAlbumById"
+import { albumReducer } from "@/entities/Album/model/slice/albumSlice"
+import { AudioList } from "@/entities/Audio"
+import { RoutePaths } from "@/shared/config/routeConfig/routeConfig"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "@/shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink"
+import { Avatar, AvatarSize } from "@/shared/ui/Avatar/Avatar"
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
 import {
   Typography,
   TypographyAlign,
   TypographySize,
-} from "shared/ui/Typography/Typography"
+} from "@/shared/ui/Typography/Typography"
 import {
   getAlbumDetailsError,
   getAlbumDetailsIsLoading,

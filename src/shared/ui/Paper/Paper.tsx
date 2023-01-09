@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, forwardRef, HTMLAttributes, LegacyRef } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./Paper.module.scss"
 
 type PaperProps = {

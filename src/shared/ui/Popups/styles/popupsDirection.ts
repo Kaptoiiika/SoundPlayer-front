@@ -1,5 +1,5 @@
-import { classNames } from "shared/lib/classNames/classNames"
-import type { HorizontalDirection, VerticalDirection } from "shared/types/ui"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import type { HorizontalDirection, VerticalDirection } from "@/shared/types/ui"
 import styles from "./popupsStyle.module.scss"
 
 export type PopupsDirections = {

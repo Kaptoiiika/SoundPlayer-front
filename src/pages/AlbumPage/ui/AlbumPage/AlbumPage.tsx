@@ -1,14 +1,14 @@
 import { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { useAlbumPageList } from "pages/AlbumPage/api/albumPageApi"
-import { fetchNextArticlesPage } from "pages/AlbumPage/model/services/fetchNextAlbumPage/fetchNextAlbumPage"
-import { PageWrapper } from "widgets/Page"
-import { AlbumList } from "entities/Album"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { SortOrder } from "shared/types"
-import { Typography, TypographyAlign } from "shared/ui/Typography/Typography"
+import { useAlbumPageList } from "@/pages/AlbumPage/api/albumPageApi"
+import { fetchNextArticlesPage } from "@/pages/AlbumPage/model/services/fetchNextAlbumPage/fetchNextAlbumPage"
+import { PageWrapper } from "@/widgets/Page"
+import { AlbumList } from "@/entities/Album"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "@/shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { SortOrder } from "@/shared/types"
+import { Typography, TypographyAlign } from "@/shared/ui/Typography/Typography"
 import {
   getAlbumPageLimit,
   getAlbumPageNum,

@@ -1,4 +1,4 @@
-import { FileRespounce } from "shared/api/types/FilteTypes"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
 
 export const FormateAtributesFile = (file: any): FileRespounce => {
   return {

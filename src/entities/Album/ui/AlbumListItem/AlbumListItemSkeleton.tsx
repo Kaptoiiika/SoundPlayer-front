@@ -1,5 +1,5 @@
-import { Paper } from "shared/ui/Paper/Paper"
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
+import { Paper } from "@/shared/ui/Paper/Paper"
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
 import styles from "./AlbumListItem.module.scss"
 
 export const AlbumListItemSkeleton = () => {

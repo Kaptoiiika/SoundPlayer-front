@@ -1,8 +1,8 @@
-import { UserModel } from "entities/User"
-import { classNames } from "shared/lib/classNames/classNames"
-import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar"
-import { Paper } from "shared/ui/Paper/Paper"
-import { Typography } from "shared/ui/Typography/Typography"
+import { UserModel } from "@/entities/User"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { Avatar, AvatarSize } from "@/shared/ui/Avatar/Avatar"
+import { Paper } from "@/shared/ui/Paper/Paper"
+import { Typography } from "@/shared/ui/Typography/Typography"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardProps = {

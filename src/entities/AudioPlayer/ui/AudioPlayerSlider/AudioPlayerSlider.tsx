@@ -3,12 +3,12 @@ import { useSelector } from "react-redux"
 import {
   getAudioPlayerCurrentDuration,
   getAudioPlayerCurrentTime,
-} from "entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
-import { audioPlayerActions } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
-import { formatSToMMSS } from "shared/lib/formaters/formatTime/formatTime"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Slider } from "shared/ui/Slider/Slider"
-import { Typography, TypographyAlign } from "shared/ui/Typography/Typography"
+} from "@/entities/AudioPlayer/model/selectors/getAudioPlayerData/getAudioPlayerData"
+import { audioPlayerActions } from "@/entities/AudioPlayer/model/slice/audioPlayerSlice"
+import { formatSToMMSS } from "@/shared/lib/formaters/formatTime/formatTime"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { Slider } from "@/shared/ui/Slider/Slider"
+import { Typography, TypographyAlign } from "@/shared/ui/Typography/Typography"
 import styles from "./AudioPlayerSlider.module.scss"
 
 export const AudioPlayerSlider = () => {

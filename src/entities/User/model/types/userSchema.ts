@@ -1,4 +1,4 @@
-import { FileRespounce } from "shared/api/types/FilteTypes"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
 
 export interface UserSchema {
   authData?: UserModel

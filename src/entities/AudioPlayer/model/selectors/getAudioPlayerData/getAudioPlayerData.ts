@@ -1,4 +1,4 @@
-import { StateSchema } from "shared/config/storeConfig"
+import { StateSchema } from "@/shared/config/storeConfig"
 
 export const getAudioPlayerData = (state: StateSchema) => state.audioPlayer
 

@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { Loader } from "shared/ui/Loader/Loader"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "@/shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { Loader } from "@/shared/ui/Loader/Loader"
 import {
   getProfileDataById,
   getProfileIsloading,

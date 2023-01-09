@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { getSelectedAlbumDetails } from "entities/Album"
-import { getAuthData } from "entities/User"
+import { getSelectedAlbumDetails } from "@/entities/Album"
+import { getAuthData } from "@/entities/User"
 
 export const getCanEditAlbum = createSelector(
   getAuthData,

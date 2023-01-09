@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 import {
   getEditableAlbumImage,
   getEditableAlbumTitle,

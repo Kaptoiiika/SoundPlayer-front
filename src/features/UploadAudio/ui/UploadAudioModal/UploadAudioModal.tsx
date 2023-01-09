@@ -1,6 +1,6 @@
 import { memo, Suspense } from "react"
-import { Loader } from "shared/ui/Loader/Loader"
-import { Modal } from "shared/ui/Modal/Modal"
+import { Loader } from "@/shared/ui/Loader/Loader"
+import { Modal } from "@/shared/ui/Modal/Modal"
 import { UploadAudioFormLazy } from "../UploadAudioForm/UploadAudioForm.lazy"
 
 type UploadAudioModalProps = {

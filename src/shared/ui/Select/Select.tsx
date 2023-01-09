@@ -1,5 +1,5 @@
 import { ChangeEvent, memo, useMemo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { Typography } from "../Typography/Typography"
 import styles from "./Select.module.scss"
 

@@ -1,4 +1,4 @@
-import { FormateAtributedUser } from "entities/User"
+import { FormateAtributedUser } from "@/entities/User"
 import { CommentModel } from "../../types/CommentModel"
 
 export const FormateAtributedComment = (comment: any): CommentModel => {

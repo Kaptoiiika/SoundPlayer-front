@@ -1,4 +1,4 @@
-import { FormateAtributedUser } from "entities/User"
+import { FormateAtributedUser } from "@/entities/User"
 import { AudioModel } from "../../types/audioModel"
 
 export const FormateAtributedAudio = (audio: any): AudioModel => {

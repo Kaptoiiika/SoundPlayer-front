@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { fetchProfileDataById } from "entities/Profile"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { fetchProfileDataById } from "@/entities/Profile"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 
 interface UploadAvatarDTO {
   avatar: Blob

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { AlbumModel } from "entities/Album/model/types/AlbumSchema"
+import { AlbumModel } from "@/entities/Album/model/types/AlbumSchema"
 import { AlbumListItem } from "./AlbumListItem"
 
 export default {

@@ -1,14 +1,14 @@
 import { useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { getAlbumOrder } from "pages/AlbumPage/model/selectors/albumPageSelectors"
-import { fetchAlbumList } from "pages/AlbumPage/model/services/fetchAlbumList/fetchAlbumList"
-import { albumPageActions } from "pages/AlbumPage/model/slice/albumPageSlice"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { SortOrder } from "shared/types"
-import { ListBox } from "shared/ui/Popups"
-import { HStack } from "shared/ui/Stack"
-import { Typography } from "shared/ui/Typography/Typography"
+import { getAlbumOrder } from "@/pages/AlbumPage/model/selectors/albumPageSelectors"
+import { fetchAlbumList } from "@/pages/AlbumPage/model/services/fetchAlbumList/fetchAlbumList"
+import { albumPageActions } from "@/pages/AlbumPage/model/slice/albumPageSlice"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { SortOrder } from "@/shared/types"
+import { ListBox } from "@/shared/ui/Popups"
+import { HStack } from "@/shared/ui/Stack"
+import { Typography } from "@/shared/ui/Typography/Typography"
 
 export const AlbumPageFilters = () => {
   const { t } = useTranslation()

@@ -1,4 +1,4 @@
-import { StateSchema } from "shared/config/storeConfig"
+import { StateSchema } from "@/shared/config/storeConfig"
 import { albumListAdapter } from "../slice/albumListAdapter"
 
 export const getAlbumList = albumListAdapter.getSelectors<StateSchema>(

@@ -13,7 +13,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "isolatedModules": true,
     "types": ["node", "jest", "@testing-library/jest-dom"]
@@ -23,6 +23,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["./config/jest/setupTest.ts", "./src/**/*.tsx", "./src/**/*.ts", "src/index.js"],
   "exclude": ["./src/**/*.test.*"]
 }

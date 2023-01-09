@@ -1,8 +1,8 @@
 import { memo, useCallback } from "react"
-import { AudioModel } from "entities/Audio"
-import { audioPlayerActions } from "entities/AudioPlayer"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { AudioModel } from "@/entities/Audio"
+import { audioPlayerActions } from "@/entities/AudioPlayer"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { AudioCard } from "../AudioCard/AudioCard"
 import styles from "./AudioList.module.scss"
 

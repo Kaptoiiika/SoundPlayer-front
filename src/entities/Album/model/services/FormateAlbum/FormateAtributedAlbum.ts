@@ -1,6 +1,6 @@
-import { FormateAtributedAudio } from "entities/Audio"
-import { FormateAtributedUser } from "entities/User"
-import { FormateAtributesFile } from "shared/lib/formaters/FormateAtributesFile/FormateAtributesFile"
+import { FormateAtributedAudio } from "@/entities/Audio"
+import { FormateAtributedUser } from "@/entities/User"
+import { FormateAtributesFile } from "@/shared/lib/formaters/FormateAtributesFile/FormateAtributesFile"
 import { AlbumModel } from "../../types/AlbumSchema"
 
 export const FormateAtributedAlbum = (album: any): AlbumModel => {

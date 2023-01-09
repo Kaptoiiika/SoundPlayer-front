@@ -1,4 +1,4 @@
-import { UserModel } from "entities/User"
+import { UserModel } from "@/entities/User"
 
 export interface ProfileSchema {
   profiles: Record<string, UserModel>

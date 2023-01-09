@@ -1,6 +1,6 @@
 import { Listbox as HListbox } from "@headlessui/react"
 import { Fragment, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { Paper } from "../../Paper/Paper"
 import { Typography } from "../../Typography/Typography"
 import {

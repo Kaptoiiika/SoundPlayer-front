@@ -1,10 +1,10 @@
-import { AudioModel } from "entities/Audio"
-import { UserModel } from "entities/User"
+import { AudioModel } from "@/entities/Audio"
+import { UserModel } from "@/entities/User"
 import {
   DataRespounce,
   ManyDataRespounce,
-} from "shared/api/types/DataRespounce"
-import { FileRespounce } from "shared/api/types/FilteTypes"
+} from "@/shared/api/types/DataRespounce"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
 
 export type AlbumRespounce = {
   data: {

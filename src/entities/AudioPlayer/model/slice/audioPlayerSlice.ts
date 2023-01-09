@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { AudioModel } from "entities/Audio/model/types/audioModel"
-import { localstorageKeys } from "shared/const/localstorageKeys/localstorageKeys"
+import { AudioModel } from "@/entities/Audio/model/types/audioModel"
+import { localstorageKeys } from "@/shared/const/localstorageKeys/localstorageKeys"
 import { AudioPlayerSchema } from "../types/audioPlayerSchema"
 
 const initialState: AudioPlayerSchema = {

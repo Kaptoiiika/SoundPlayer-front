@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 import {
   getAlbumHasMany,
   getAlbumPageNum,

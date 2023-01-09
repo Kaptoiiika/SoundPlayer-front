@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./Waveform.module.scss"
 
 type WaveformProps = {

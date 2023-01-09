@@ -2,7 +2,7 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit"
-import { SortOrder } from "shared/types"
+import { SortOrder } from "@/shared/types"
 import { fetchAlbumList } from "../services/fetchAlbumList/fetchAlbumList"
 import { AlbumPageSchema } from "../types/albumPageSchema"
 import { albumListAdapter } from "./albumListAdapter"

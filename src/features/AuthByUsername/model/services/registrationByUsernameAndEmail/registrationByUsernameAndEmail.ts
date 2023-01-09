@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { userActions } from "entities/User"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { AuthRespounce } from "shared/api/types/AuthRespounce"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { userActions } from "@/entities/User"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { AuthRespounce } from "@/shared/api/types/AuthRespounce"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 import { saveTokenToApi } from "../../../../../shared/api/AuthorizationToken/saveTokenToApi"
 
 interface registrationByUsernameDTO {

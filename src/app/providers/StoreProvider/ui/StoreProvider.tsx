@@ -1,8 +1,8 @@
 import { ReducersMapObject } from "@reduxjs/toolkit"
 import { PropsWithChildren, useEffect } from "react"
 import { Provider } from "react-redux"
-import { initalAuthData } from "entities/User"
-import { StateSchema } from "shared/config/storeConfig"
+import { initalAuthData } from "@/entities/User"
+import { StateSchema } from "@/shared/config/storeConfig"
 import { createReduxStore } from "../config/store"
 
 type StoreProviderProps = {

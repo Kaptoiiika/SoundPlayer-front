@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { AudioModel } from "entities/Audio"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { AudioModel } from "@/entities/Audio"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 
 interface UploadAudioDTO {
   name: string

@@ -1,11 +1,11 @@
 import { FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
-import { Button, ButtonVariant } from "shared/ui/Button/Button"
-import { TextArea, textAreaResize } from "shared/ui/Input/TextArea/TextArea"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDynamicModuleLoader } from "@/shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button"
+import { TextArea, textAreaResize } from "@/shared/ui/Input/TextArea/TextArea"
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"
 import {
   addCommentFormActions,

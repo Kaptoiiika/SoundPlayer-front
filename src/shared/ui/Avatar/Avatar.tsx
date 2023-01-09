@@ -1,6 +1,6 @@
 import { memo, SyntheticEvent } from "react"
-import { FileRespounce } from "shared/api/types/FilteTypes"
-import { classNames } from "shared/lib/classNames/classNames"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./Avatar.module.scss"
 
 export const enum AvatarSize {

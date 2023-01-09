@@ -1,6 +1,6 @@
 import { memo, Suspense } from "react"
-import { Loader } from "shared/ui/Loader/Loader"
-import { Modal } from "shared/ui/Modal/Modal"
+import { Loader } from "@/shared/ui/Loader/Loader"
+import { Modal } from "@/shared/ui/Modal/Modal"
 import { UploadImageProps } from "../CropImage/CropImage"
 import { CropImageLazy } from "../CropImage/CropImage.lazy"
 

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { FileRespounce } from "shared/api/types/FilteTypes"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 
 export const uploadAlbumAvatar = createAsyncThunk<
   FileRespounce, // return value

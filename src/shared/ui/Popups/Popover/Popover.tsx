@@ -1,7 +1,7 @@
 import { Popover as HPopover } from "@headlessui/react"
 import { memo, PropsWithChildren, ReactNode } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
-import { Paper } from "shared/ui/Paper/Paper"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { Paper } from "@/shared/ui/Paper/Paper"
 import { popupsDirection, PopupsDirections } from "../styles/popupsDirection"
 import popupsStyles from "../styles/popupsStyle.module.scss"
 

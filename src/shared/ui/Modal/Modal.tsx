@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 import { Paper } from "../Paper/Paper"
 import { Portal } from "../Portal/Portal"
 import styles from "./Modal.module.scss"

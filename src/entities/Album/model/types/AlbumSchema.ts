@@ -1,6 +1,6 @@
-import { AudioModel } from "entities/Audio"
-import { UserModel } from "entities/User"
-import { FileRespounce } from "shared/api/types/FilteTypes"
+import { AudioModel } from "@/entities/Audio"
+import { UserModel } from "@/entities/User"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
 
 export enum AlbumType {
   SINGLE = "single",

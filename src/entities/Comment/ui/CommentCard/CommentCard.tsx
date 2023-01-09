@@ -1,11 +1,11 @@
 import { memo } from "react"
-import { CommentModel } from "entities/Comment/model/types/CommentModel"
-import { RoutePaths } from "shared/config/routeConfig/routeConfig"
-import { classNames } from "shared/lib/classNames/classNames"
-import { AppLink } from "shared/ui/AppLink/AppLink"
-import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar"
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
-import { Typography } from "shared/ui/Typography/Typography"
+import { CommentModel } from "@/entities/Comment/model/types/CommentModel"
+import { RoutePaths } from "@/shared/config/routeConfig/routeConfig"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { AppLink } from "@/shared/ui/AppLink/AppLink"
+import { Avatar, AvatarSize } from "@/shared/ui/Avatar/Avatar"
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
+import { Typography } from "@/shared/ui/Typography/Typography"
 import styles from "./CommentCard.module.scss"
 
 type CommentCardProps = {

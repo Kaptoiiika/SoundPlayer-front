@@ -1,5 +1,5 @@
-import { audioPlayerReducer } from "entities/AudioPlayer/model/slice/audioPlayerSlice"
-import { useDynamicModuleLoader } from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
+import { audioPlayerReducer } from "@/entities/AudioPlayer/model/slice/audioPlayerSlice"
+import { useDynamicModuleLoader } from "@/shared/lib/useDynamicModuleLoader/useDynamicModuleLoader "
 import { AudioPlayerActions } from "../AudioPlayerActions/AudioPlayerActions"
 import { AudioPlayerComponent } from "../AudioPlayerComponent/AudioPlayerComponent"
 import { AudioPlayerSlider } from "../AudioPlayerSlider/AudioPlayerSlider"

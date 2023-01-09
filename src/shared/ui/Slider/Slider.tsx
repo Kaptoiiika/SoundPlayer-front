@@ -1,5 +1,5 @@
 import { ChangeEvent, memo, useCallback } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./Slider.module.scss"
 
 type SliderProps = {

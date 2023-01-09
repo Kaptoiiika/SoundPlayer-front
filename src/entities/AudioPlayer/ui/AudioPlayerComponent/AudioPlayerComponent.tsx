@@ -1,7 +1,7 @@
 import { useEffect, memo } from "react"
 import { useSelector } from "react-redux"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle"
 import {
   getAudioPlayerCurrentAudio,
   getAudioChangedTime,

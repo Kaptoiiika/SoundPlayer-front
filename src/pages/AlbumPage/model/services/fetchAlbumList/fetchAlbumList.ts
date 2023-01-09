@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { FormateAtributedAlbum } from "entities/Album/model/services/FormateAlbum/FormateAtributedAlbum"
-import { AlbumModel } from "entities/Album/model/types/AlbumSchema"
-import { FormateError } from "shared/api/Errors/FormateError/FormateError"
-import { PaginationResponse } from "shared/api/types/PaginationResponse"
-import { ThunkConfig } from "shared/config/storeConfig"
-import { addQueryParams } from "shared/lib/url/addQueryParams/addQueryParams"
+import { FormateAtributedAlbum } from "@/entities/Album/model/services/FormateAlbum/FormateAtributedAlbum"
+import { AlbumModel } from "@/entities/Album/model/types/AlbumSchema"
+import { FormateError } from "@/shared/api/Errors/FormateError/FormateError"
+import { PaginationResponse } from "@/shared/api/types/PaginationResponse"
+import { ThunkConfig } from "@/shared/config/storeConfig"
+import { addQueryParams } from "@/shared/lib/url/addQueryParams/addQueryParams"
 import {
   getAlbumOrder,
   getAlbumPageLimit,

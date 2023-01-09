@@ -3,7 +3,7 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit"
-import { CommentModel } from "entities/Comment"
+import { CommentModel } from "@/entities/Comment"
 import { fetchCommentsByAlbumId } from "../services/fetchCommentsByAlbumId"
 import { AlbumDetailsCommetsSchema } from "../types/AlbumDetailsCommetsSchema"
 

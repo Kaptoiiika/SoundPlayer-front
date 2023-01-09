@@ -1,4 +1,4 @@
-import { AudioPlayer } from "entities/AudioPlayer"
+import { AudioPlayer } from "@/entities/AudioPlayer"
 import styles from "./AudioPlayer.module.scss"
 
 export const FooterAudioPlayer = () => {

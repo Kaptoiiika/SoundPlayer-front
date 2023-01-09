@@ -1,5 +1,5 @@
-import { UserModel } from "entities/User"
-import { FileRespounce } from "shared/api/types/FilteTypes"
+import { UserModel } from "@/entities/User"
+import { FileRespounce } from "@/shared/api/types/FilteTypes"
 
 export interface AudioModel {
   fileName: any

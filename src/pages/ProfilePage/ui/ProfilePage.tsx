@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
-import { PageWrapper } from "widgets/Page"
-import { EditableProfile } from "features/EditableProfile"
-import { Profile } from "entities/Profile"
-import { RoutePaths } from "shared/config/routeConfig/routeConfig"
-import { HStack } from "shared/ui/Stack"
+import { PageWrapper } from "@/widgets/Page"
+import { EditableProfile } from "@/features/EditableProfile"
+import { Profile } from "@/entities/Profile"
+import { RoutePaths } from "@/shared/config/routeConfig/routeConfig"
+import { HStack } from "@/shared/ui/Stack"
 import styles from "./ProfilePage.module.scss"
 
 export const ProfilePage = () => {

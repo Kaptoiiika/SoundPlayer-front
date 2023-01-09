@@ -1,5 +1,5 @@
-import LoaderBars from "shared/assets/icons/LoaderBars.svg"
-import { classNames } from "shared/lib/classNames/classNames"
+import LoaderBars from "@/shared/assets/icons/LoaderBars.svg"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import styles from "./Loader.module.scss"
 
 type LoaderProps = {

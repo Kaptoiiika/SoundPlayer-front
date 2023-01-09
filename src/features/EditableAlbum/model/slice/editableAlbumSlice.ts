@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { AlbumModel } from "entities/Album"
+import { AlbumModel } from "@/entities/Album"
 import { saveAlbumChanges } from "../services/saveAlbumChanges"
 import { uploadAlbumAvatar } from "../services/uploadAlbumAvatar"
 import { EditableAlbumSchema } from "../types/editableAlbumSchema"

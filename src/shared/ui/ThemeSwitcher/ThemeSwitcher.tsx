@@ -1,6 +1,6 @@
 import { memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
-import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 
 type ThemeSwitcherProps = {
   className?: string

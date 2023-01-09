@@ -1,4 +1,4 @@
-import { FormateAtributesFile } from "shared/lib/formaters/FormateAtributesFile/FormateAtributesFile"
+import { FormateAtributesFile } from "@/shared/lib/formaters/FormateAtributesFile/FormateAtributesFile"
 import { UserModel } from "../../types/userSchema"
 
 export const FormateAtributedUser = (user: any): UserModel => {

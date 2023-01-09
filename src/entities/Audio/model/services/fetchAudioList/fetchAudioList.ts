@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { RowsCountResponce } from "shared/api/apiTypes"
-import { ThunkConfig } from "shared/config/storeConfig"
+import { RowsCountResponce } from "@/shared/api/apiTypes"
+import { ThunkConfig } from "@/shared/config/storeConfig"
 import { AudioModel } from "../../types/audioModel"
 import { FormateAtributedAudio } from "../FormateAudio/FormateAtributesAudio"
 

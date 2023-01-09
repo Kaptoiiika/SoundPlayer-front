@@ -1,8 +1,8 @@
-import { AlbumModel } from "entities/Album"
-import { FormateAtributedAlbum } from "entities/Album/model/services/FormateAlbum/FormateAtributedAlbum"
-import { rtkApi } from "shared/api/RtkApi"
-import { PaginationResponse } from "shared/api/types/PaginationResponse"
-import { SortOrder } from "shared/types"
+import { AlbumModel } from "@/entities/Album"
+import { FormateAtributedAlbum } from "@/entities/Album/model/services/FormateAlbum/FormateAtributedAlbum"
+import { rtkApi } from "@/shared/api/RtkApi"
+import { PaginationResponse } from "@/shared/api/types/PaginationResponse"
+import { SortOrder } from "@/shared/types"
 
 type getAlbumListParams = {
   page: number

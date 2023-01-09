@@ -1,4 +1,4 @@
-import { HStack } from "shared/ui/Stack"
+import { HStack } from "@/shared/ui/Stack"
 import { AlbumModel } from "../../model/types/AlbumSchema"
 import { AlbumListItem } from "../AlbumListItem/AlbumListItem"
 import { AlbumListItemSkeleton } from "../AlbumListItem/AlbumListItemSkeleton"
