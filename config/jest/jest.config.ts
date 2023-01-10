@@ -31,7 +31,8 @@ export default {
     "\\.(css|scss)$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
     "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      path.resolve(__dirname, "fileMock.ts"),
+    path.resolve(__dirname, "fileMock.ts"),
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
   reporters: [
     "default",
